@@ -1,0 +1,771 @@
+{
+  "downloaded_reports": 3,
+  "counts": {
+    "needs_review": 1,
+    "needs_ocr": 2
+  },
+  "items": [
+    {
+      "report_id": "6aeb395b-b23a-4340-9886-72e4277190ba",
+      "company_name": "Apple Inc.",
+      "requested_year": 2025,
+      "source_url": "https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2025.pdf",
+      "input_sha256": "597676e8b48ac45529303abc7ef47425ca62ff4efc3a375962a077a033525f74",
+      "status": "needs_review",
+      "run_id": "1bfcce1c-3818-458c-8f0d-fac191cf3a66",
+      "run_state": "succeeded",
+      "quality": {
+        "versions": {
+          "pymupdf": "1.28.2",
+          "pipeline": "page-provenance-v2",
+          "pdfplumber": "0.11.10"
+        },
+        "warnings": [
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 2
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 4
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 7
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 9
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 10
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 12
+          },
+          {
+            "code": "rotated_text",
+            "message": "Non-horizontal text detected; heuristic reading order needs review",
+            "severity": "review",
+            "page_number": 12
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 14
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 15
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 16
+          },
+          {
+            "code": "rotated_text",
+            "message": "Non-horizontal text detected; heuristic reading order needs review",
+            "severity": "review",
+            "page_number": 17
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 18
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 19
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 21
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 23
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 24
+          },
+          {
+            "code": "rotated_text",
+            "message": "Non-horizontal text detected; heuristic reading order needs review",
+            "severity": "review",
+            "page_number": 24
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 25
+          },
+          {
+            "code": "rotated_text",
+            "message": "Non-horizontal text detected; heuristic reading order needs review",
+            "severity": "review",
+            "page_number": 26
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 30
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 32
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 35
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 36
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 40
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 41
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 42
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 43
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 45
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 49
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 50
+          },
+          {
+            "code": "rotated_text",
+            "message": "Non-horizontal text detected; heuristic reading order needs review",
+            "severity": "review",
+            "page_number": 50
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 51
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 54
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 55
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 56
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 70
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 78
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 80
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 90
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 91
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 98
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 100
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 101
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 107
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 125
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 126
+          }
+        ],
+        "chunk_count": 248,
+        "pages_total": 126,
+        "table_count": 93,
+        "pages_failed": 0,
+        "parse_status": "needs_review",
+        "ocr_performed": false,
+        "parse_warnings": 46,
+        "pages_with_text": 126,
+        "text_characters": 417584,
+        "pages_needing_ocr": 0
+      },
+      "error_code": null,
+      "error_summary": null,
+      "finished_at": "2026-09-29T11:46:39.902500+00:00"
+    },
+    {
+      "report_id": "4c454a7e-542d-4fdd-a770-832cf02f0790",
+      "company_name": "Samsung Electronics Co. Ltd.",
+      "requested_year": 2024,
+      "source_url": "https://www.samsung.com/global/sustainability/media/pdf/Samsung_Electronics_Sustainability_Report_2024_ENG.pdf",
+      "input_sha256": "10e8067428e488958c8558c831cfa4145e84865a372943040e47093852135d18",
+      "status": "needs_ocr",
+      "run_id": "52f295eb-6675-44aa-9edd-2447d86ad2e1",
+      "run_state": "succeeded",
+      "quality": {
+        "versions": {
+          "pymupdf": "1.28.2",
+          "pipeline": "page-provenance-v2",
+          "pdfplumber": "0.11.10"
+        },
+        "warnings": [
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 4
+          },
+          {
+            "code": "rotated_text",
+            "message": "Non-horizontal text detected; heuristic reading order needs review",
+            "severity": "review",
+            "page_number": 9
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 12
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 13
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 16
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 18
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 20
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 21
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 22
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 24
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 25
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 26
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 33
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 34
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 35
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 36
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 38
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 39
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 41
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 42
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 43
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 44
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 45
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 46
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 47
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 65
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 69
+          },
+          {
+            "code": "rotated_text",
+            "message": "Non-horizontal text detected; heuristic reading order needs review",
+            "severity": "review",
+            "page_number": 77
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 78
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 82
+          },
+          {
+            "code": "no_text",
+            "message": "No native text; flagged needs_ocr without running OCR (may be blank or image-only)",
+            "severity": "review",
+            "page_number": 83
+          }
+        ],
+        "chunk_count": 188,
+        "pages_total": 83,
+        "table_count": 101,
+        "pages_failed": 0,
+        "parse_status": "needs_ocr",
+        "ocr_performed": false,
+        "parse_warnings": 31,
+        "pages_with_text": 82,
+        "text_characters": 333787,
+        "pages_needing_ocr": 1
+      },
+      "error_code": null,
+      "error_summary": null,
+      "finished_at": "2026-09-29T11:46:56.376959+00:00"
+    },
+    {
+      "report_id": "ad85cf22-8639-43af-889b-15a120c2ac96",
+      "company_name": "Samsung Electronics Co. Ltd.",
+      "requested_year": 2025,
+      "source_url": "https://www.samsung.com/global/sustainability/media/pdf/Samsung_Electronics_Sustainability_Report_2025_ENG.pdf",
+      "input_sha256": "aee5b45480512c05b13b3bfceab1d170232aae847e6ba398b2ebdcab842f7155",
+      "status": "needs_ocr",
+      "run_id": "82c439e3-afe6-4ce0-9759-b85f72179f0f",
+      "run_state": "succeeded",
+      "quality": {
+        "versions": {
+          "pymupdf": "1.28.2",
+          "pipeline": "page-provenance-v2",
+          "pdfplumber": "0.11.10"
+        },
+        "warnings": [
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 2
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 4
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 5
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 6
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 10
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 11
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 14
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 15
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 16
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 17
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 21
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 24
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 26
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 27
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 28
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 30
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 36
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 38
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 39
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 40
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 41
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 44
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 45
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 46
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 49
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 50
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 51
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 52
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 56
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 80
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 81
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 82
+          },
+          {
+            "code": "table_fallback",
+            "message": "Text-aligned pdfplumber table candidates require visual review",
+            "severity": "review",
+            "page_number": 85
+          },
+          {
+            "code": "no_text",
+            "message": "No native text; flagged needs_ocr without running OCR (may be blank or image-only)",
+            "severity": "review",
+            "page_number": 87
+          }
+        ],
+        "chunk_count": 211,
+        "pages_total": 87,
+        "table_count": 99,
+        "pages_failed": 0,
+        "parse_status": "needs_ocr",
+        "ocr_performed": false,
+        "parse_warnings": 34,
+        "pages_with_text": 86,
+        "text_characters": 386445,
+        "pages_needing_ocr": 1
+      },
+      "error_code": null,
+      "error_summary": null,
+      "finished_at": "2026-09-29T11:46:19.349787+00:00"
+    }
+  ]
+}

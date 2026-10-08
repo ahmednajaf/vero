@@ -1,0 +1,21 @@
+id,company_name,ticker,country,region,exchange,index,sector,industry,official_domain,investor_relations_url,sustainability_url,reporting_currency,revenue,revenue_year,reporting_year,market_cap,active
+01900000-0000-4000-8000-000000000001,JPMorgan Chase & Co.,JPM,US,North America,XNYS,,Financial Services,Diversified Banks,jpmorganchase.com,https://www.jpmorganchase.com/ir,,,,,2025,,true
+01900000-0000-4000-8000-000000000002,Bank of America Corporation,BAC,US,North America,XNYS,,Financial Services,Diversified Banks,bankofamerica.com,https://investor.bankofamerica.com/,,,,,2025,,true
+01900000-0000-4000-8000-000000000003,HSBC Holdings plc,HSBA,GB,Europe,XLON,,Financial Services,Diversified Banks,hsbc.com,https://www.hsbc.com/investors,,,,,2025,,true
+01900000-0000-4000-8000-000000000004,Banco Santander S.A.,SAN,ES,Europe,XMAD,,Financial Services,Diversified Banks,santander.com,https://www.santander.com/en/shareholders-and-investors/general-information,,,,,2025,,true
+01900000-0000-4000-8000-000000000005,Apple Inc.,AAPL,US,North America,XNAS,,Technology,Technology Hardware,apple.com,https://investor.apple.com/faq/,,,,,2025,,true
+01900000-0000-4000-8000-000000000006,Microsoft Corporation,MSFT,US,North America,XNAS,,Technology,Software,microsoft.com,https://www.microsoft.com/en-us/investor/sec-filings,,,,,2025,,true
+01900000-0000-4000-8000-000000000007,SAP SE,SAP,DE,Europe,XETR,,Technology,Software,sap.com,https://www.sap.com/investors/en/resources/faq.html,,,,,2025,,true
+01900000-0000-4000-8000-000000000008,Samsung Electronics Co. Ltd.,005930,KR,Asia Pacific,XKRX,,Technology,Technology Hardware,samsung.com,https://www.samsung.com/global/ir/stock-information/listing-Info/,,,,,2025,,true
+01900000-0000-4000-8000-000000000009,ExxonMobil,XOM,US,North America,XNYS,,Energy,Integrated Oil and Gas,exxonmobil.com,https://investor.exxonmobil.com/,,,,,2025,,true
+01900000-0000-4000-8000-000000000010,Chevron Corporation,CVX,US,North America,XNYS,,Energy,Integrated Oil and Gas,chevron.com,https://www.chevron.com/investors/stock-and-dividend,,,,,2025,,true
+01900000-0000-4000-8000-000000000011,Shell plc,SHEL,GB,Europe,XLON,,Energy,Integrated Oil and Gas,shell.com,https://www.shell.com/investors,,,,,2025,,true
+01900000-0000-4000-8000-000000000012,Saudi Aramco,2222,SA,Middle East,XSAU,,Energy,Integrated Oil and Gas,aramco.com,https://www.aramco.com/en/investors/investor-faq,,,,,2025,,true
+01900000-0000-4000-8000-000000000013,Walmart Inc.,WMT,US,North America,XNAS,,Consumer / Retail,General Merchandise Retail,walmart.com,https://stock.walmart.com/,,,,,2025,,true
+01900000-0000-4000-8000-000000000014,Costco Wholesale Corporation,COST,US,North America,XNAS,,Consumer / Retail,Warehouse Retail,costco.com,https://investor.costco.com/stock-info/default.aspx,,,,,2025,,true
+01900000-0000-4000-8000-000000000015,Unilever PLC,ULVR,GB,Europe,XLON,,Consumer / Retail,Household and Personal Products,unilever.com,https://www.unilever.com/investors/investor-centre/,,,,,2025,,true
+01900000-0000-4000-8000-000000000016,Nestlé S.A.,NESN,CH,Europe,XSWX,,Consumer / Retail,Food and Beverages,nestle.com,https://www.nestle.com/investors/faqs,,,,,2025,,true
+01900000-0000-4000-8000-000000000017,Siemens AG,SIE,DE,Europe,XETR,,Industrials,Industrial Automation,siemens.com,https://www.siemens.com/de-de/company/investor-relations/share-bonds-rating/basic-data-key-share-figures/,,,,,2025,,true
+01900000-0000-4000-8000-000000000018,Schneider Electric SE,SU,FR,Europe,XPAR,,Industrials,Electrical Equipment,se.com,https://www.se.com/ww/en/about-us/investor-relations/share-information/share-price/,,,,,2025,,true
+01900000-0000-4000-8000-000000000019,Caterpillar Inc.,CAT,US,North America,XNYS,,Industrials,Construction Machinery,caterpillar.com,https://investors.caterpillar.com/overview/default.aspx,,,,,2025,,true
+01900000-0000-4000-8000-000000000020,ABB Ltd,ABBN,CH,Europe,XSWX,,Industrials,Electrical Equipment,global.abb,https://global.abb/group/en/investors/investor-and-shareholder-resources/share-listing,,,,,2025,,true

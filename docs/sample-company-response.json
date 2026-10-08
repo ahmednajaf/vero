@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "id": "01900000-0000-4000-8000-000000000005",
+      "company_name": "Apple Inc.",
+      "ticker": "AAPL",
+      "country": "US",
+      "region": "North America",
+      "exchange": "XNAS",
+      "index": null,
+      "sector": "Technology",
+      "industry": "Technology Hardware",
+      "official_domain": "apple.com",
+      "investor_relations_url": "https://investor.apple.com/faq/",
+      "sustainability_url": null,
+      "reporting_currency": null,
+      "revenue": null,
+      "revenue_year": null,
+      "reporting_year": 2025,
+      "market_cap": null,
+      "active": true,
+      "created_at": "2026-09-29T11:34:38.299171+01:00",
+      "updated_at": "2026-09-29T11:34:38.299171+01:00"
+    }
+  ],
+  "total": 1,
+  "page": 1,
+  "page_size": 1,
+  "total_pages": 1
+}

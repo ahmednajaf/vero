@@ -1,0 +1,156 @@
+/* Vero: the supplied brand palette. Interface chrome stays quiet; green is an accent. */
+.intelligence { --ink:#111315; --muted:#6b6f72; --line:#dedfdf; --paper:#fff; --navy:#111315; --accent:#18824a; background:#f5f6f4; color:var(--ink); font-size:14px; }
+.intelligence :is(a,button,input,select,summary,[tabindex="0"]):focus-visible { outline-color:#18824a; }
+.intelligence .intel-button { border-radius:10px; font-size:12px!important; }
+.intelligence .intel-button.primary:hover:not(:disabled) { background:#292d2a; }
+.intel-main { max-width:1480px; }
+.intel-eyebrow { color:var(--muted); }
+.intel-footer { border-color:var(--line); color:var(--muted); }
+.intel-footer .footer-brand { color:var(--ink); font-size:15px; }
+.glass-filter-defs { position:fixed; pointer-events:none; }
+.glass-sidebar,.glass-mobile-trigger { background:rgba(248,250,247,.18); border:1px solid #ffffffad; box-shadow:0 16px 50px -18px #11131536,inset 1px 1px 1px #fff,inset -1px -1px 1px #ffffffc4; backdrop-filter:blur(16px) saturate(1.5); -webkit-backdrop-filter:blur(16px) saturate(1.5); }
+.glass-sidebar { overflow:hidden; }
+.glass-sidebar::before { z-index:-1; background:linear-gradient(135deg,#ffffff72 0%,#ffffff08 32%,#ffffff0a 66%,#b5c2b244 100%); backdrop-filter:url(#vero-refraction); -webkit-backdrop-filter:url(#vero-refraction); }
+.glass-sidebar::after { content:""; position:absolute; inset:1px; border-radius:25px; pointer-events:none; box-shadow:inset 2px 1px 2px #fff,inset -2px -1px 3px #7a8b7829; }
+.glass-sidebar-content { background:linear-gradient(100deg,#ffffff44,transparent 30%); }
+.glass-brand-symbol { width:52px; height:52px; padding:0; overflow:hidden; }
+.glass-brand-symbol img { width:62px; max-width:none; }
+.glass-brand-label img { display:block; width:96px; height:38px; object-fit:contain; }
+.glass-mobile-trigger img { width:56px; height:23px; object-fit:contain; }
+.intelligence .glass-sidebar-link[aria-current="page"] { background:#32f28730; box-shadow:inset 0 1px 1px #ffffffcf,0 1px 3px #1113150a; }
+.glass-status-dot.connected { background:#178149; }
+.glass-sidebar-year select { background:#ffffff44!important; }
+.glass-workspace[data-home="true"] { margin-left:0; }
+.glass-workspace[data-home="true"] .intel-main { padding-top:0; padding-bottom:40px; max-width:none; }
+.glass-workspace[data-home="true"] .intel-footer { margin-left:128px; }
+.vero-landing { position:relative; min-height:760px; height:calc(100svh - 30px); max-height:980px; margin:0 -48px; overflow:hidden; background:radial-gradient(ellipse at 72% 56%,#dce9de55 0,transparent 54%); }
+.vero-landing-header { position:absolute; left:135px; top:35px; right:45px; display:flex; align-items:center; justify-content:space-between; z-index:2; }
+.vero-wordmark { display:block; width:132px; height:53px; object-fit:contain; }
+.vero-landing-header>span { color:#747975; font-size:11px; display:flex; align-items:center; gap:14px; }
+.vero-landing-header>span { padding:7px 11px; background:#f5f6f4c2; backdrop-filter:blur(12px); border-radius:12px; }
+.vero-landing-header i { width:3px; height:3px; background:#6b6f72; border-radius:50%; }
+.vero-globe-stage { position:absolute; top:50%; left:67%; transform:translate(-50%,-50%); width:min(77vw,940px); pointer-events:none; }
+.vero-globe-stage .earth-globe { width:100%; max-width:none; margin:0; }
+.vero-globe-stage .earth-canvas { pointer-events:auto; }
+.vero-globe-stage .earth-atmosphere { box-shadow:0 0 70px #32f2870c; border:1px solid #7e8e7e0c; }
+.vero-globe-stage .earth-atmosphere::before,.vero-globe-stage .earth-atmosphere::after { display:none; }
+.vero-globe-stage .earth-globe-controls { bottom:8%; left:40%; right:5%; color:#6b6f72; font-size:10px; pointer-events:auto; }
+.vero-globe-stage .earth-globe-controls button { background:#ffffff80; border:1px solid #c6cec5; color:#111315; border-radius:50%; width:30px; height:30px; }
+.vero-globe-stage .earth-fallback { stroke:#6b6f72; }
+.vero-explore-label { position:absolute; left:145px; top:135px; display:flex; align-items:center; gap:10px; font-size:12px; z-index:2; }
+.vero-explore-label small { color:#737a74; border-left:1px solid #cdd4cd; margin-left:8px; padding-left:18px; }
+.vero-green-dot { width:6px; height:6px; border-radius:50%; background:#22aa60; box-shadow:0 0 0 4px #32f28710; }
+.vero-search-dock { position:absolute; left:145px; top:48%; transform:translateY(-15%); width:380px; z-index:3; }
+.intelligence .vero-search-dock h1 { font-size:clamp(31px,3.1vw,45px); letter-spacing:-1.7px; font-weight:500; margin-bottom:25px; line-height:1.14; }
+.vero-search-box { display:flex; align-items:center; height:62px; gap:13px; padding:8px 10px 8px 19px; background:#ffffffc7; border:1px solid #fff; border-radius:18px; box-shadow:0 10px 40px #1113150b,inset 0 -1px 0 #11131509; backdrop-filter:blur(20px); }
+.vero-search-box>svg { color:#6b6f72; flex-shrink:0; }
+.vero-search-box input { border:0; outline:none; background:transparent; font-size:14px; min-width:0; width:100%; color:#111315; }
+.vero-search-box input::placeholder { color:#737a75; }
+.vero-search-box>a { display:flex; align-items:center; justify-content:center; width:42px; height:42px; flex-shrink:0; background:#111315; border-radius:12px; color:#32f287; }
+.vero-search-results { position:absolute; top:calc(100% - 44px); left:0; right:0; background:#fffffff2; backdrop-filter:blur(20px); border:1px solid #dedfdf; border-radius:15px; box-shadow:0 20px 45px #11131518; z-index:5; overflow:hidden; }
+.vero-search-results>a { padding:14px 18px; border-bottom:1px solid #11131509; display:flex; gap:18px; justify-content:space-between; align-items:center; font-size:13px; }
+.vero-search-results>a:hover { background:#32f28716; }
+.vero-search-results small { display:block; color:#6b6f72; font-size:10px; margin-top:3px; }
+.vero-search-results>p { padding:18px; font-size:13px; }
+.vero-explore-actions { display:flex; align-items:center; justify-content:space-between; gap:15px; margin-top:16px; font-size:11px; color:#626a64; padding:3px 9px; margin-left:-9px; margin-right:-9px; background:#f5f6f480; border-radius:12px; backdrop-filter:blur(12px); }
+.vero-explore-actions select { background:transparent; border:0; min-height:30px; max-width:180px; font-size:11px; padding:0 15px 0 0; }
+.vero-market-choice { display:flex; justify-content:space-between; margin-top:14px; padding:12px 15px; border-radius:12px; background:#ffffffb8; border:1px solid #fff; font-size:12px; backdrop-filter:blur(12px); }
+.vero-map-caption { position:absolute; bottom:30px; right:48px; font-size:10px; color:#858a86; }
+.vero-library-summary,.vero-available,.vero-calculated-finding { margin:0 auto 36px; max-width:1060px; }
+.vero-library-summary { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:26px 0; gap:25px; }
+.vero-library-summary>div { display:flex; gap:7px; flex-direction:column; }
+.vero-library-summary strong { font-size:29px; font-weight:450; letter-spacing:-1px; }
+.vero-library-summary span { color:#6b6f72; font-size:11px; }
+.vero-available>header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+.vero-available>header>a { font-size:12px; color:#6b6f72; }
+.vero-available-row { display:grid; grid-template-columns:minmax(0,1fr) auto 18px; align-items:center; gap:25px; padding:21px 0; border-bottom:1px solid var(--line); font-size:14px; }
+.vero-available-row small { color:#6b6f72; font-size:11px; }
+.vero-available-row:hover>span:first-child { text-decoration:underline; text-underline-offset:4px; }
+.vero-library-note { color:#6b6f72; font-size:11px; margin-top:20px!important; }
+.vero-calculated-finding { padding:24px 0; border-top:1px solid var(--line); }
+.vero-evidence { margin:36px 0; }
+.vero-evidence>header { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:23px; }
+.vero-evidence>header p { margin-top:7px; color:#6b6f72; font-size:12px; }
+.vero-evidence-table { width:100%; border-collapse:collapse; text-align:left; white-space:nowrap; }
+.vero-evidence-table thead th { font-weight:400; color:#6b6f72; font-size:11px; padding:12px 17px; border-bottom:1px solid var(--line); }
+.vero-evidence-table tbody :is(td,th) { font-size:13px; font-weight:400; padding:18px 17px; border-bottom:1px solid var(--line); }
+.vero-evidence-table tbody th { font-weight:500; }
+.vero-evidence-table tbody td>span:not(.vero-status) { font-size:11px; color:#6b6f72; }
+.vero-evidence-table strong { font-weight:500; font-variant-numeric:tabular-nums; }
+.vero-evidence-table :is(td,th):first-child { padding-left:0; }
+.vero-evidence-table :is(td,th):last-child { position:sticky; right:0; background:#fbfcfa; }
+.source-context ul { font-size:11px; color:#746244; padding-left:17px; line-height:1.8; }
+.vero-evidence-table .intel-source-button { white-space:nowrap; }
+.vero-evidence-table .is-rejected { color:#797d79; }
+.vero-status { display:inline-flex; padding:4px 9px; background:#e7eae6; color:#565f57; border-radius:7px; font-size:10px; text-transform:capitalize; white-space:nowrap; }
+.vero-status.needs_review { background:#f0e9d8; color:#776132; }
+.vero-status.validated { background:#d9f0e2; color:#17603c; }
+.vero-status.rejected { background:#f0e1de; color:#86564b; }
+.vero-report-list { margin-top:42px; }
+.vero-report-list h3 { margin-bottom:14px; }
+.vero-report-list h3>span { color:#737a75; padding-left:8px; font-weight:400; }
+.vero-report-list article { display:flex; align-items:center; gap:17px; padding:21px 0; border-bottom:1px solid var(--line); }
+.vero-report-list article>div { flex:1; min-width:0; }
+.vero-report-list strong { font-size:13px; font-weight:500; }
+.vero-report-list small { color:#6b6f72; font-size:11px; display:block; margin-top:5px; }
+.vero-report-list>p,.vero-empty-line { color:#6b6f72; font-size:13px; padding:24px 0; }
+.vero-original-link { font-size:11px; color:#6b6f72!important; }
+.vero-benchmark-pending { border-top:1px solid var(--line); display:flex; gap:16px; align-items:center; padding:23px 0; color:#6b6f72; font-size:12px; }
+.vero-benchmark-pending>a { margin-left:auto; white-space:nowrap; }
+.vero-service-note { padding:12px 18px; margin:10px 0; background:#ecefe9; border-radius:10px; font-size:12px; }
+.vero-service-note button { border:0; background:transparent; text-decoration:underline; margin-left:10px; }
+.vero-race-pending h2 { margin-top:60px; }
+.vero-race-pending p { margin:12px 0 24px; color:#6b6f72; font-size:13px; }
+.vero-race-pending .intel-inline-link { margin-left:20px; }
+.vero-explore-label { padding:8px 12px; margin-left:-12px; border-radius:12px; background:#f5f6f4b0; backdrop-filter:blur(12px); }
+.vero-company-evidence-link { color:#257947!important; font-size:12px; }
+.intel-table-context-note { font-size:11px; color:#6b6f72; margin-top:16px; }
+.vero-comparison-tabs { display:flex; gap:4px; padding:4px; background:#e9ece6; border-radius:12px; width:fit-content; margin:24px 0; }
+.vero-comparison-tabs button { border:0; padding:9px 16px; border-radius:9px; background:transparent; font-size:12px; }
+.vero-comparison-tabs button[aria-pressed="true"] { background:#fff; box-shadow:0 1px 4px #11131509; }
+.vero-reported-comparison .intel-table-wrap { margin-top:20px; }
+.vero-comp-observation { display:flex; align-items:flex-start; flex-direction:column; gap:7px; margin:12px 0; }
+@media(min-width:1600px) { .vero-globe-stage { width:1050px; left:62%; }.vero-search-dock { left:12%; }.vero-landing-header,.vero-explore-label { left:12%; } }
+@media(min-width:768px) {
+ .glass-workspace[data-home="true"][data-navigation-pinned="true"] { margin-left:282px; }
+ .glass-workspace[data-home="true"][data-navigation-pinned="true"] :is(.vero-landing-header,.vero-explore-label,.vero-search-dock) { left:35px; }
+ .glass-workspace[data-home="true"][data-navigation-pinned="true"] .vero-search-dock { width:335px; }
+ .glass-workspace[data-home="true"][data-navigation-pinned="true"] .vero-search-dock h1 { font-size:34px; }
+ .glass-workspace[data-home="true"][data-navigation-pinned="true"] .vero-globe-stage { left:80%; width:min(77vw,850px); }
+ .glass-workspace[data-home="true"][data-navigation-pinned="true"] .intel-footer { margin-left:48px; }
+}
+@media(max-width:1100px) { .vero-landing { margin:0 -30px; min-height:710px; }.vero-globe-stage { width:760px; left:75%; }.vero-search-dock { width:335px; left:128px; }.vero-landing-header,.vero-explore-label { left:128px; }.vero-library-summary,.vero-available,.vero-calculated-finding { margin-left:90px; }.vero-landing-header>span { font-size:10px; }.vero-search-dock h1 { font-size:35px!important; } }
+@media(max-width:767px) {
+ .glass-sidebar,.glass-sidebar[data-expanded="true"] { background:rgba(242,247,241,.48); backdrop-filter:blur(22px) saturate(1.5); -webkit-backdrop-filter:blur(22px) saturate(1.5); }
+ .glass-sidebar-content { background:linear-gradient(115deg,#ffffff55,transparent 65%); }
+ .glass-nav-backdrop { background:#17251a14; }
+ .glass-workspace[data-home="true"][data-navigation-pinned] { padding-top:0; }
+ .glass-workspace[data-home="true"] .intel-footer { margin-left:25px; }
+ .vero-landing { min-height:710px; height:calc(100svh - 15px); max-height:900px; margin:0 -30px; overflow:hidden; }
+ .vero-landing-header { left:26px; right:25px; top:28px; justify-content:flex-end; }
+ .vero-landing-header>.vero-wordmark { display:none; }
+ .vero-landing-header>span { font-size:10px; }
+ .vero-explore-label { left:26px; top:106px; font-size:12px; }
+ .vero-globe-stage { width:min(720px,115vw); left:55%; top:44%; }
+ .vero-globe-stage .earth-globe-controls { bottom:7%; left:30%; right:15%; font-size:9px; }
+ .vero-globe-stage .earth-globe-controls>span { display:none; }
+ .vero-search-dock { left:26px; right:26px; width:auto; top:auto; bottom:62px; transform:none; }
+ .intelligence .vero-search-dock h1 { font-size:32px!important; margin-bottom:18px; letter-spacing:-1px; }
+ .vero-search-box { height:59px; }
+ .vero-search-results { top:auto; bottom:calc(100% - 46px); }
+ .vero-map-caption { bottom:18px; left:26px; right:auto; font-size:9px; }
+ .vero-library-summary,.vero-available,.vero-calculated-finding { margin-left:0; }
+ .vero-library-summary { grid-template-columns:1fr 1fr; gap:26px; }
+ .vero-library-summary strong { font-size:27px; }
+ .vero-available-row { grid-template-columns:1fr 18px; gap:3px 15px; }
+ .vero-available-row>span:first-child { grid-column:1; }.vero-available-row>small { grid-row:2; }.vero-available-row>span:last-child { grid-column:2; grid-row:1/3; }
+ .vero-evidence>header { flex-direction:column; align-items:flex-start; }
+ .vero-report-list article { gap:12px; flex-wrap:wrap; }.vero-report-list article>div { min-width:calc(100% - 40px); }
+ .vero-report-list article>.intel-button { margin-left:32px; }
+ .vero-benchmark-pending { flex-wrap:wrap; }.vero-benchmark-pending p { flex-basis:100%; }.vero-benchmark-pending>a { margin:0; }
+ .vero-evidence-table tbody :is(td,th) { font-size:12px; }
+ .vero-evidence-table .intel-source-button>span { display:none; }
+ .vero-evidence-table :is(td,th):last-child { padding-left:9px; padding-right:9px; box-shadow:-5px 0 8px #11131505; }
+}
+@media(max-width:580px) { .vero-landing { margin:0 -20px; min-height:690px; }.vero-landing-header>span { max-width:150px; font-size:9px; gap:8px; }.vero-landing-header { top:30px; right:20px; }.vero-globe-stage { top:40%; width:127vw; left:53%; }.vero-search-dock { bottom:60px; left:22px; right:22px; }.vero-explore-label { left:22px; }.vero-map-caption { left:22px; } }
+@media(prefers-reduced-transparency:reduce) { .glass-sidebar,.glass-mobile-trigger,.vero-search-box { background:#f5f6f4; backdrop-filter:none; }.glass-sidebar::before { backdrop-filter:none; } }

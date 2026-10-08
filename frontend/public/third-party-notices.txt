@@ -1,0 +1,38 @@
+# Adapted UI components (included with the production build)
+
+The following MIT-licensed components are adapted in this frontend:
+
+- **COBE Globe** by Shu Ding: https://21st.dev/@shuding/components/cobe-globe and https://github.com/shuding/cobe. Adapted in `src/components/ui/globe.tsx`; the `cobe` npm dependency retains its own license. Copyright (c) 2021 Shu Ding.
+- **Evil Charts, Hatched Multiple Bar Chart**: https://21st.dev/@LegionWebDev/components/bar-chart/hatched-multiple-bar-chart and https://github.com/legions-developer/evilcharts. Adapted in `src/components/ui/hatched-bar.tsx` and `src/components/BenchmarkCharts.tsx`. Copyright (c) 2026 Gurbinder.
+- **shadcn Chart**: https://ui.shadcn.com/docs/components/chart and https://github.com/shadcn-ui/ui, also distributed with the selected Evil Charts component. Adapted in `src/components/ui/chart.tsx`. Copyright (c) 2023 shadcn.
+- **Sidebar** by Manu Arora / Aceternity UI: https://21st.dev/@manuarora700/components/sidebar and https://ui.aceternity.com/components/sidebar. MIT-licensed component, adapted in `src/components/GlassSidebar.tsx` with the application's router, CSS transitions, keyboard support and a mobile dialog. Copyright Manu Arora / Aceternity UI.
+
+The following license applies to each of the above, with the corresponding copyright notice retained above:
+
+## MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Visual reference (not included under the MIT notices above):
+Liquid Glass by Suraj Gaud — https://21st.dev/@suraj-xd/components/liquid-glass.
+The user selected this visual direction. `src/sidebar.css` independently implements
+the transparent surface and light-catching edges. Its demo code, images, icons,
+background and external links are not copied into this application. A license was
+not displayed on its component page during inspection; no MIT license is asserted
+for that reference.

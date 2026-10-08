@@ -1,0 +1,10 @@
+{
+  "report_id": "54eb8e55-bdde-48cb-9350-34e609c79f2d",
+  "parse_run_id": "c2980070-c8ff-46d5-bc78-aa226a70e2f9",
+  "document_sha256": "cfb8bceab16b948f94a07307db7060056297e48a7b5f942fe3eac4bc508f4f0c",
+  "reviewed_by": "Codex visual page inspection, 2026-09-30; not human metric approval",
+  "pages": [
+    {"page_number": 1, "disposition": "decorative_no_metric_data", "reason": "Rendered and visually inspected the complete physical page. Photographic front cover contains Santander branding, the slogan IT STARTS HERE and 2024 Annual report. No metric tables, graphs or performance values are present."},
+    {"page_number": 870, "disposition": "decorative_no_metric_data", "reason": "Rendered and visually inspected the complete physical page. Back cover contains only a large blank grey panel, Santander wordmark and santander.com. No metric tables, graphs or performance values are present."}
+  ]
+}

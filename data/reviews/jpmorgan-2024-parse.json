@@ -1,0 +1,7 @@
+{
+  "report_id": "7ff56f53-29b1-42f6-9bbe-17fe2e7ce17d",
+  "parse_run_id": "6c8cd6ed-c6ff-43ac-a49c-31600a380edd",
+  "document_sha256": "925fb257f1b3df67afdb8a6532e93922581f58926f56c05b92811a5cb0164d98",
+  "reviewed_by": "Codex visual page inspection, 2026-09-30; not human metric approval",
+  "pages": [{"page_number": 1, "disposition": "decorative_no_metric_data", "reason": "Rendered and visually inspected the complete physical page. It contains only the 2024 Sustainability Report title and JPMorganChase wordmark; no metric table, chart or sustainability values. Native title text is already retained."}]
+}

@@ -1,0 +1,9 @@
+{
+  "clean_emissions_table": "Environmental performance\n2024\nGlobal operations\nScope 1 emissions | kg CO2e | 12,500\nScope 2 location-based emissions | tCO2e | 200\n",
+  "missing_scope_3": "2024\nGlobal operations\nScope 1 emissions: 12 tCO2e.\nScope 2 market-based emissions: 8 tCO2e.\nScope 3 emissions were not disclosed in this passage.\n",
+  "targets_vs_actuals": "2024\nGlobal operations\nScope 1 emissions: 120 tCO2e.\nOur Scope 1 emissions target is 50 tCO2e by 2030.\n",
+  "multi_year_table": "Global operations\nYear | 2022 | 2023 | 2024\nScope 1 emissions | tCO2e | 140 | 130 | 120\n",
+  "intensity_only": "2024\nGlobal operations\nGHG emissions intensity: 2.5 kg CO2e per unit. No denominator definition is supplied.\n",
+  "conflicting_values": ["2024\nGlobal operations\nScope 1 emissions: 120 tCO2e.", "2024\nGlobal operations\nScope 1 emissions: 125 tCO2e."],
+  "different_units": ["2024\nGlobal operations\nScope 1 emissions: 125,000 kg CO2e.", "2024\nGlobal operations\nScope 1 emissions: 0.125 kt CO2e.", "2024\nGlobal operations\nScope 1 emissions: 0.000125 Mt CO2e."]
+}

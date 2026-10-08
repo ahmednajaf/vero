@@ -1,0 +1,37 @@
+# Previous independent prototype; retained locally, not part of this platform.
+benchmark-app/
+
+# Also ignore local runtime symlinks named node_modules.
+node_modules
+dist/
+coverage/
+.vite-cache/
+*.tsbuildinfo
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.env
+.env.*
+!.env.example
+.DS_Store
+backend/storage/
+data/reports/
+
+# Local results, database backups and retired workspace snapshots are not source.
+/archive/
+/tmp/
+/output/
+/outputs/
+*.log
+*.dump
+*.sqlite
+*.sqlite3
+*.pem
+*.key
+*.p12

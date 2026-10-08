@@ -1,0 +1,54 @@
+[
+  {
+    "company_id": "01900000-0000-4000-8000-000000000001",
+    "requested_year": 2025,
+    "detected_year": 2024,
+    "title": "JPMorganChase 2024 Sustainability Report",
+    "report_type": "sustainability",
+    "source_url": "https://www.jpmorganchase.com/content/dam/jpmorganchase/documents/about/jpmc-sustainability-report-2024.pdf",
+    "discovered_from_url": "https://www.jpmorganchase.com/about/governance/sustainability",
+    "year_basis": "The report is titled 2024; the chairman letter on physical page 6 is dated October 2025. The official environmental-sustainability page also states Published October 2025. Metric year remains 2024, not 2025.",
+    "scope_basis": "Official sustainability page identifies this as the firm's consolidated Sustainability Report. Its contents include managing the operational footprint, human capital and governance; not a bond allocation report.",
+    "reviewed_by": "Codex source-selection review; not human metric approval",
+    "reviewed_at": "2026-09-30T00:00:00Z"
+  },
+  {
+    "company_id": "01900000-0000-4000-8000-000000000002",
+    "requested_year": 2025,
+    "detected_year": 2025,
+    "title": "Bank of America 2025 Sustainability Report",
+    "report_type": "sustainability",
+    "source_url": "https://about.bankofamerica.com/content/dam/about/report-center/esg/2025/SustainabilityatBofA2025_WCAG2.2_121625.pdf",
+    "discovered_from_url": "https://about.bankofamerica.com/en/making-an-impact/report-center",
+    "year_basis": "The official report centre labels the exact linked PDF 2025 Sustainability Report. Publication label does not establish the reporting year of individual figures, which must be checked in the PDF.",
+    "scope_basis": "The official report centre lists this under Sustainability Reports rather than sustainable bonds. Company-wide report selection only; individual operational/financed boundaries still require review.",
+    "reviewed_by": "Codex source-selection review; not human metric approval",
+    "reviewed_at": "2026-09-30T00:00:00Z"
+  },
+  {
+    "company_id": "01900000-0000-4000-8000-000000000003",
+    "requested_year": 2025,
+    "detected_year": 2024,
+    "title": "HSBC Holdings plc Annual Report and Accounts 2024",
+    "report_type": "annual",
+    "source_url": "https://www.hsbc.com/-/files/hsbc/investors/hsbc-results/2024/annual/pdfs/hsbc-holdings-plc/250219-annual-report-and-accounts-2024.pdf",
+    "discovered_from_url": "https://www.hsbc.com/investors/results-and-announcements/all-reporting/group",
+    "year_basis": "HSBC's official all-reporting catalogue lists the Annual Report and Accounts 2024 under Annual Results 2024 dated 19 February 2025. Requested publication cycle is 2025; observations are requested for 2024.",
+    "scope_basis": "Full HSBC Holdings plc Annual Report and Accounts, including ESG review. The sustainability/operational metrics and their boundary must be verified on their own pages; no subsidiary or bond portfolio substitute.",
+    "reviewed_by": "Codex source-selection review; not human metric approval",
+    "reviewed_at": "2026-09-30T00:00:00Z"
+  },
+  {
+    "company_id": "01900000-0000-4000-8000-000000000004",
+    "requested_year": 2025,
+    "detected_year": 2024,
+    "title": "Banco Santander Consolidated Annual Financial Report 2024",
+    "report_type": "annual",
+    "source_url": "https://www.santander.com/content/dam/santander-com/en/documentos/informe-financiero-anual/2024/ifa-2024-consolidated-annual-financial-report-en.pdf",
+    "discovered_from_url": "https://www.santander.com/content/dam/santander-com/en/documentos/programas/documentos-programas/pr-structured-medium-term-programme-2025-en.pdf",
+    "year_basis": "Santander's official 2025 programme document explicitly links the 2024 consolidated annual financial report for the year ended 31 December 2024. Selected for the 2025 collection cycle / 2024 metric-year checkpoint; no publication day inferred.",
+    "scope_basis": "Full company-wide consolidated annual financial report, not the programme prospectus that supplied the link. Sustainability statement and individual metric boundaries must be checked in the downloaded annual report.",
+    "reviewed_by": "Codex source-selection review; not human metric approval",
+    "reviewed_at": "2026-09-30T00:00:00Z"
+  }
+]

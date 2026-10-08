@@ -1,0 +1,2017 @@
+{
+  "metadata_reference_date": "2026-09-29",
+  "scope": "Curated issuer metadata and official entry-point references. No report downloads, metric extraction, database import or pipeline execution.",
+  "verification_method": "Manual review of official company investor pages, official filings and company reporting resources surfaced through web search/open. References establish identity and entry points; they are not a certification of report accessibility, trading status or metric comparability.",
+  "country_basis": "Legal domicile, not exchange location, operating footprint or emissions boundary.",
+  "reporting_cycle": 2025,
+  "companies": [
+    {
+      "company_id": "f0c5c79c-14fe-5bb3-aec7-93ee3581f6e3",
+      "company_name": "Adobe Inc.",
+      "official_domain": "adobe.com",
+      "notes": "",
+      "references": [
+        "https://www.adobe.com/cc-shared/assets/investor-relations/pdfs/01906202/au56y4ter.pdf",
+        "https://www.adobe.com/corporate-responsibility/corporate-responsibility-reports.html"
+      ]
+    },
+    {
+      "company_id": "8b9c4300-8755-585a-86d4-a188b63a462c",
+      "company_name": "Advanced Micro Devices Inc.",
+      "official_domain": "amd.com",
+      "notes": "",
+      "references": [
+        "https://ir.amd.com/contacts-faq/faq"
+      ]
+    },
+    {
+      "company_id": "bf78b90a-2b08-5972-9274-44a1af57489e",
+      "company_name": "Analog Devices Inc.",
+      "official_domain": "analog.com",
+      "notes": "",
+      "references": [
+        "https://investor.analog.com/investor-resources/investor-faqs",
+        "https://investor.analog.com/"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000005",
+      "company_name": "Apple Inc.",
+      "official_domain": "apple.com",
+      "notes": "",
+      "references": [
+        "https://investor.apple.com/faq/",
+        "https://www.apple.com/environment/"
+      ]
+    },
+    {
+      "company_id": "c440dcb2-857d-5e75-95c4-3dc6ff76ea20",
+      "company_name": "Applied Materials Inc.",
+      "official_domain": "appliedmaterials.com",
+      "notes": "",
+      "references": [
+        "https://ir.appliedmaterials.com/shareholder-services/investor-faqs"
+      ]
+    },
+    {
+      "company_id": "803197c3-3756-5c0f-a747-e54aa823759d",
+      "company_name": "ASM International N.V.",
+      "official_domain": "asm.com",
+      "notes": "",
+      "references": [
+        "https://www.asm.com/investors"
+      ]
+    },
+    {
+      "company_id": "6c7baad6-6e10-5ad5-b311-5a412af81e56",
+      "company_name": "ASML Holding N.V.",
+      "official_domain": "asml.com",
+      "notes": "",
+      "references": [
+        "https://www.asml.com/en/investors/shares",
+        "https://www.asml.com/en/investors",
+        "https://www.asml.com/en/investors/annual-report/2025/sustainability"
+      ]
+    },
+    {
+      "company_id": "b0c875e8-7d64-55e5-9cdc-b413bb9e4fd7",
+      "company_name": "Autodesk Inc.",
+      "official_domain": "autodesk.com",
+      "notes": "",
+      "references": [
+        "https://investors.autodesk.com/"
+      ]
+    },
+    {
+      "company_id": "f083953c-0345-5e5d-b482-cb3f9ebe83db",
+      "company_name": "Broadcom Inc.",
+      "official_domain": "broadcom.com",
+      "notes": "",
+      "references": [
+        "https://investors.broadcom.com/company-information/faqs",
+        "https://investors.broadcom.com/"
+      ]
+    },
+    {
+      "company_id": "0634e972-1163-5af9-8ef7-659a72b1dc06",
+      "company_name": "Capgemini SE",
+      "official_domain": "capgemini.com",
+      "notes": "",
+      "references": [
+        "https://investors.capgemini.com/en/capital-structure/",
+        "https://investors.capgemini.com/en/esg-reporting/"
+      ]
+    },
+    {
+      "company_id": "088fcb5e-bb3a-5350-8add-406fcac19c53",
+      "company_name": "CGI Inc.",
+      "official_domain": "cgi.com",
+      "notes": "",
+      "references": [
+        "https://www.cgi.com/en/investors/investor-stock-information"
+      ]
+    },
+    {
+      "company_id": "928a9b76-417e-56d0-91d4-b4bdf3156600",
+      "company_name": "Cisco Systems Inc.",
+      "official_domain": "cisco.com",
+      "notes": "",
+      "references": [
+        "https://investor.cisco.com/overview/default.aspx",
+        "https://www.cisco.com/c/m/en_us/about/purpose/reporting-hub/governance/frameworks/gri.html"
+      ]
+    },
+    {
+      "company_id": "dd6e151b-d324-5686-8885-2938ddd69649",
+      "company_name": "Constellation Software Inc.",
+      "official_domain": "csisoftware.com",
+      "notes": "",
+      "references": [
+        "https://www.csisoftware.com/docs/default-source/investor-relations/2023-annual-information-form---final.pdf",
+        "https://www.csisoftware.com/investor-relations/"
+      ]
+    },
+    {
+      "company_id": "95b65def-1a7a-533f-a04f-518a241906ec",
+      "company_name": "Dassault Systèmes SE",
+      "official_domain": "3ds.com",
+      "notes": "",
+      "references": [
+        "https://investor.3ds.com/"
+      ]
+    },
+    {
+      "company_id": "8ad44f05-7f51-5889-842f-35cb49b64383",
+      "company_name": "Dell Technologies Inc.",
+      "official_domain": "dell.com",
+      "notes": "",
+      "references": [
+        "https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2026~09~dell-technologies-delivers-second-quarter-fiscal-2027-financial-results.htm",
+        "https://investors.delltechnologies.com/"
+      ]
+    },
+    {
+      "company_id": "0c9983ec-a48f-5898-a892-24d85368cf40",
+      "company_name": "Fujitsu Limited",
+      "official_domain": "global.fujitsu",
+      "notes": "",
+      "references": [
+        "https://www.fujitsu.com/global/documents/about/ir/data/results/2013/q1/01.pdf",
+        "https://global.fujitsu/en-global/ir",
+        "https://global.fujitsu/en-global/sustainability"
+      ]
+    },
+    {
+      "company_id": "c181ebf0-98d8-515d-958c-00a9e50f3ed6",
+      "company_name": "Hewlett Packard Enterprise Company",
+      "official_domain": "hpe.com",
+      "notes": "",
+      "references": [
+        "https://investors.hpe.com/stock",
+        "https://investors.hpe.com/"
+      ]
+    },
+    {
+      "company_id": "3c0c4b0a-0ee3-504b-a277-7b42a5935da6",
+      "company_name": "HP Inc.",
+      "official_domain": "hp.com",
+      "notes": "",
+      "references": [
+        "https://investor.hp.com/"
+      ]
+    },
+    {
+      "company_id": "f407af83-686e-5b72-b07f-e8e00ee35f63",
+      "company_name": "Infineon Technologies AG",
+      "official_domain": "infineon.com",
+      "notes": "",
+      "references": [
+        "https://www.infineon.com/about/investor/infineon-at-a-glance",
+        "https://www.infineon.com/about/investor",
+        "https://www.infineon.com/about/company/sustainability/csr-reporting"
+      ]
+    },
+    {
+      "company_id": "bae4890c-dbb8-56bd-a2b7-95f96b300eb7",
+      "company_name": "Intel Corporation",
+      "official_domain": "intel.com",
+      "notes": "",
+      "references": [
+        "https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2025-05/history-2007-annual-report.pdf",
+        "https://www.intc.com/",
+        "https://www.intel.com/content/www/us/en/corporate-responsibility/resource-center.html"
+      ]
+    },
+    {
+      "company_id": "89f6859f-5ba0-5007-864e-13e520e3353d",
+      "company_name": "International Business Machines Corporation",
+      "official_domain": "ibm.com",
+      "notes": "",
+      "references": [
+        "https://www.ibm.com/investor/help/general-faqs"
+      ]
+    },
+    {
+      "company_id": "df9829f9-24bb-53ea-9c30-7e728adffc36",
+      "company_name": "Intuit Inc.",
+      "official_domain": "intuit.com",
+      "notes": "",
+      "references": [
+        "https://investors.intuit.com/financial-information",
+        "https://investors.intuit.com/company-information/faq"
+      ]
+    },
+    {
+      "company_id": "9eebd785-af54-5c54-9e52-649680842b7c",
+      "company_name": "KLA Corporation",
+      "official_domain": "kla.com",
+      "notes": "",
+      "references": [
+        "https://ir.kla.com/sec-filings/all-sec-filings/content/0000319201-26-000027/klac-20260630.htm",
+        "https://ir.kla.com/"
+      ]
+    },
+    {
+      "company_id": "39b71fe8-64eb-57e4-9ff6-42f1c0ac4eaa",
+      "company_name": "Lam Research Corporation",
+      "official_domain": "lamresearch.com",
+      "notes": "",
+      "references": [
+        "https://investor.lamresearch.com/"
+      ]
+    },
+    {
+      "company_id": "a3a6dcef-2f27-5bc4-8d3c-35142bc18a20",
+      "company_name": "Logitech International S.A.",
+      "official_domain": "logitech.com",
+      "notes": "",
+      "references": [
+        "https://ir.logitech.com/"
+      ]
+    },
+    {
+      "company_id": "8619c279-3f13-508a-9aaf-a040b69f9f86",
+      "company_name": "Micron Technology Inc.",
+      "official_domain": "micron.com",
+      "notes": "",
+      "references": [
+        "https://investors.micron.com/overview/default.aspx"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000006",
+      "company_name": "Microsoft Corporation",
+      "official_domain": "microsoft.com",
+      "notes": "",
+      "references": [
+        "https://www.microsoft.com/en-us/investor/faq",
+        "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/report"
+      ]
+    },
+    {
+      "company_id": "d92cff36-6149-53ae-805f-b7cf4766f2d4",
+      "company_name": "NEC Corporation",
+      "official_domain": "nec.com",
+      "notes": "",
+      "references": [
+        "https://www.nec.com/en/global/ir/map/index.html"
+      ]
+    },
+    {
+      "company_id": "e720f44a-2d9b-54cd-97a1-8d0656acd3c3",
+      "company_name": "Nokia Oyj",
+      "official_domain": "nokia.com",
+      "notes": "",
+      "references": [
+        "https://www.nokia.com/about-us/investors/stock-information/",
+        "https://www.nokia.com/about-us/investors/"
+      ]
+    },
+    {
+      "company_id": "1acfd502-3d6c-5d48-9b62-037d70337711",
+      "company_name": "NVIDIA Corporation",
+      "official_domain": "nvidia.com",
+      "notes": "",
+      "references": [
+        "https://investor.nvidia.com/investor-resources/faqs/default.aspx",
+        "https://www.nvidia.com/en-us/foundation/archives/"
+      ]
+    },
+    {
+      "company_id": "0c4aa2dd-0c1c-5436-88e6-a9da5c179ac2",
+      "company_name": "Oracle Corporation",
+      "official_domain": "oracle.com",
+      "notes": "",
+      "references": [
+        "https://investor.oracle.com/faq/default.aspx",
+        "https://www.oracle.com/social-impact/"
+      ]
+    },
+    {
+      "company_id": "2979ab89-31cf-5098-899c-ecd1e2dc24d8",
+      "company_name": "QUALCOMM Incorporated",
+      "official_domain": "qualcomm.com",
+      "notes": "",
+      "references": [
+        "https://investor.qualcomm.com/about/faq/default.aspx",
+        "https://investor.qualcomm.com/overview/default.aspx"
+      ]
+    },
+    {
+      "company_id": "8690678d-5a62-5880-af7c-083b7f81c967",
+      "company_name": "Renesas Electronics Corporation",
+      "official_domain": "renesas.com",
+      "notes": "",
+      "references": [
+        "https://www.renesas.com/en/about/investor-relations/stock/stock-information",
+        "https://www.renesas.com/en/about/investor-relations"
+      ]
+    },
+    {
+      "company_id": "2bfa4b17-35ef-58e1-aaa1-4c395206058b",
+      "company_name": "Salesforce Inc.",
+      "official_domain": "salesforce.com",
+      "notes": "",
+      "references": [
+        "https://investor.salesforce.com/overview/default.aspx?LanguageId=1&trk=public_post_comment-text",
+        "https://investor.salesforce.com/overview/default.aspx",
+        "https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/white-papers/salesforce-fy25-stakeholder-impact-report.pdf?bc=OTH"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000007",
+      "company_name": "SAP SE",
+      "official_domain": "sap.com",
+      "notes": "",
+      "references": [
+        "https://www.sap.com/investors/en/resources/faq.html",
+        "https://www.sap.com/investors/en/stock.html",
+        "https://www.sap.com/integrated-reports/2025/en/csrd.html"
+      ]
+    },
+    {
+      "company_id": "670c9710-8d98-57e8-9051-894ac1ec2fc6",
+      "company_name": "ServiceNow Inc.",
+      "official_domain": "servicenow.com",
+      "notes": "",
+      "references": [
+        "https://investor.servicenow.com/stock-info/default.aspx"
+      ]
+    },
+    {
+      "company_id": "8f330107-6917-567a-8fe1-ddad4a3de9db",
+      "company_name": "Telefonaktiebolaget LM Ericsson",
+      "official_domain": "ericsson.com",
+      "notes": "",
+      "references": [
+        "https://www.ericsson.com/en/investors/share-information",
+        "https://www.ericsson.com/en/investors"
+      ]
+    },
+    {
+      "company_id": "f699e48f-dd77-58ce-8242-abf5d10c17f3",
+      "company_name": "Texas Instruments Incorporated",
+      "official_domain": "ti.com",
+      "notes": "",
+      "references": [
+        "https://investor.ti.com/resources/contact-us",
+        "https://investor.ti.com/"
+      ]
+    },
+    {
+      "company_id": "7ae62feb-55be-5bee-ac60-85b41efa590b",
+      "company_name": "The Sage Group plc",
+      "official_domain": "sage.com",
+      "notes": "",
+      "references": [
+        "https://www.sage.com/investors/investor-centre/annual-general-meeting/",
+        "https://www.sage.com/investors/"
+      ]
+    },
+    {
+      "company_id": "c5546429-ccae-5c5b-b50e-cb8b5c95244b",
+      "company_name": "Tokyo Electron Limited",
+      "official_domain": "www.tel.com",
+      "notes": "",
+      "references": [
+        "https://www.tel.com/ir/stocks/info/",
+        "https://www.tel.com/ir/"
+      ]
+    },
+    {
+      "company_id": "7eaa0f89-37b4-5d29-aff3-c91b82389447",
+      "company_name": "Allianz SE",
+      "official_domain": "allianz.com",
+      "notes": "",
+      "references": [
+        "https://www.allianz.com/en/investor_relations/share/share-information.html",
+        "https://www.allianz.com/en/investor_relations/shareholders/app.html",
+        "https://www.allianz.com/en/investor_relations/results-reports/sustainability.html"
+      ]
+    },
+    {
+      "company_id": "c3711b16-7fe0-5f1a-a615-7af5badce0e1",
+      "company_name": "American Express Company",
+      "official_domain": "americanexpress.com",
+      "notes": "",
+      "references": [
+        "https://www.americanexpress.com/en-us/company/",
+        "https://ir.americanexpress.com/investor-relations/default.aspx",
+        "https://www.americanexpress.com/en-us/company/corporate-sustainability/"
+      ]
+    },
+    {
+      "company_id": "bd5eb209-5787-5baa-a4a4-4ed2fd0eda9a",
+      "company_name": "ANZ Group Holdings Limited",
+      "official_domain": "anz.com",
+      "notes": "",
+      "references": [
+        "https://www.anz.com/shareholder/centre/investor-toolkit/asx-announcements/",
+        "https://www.anz.com/shareholder/centre/contact/"
+      ]
+    },
+    {
+      "company_id": "0aac19ee-c1fb-5805-b9dd-2d65a528bdb0",
+      "company_name": "AXA SA",
+      "official_domain": "axa.com",
+      "notes": "",
+      "references": [
+        "https://www.axa.com/investor?source=content_type%3Areact%7Cfirst_level_url%3Aarticle%7Csection%3Amain_content%7Cbutton%3Abody_link",
+        "https://www.axa.com/investor"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000002",
+      "company_name": "Bank of America Corporation",
+      "official_domain": "bankofamerica.com",
+      "notes": "",
+      "references": [
+        "https://investor.bankofamerica.com/annual-reports-and-proxy-statements",
+        "https://investor.bankofamerica.com/",
+        "https://about.bankofamerica.com/en/making-an-impact/report-center"
+      ]
+    },
+    {
+      "company_id": "2c6a05db-2729-55c9-857d-10cd374a8f90",
+      "company_name": "Bank of Montreal",
+      "official_domain": "bmo.com",
+      "notes": "",
+      "references": [
+        "https://www.bmo.com/main/about-bmo/investor-relations/frequently-asked-questions",
+        "https://www.bmo.com/en-ca/main/about-bmo/banking/investor-relations/home/"
+      ]
+    },
+    {
+      "company_id": "dab27691-c506-5964-9f1e-a9937c2d8a96",
+      "company_name": "Barclays PLC",
+      "official_domain": "home.barclays",
+      "notes": "Official investor page returned HTTP 403 during curation; optional URLs left blank. No controls bypassed.",
+      "references": [
+        "https://www.sec.gov/Archives/edgar/data/312069/000031206926000100/bplcq126resultsannouncement.htm"
+      ]
+    },
+    {
+      "company_id": "67b3c7d5-2869-5bfe-98c2-cfe3cf18c6dd",
+      "company_name": "BlackRock Inc.",
+      "official_domain": "blackrock.com",
+      "notes": "",
+      "references": [
+        "https://ir.blackrock.com/files/oar/2016/pdf/BlackRock_AR_2016_Narrative.pdf",
+        "https://ir.blackrock.com/",
+        "https://www.blackrock.com/corporate/literature/continuous-disclosure-and-important-information/climate-report-blkinc.pdf?trk=public_post_comment-text"
+      ]
+    },
+    {
+      "company_id": "1916905b-020b-5f58-b65f-22dbd6811c14",
+      "company_name": "BNP Paribas SA",
+      "official_domain": "group.bnpparibas",
+      "notes": "",
+      "references": [
+        "https://group.bnpparibas/en/press-release/bnp-paribas-group-results-as-of-30-june-2026",
+        "https://invest.bnpparibas/en/"
+      ]
+    },
+    {
+      "company_id": "e5dfc91f-c82a-5d9c-967d-9488e500f3fe",
+      "company_name": "Citigroup Inc.",
+      "official_domain": "citigroup.com",
+      "notes": "",
+      "references": [
+        "https://www.citigroup.com/global/investors/stockholder-services",
+        "https://www.citigroup.com/global/investors",
+        "https://www.citigroup.com/global/our-impact/environmental-sustainability/sustainability-resources"
+      ]
+    },
+    {
+      "company_id": "989ca521-9357-536e-81f9-ded209863164",
+      "company_name": "Commonwealth Bank of Australia",
+      "official_domain": "commbank.com.au",
+      "notes": "",
+      "references": [
+        "https://www.commbank.com.au/about-us/investors/share-price.html",
+        "https://www.commbank.com.au/about-us/investors.html",
+        "https://www.commbank.com.au/about-us/opportunity-initiatives/performance-reporting/archive.html"
+      ]
+    },
+    {
+      "company_id": "0db8ad8a-1b6a-58e3-b45c-e1e5143db7fb",
+      "company_name": "Crédit Agricole S.A.",
+      "official_domain": "credit-agricole.com",
+      "notes": "Use Crédit Agricole S.A. listed-entity boundary; do not silently substitute the wider Crédit Agricole Group.",
+      "references": [
+        "https://www.credit-agricole.com/finance",
+        "https://www.credit-agricole.com/finance/shares-and-dividend"
+      ]
+    },
+    {
+      "company_id": "0e710baa-b8fe-5e42-b58b-671e199f98ab",
+      "company_name": "Deutsche Bank AG",
+      "official_domain": "db.com",
+      "notes": "",
+      "references": [
+        "https://investor-relations.db.com/share/share-information/share-information",
+        "https://investor-relations.db.com/faq/"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000003",
+      "company_name": "HSBC Holdings plc",
+      "official_domain": "hsbc.com",
+      "notes": "",
+      "references": [
+        "https://www.hsbc.com/investors/shareholder-and-dividend-information/investor-faqs",
+        "https://www.hsbc.com/investors",
+        "https://www.hsbc.com/who-we-are/esg-and-responsible-business/esg-reporting-centre?page=1&programme-type=schools-and-apprentices&take=20"
+      ]
+    },
+    {
+      "company_id": "3c70930c-b1ba-501e-af11-291a4fb307a5",
+      "company_name": "ING Groep N.V.",
+      "official_domain": "ing.com",
+      "notes": "",
+      "references": [
+        "https://ing.com/investors/share-information/shares"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000001",
+      "company_name": "JPMorgan Chase & Co.",
+      "official_domain": "jpmorganchase.com",
+      "notes": "",
+      "references": [
+        "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/corporate-data-and-shareholder-information-2020.pdf",
+        "https://www.jpmorganchase.com/ir",
+        "https://www.jpmorganchase.com/about/governance/sustainability"
+      ]
+    },
+    {
+      "company_id": "3e62177a-d6a5-5b6a-8066-c10dd923665b",
+      "company_name": "Lloyds Banking Group plc",
+      "official_domain": "lloydsbankinggroup.com",
+      "notes": "",
+      "references": [
+        "https://www.lloydsbankinggroup.com/investors/shareholder-information.html",
+        "https://www.lloydsbankinggroup.com/investors.html"
+      ]
+    },
+    {
+      "company_id": "1ad3887e-d2e4-5faa-82e1-1c336a85557a",
+      "company_name": "Manulife Financial Corporation",
+      "official_domain": "manulife.com",
+      "notes": "",
+      "references": [
+        "https://www.manulife.com/content/dam/manulife-com/ca/financial-documents/investors/MFC_SR_2025_Y1_EN.pdf",
+        "https://www.manulife.com/ca/en/about-us/investors"
+      ]
+    },
+    {
+      "company_id": "ed7cacd2-245a-5693-a4ca-1dc13f7acec6",
+      "company_name": "Mastercard Incorporated",
+      "official_domain": "mastercard.com",
+      "notes": "",
+      "references": [
+        "https://investor.mastercard.com/overview/default.aspx",
+        "https://investor.mastercard.com/Sustainability/"
+      ]
+    },
+    {
+      "company_id": "b4fb62a2-c364-5f86-b1b0-d1f029d666d3",
+      "company_name": "Mitsubishi UFJ Financial Group Inc.",
+      "official_domain": "www.mufg.jp",
+      "notes": "",
+      "references": [
+        "https://www.mufg.jp/ir/index.html",
+        "https://www.mufg.jp/english/ir/"
+      ]
+    },
+    {
+      "company_id": "734b061f-3423-5c90-acc7-9959cb3da62c",
+      "company_name": "Mizuho Financial Group Inc.",
+      "official_domain": "mizuhogroup.com",
+      "notes": "",
+      "references": [
+        "https://www.mizuhogroup.com/investors/financial-information/stock-information",
+        "https://www.mizuhogroup.com/investors"
+      ]
+    },
+    {
+      "company_id": "91a8fd35-a273-5e7e-aa6f-75e91641713e",
+      "company_name": "Morgan Stanley",
+      "official_domain": "morganstanley.com",
+      "notes": "",
+      "references": [
+        "https://www.morganstanley.com/about-us-ir",
+        "https://www.morganstanley.com/about-us-ir/faq",
+        "https://www.morganstanley.com/about-us/sustainability-reports-archive"
+      ]
+    },
+    {
+      "company_id": "4a276eef-5b6a-51e2-9254-aac2eacefc3c",
+      "company_name": "Münchener Rückversicherungs-Gesellschaft AG",
+      "official_domain": "munichre.com",
+      "notes": "",
+      "references": [
+        "https://www.munichre.com/de/unternehmen/investoren/aktionaersinformationen/investorportal-und-aktionaersservice.hsb.html",
+        "https://www.munichre.com/en/company/investors/reports-and-presentations/results-reports.html"
+      ]
+    },
+    {
+      "company_id": "ef6f1f78-6280-53c6-9cb9-82cba0aa6722",
+      "company_name": "National Australia Bank Limited",
+      "official_domain": "nab.com.au",
+      "notes": "",
+      "references": [
+        "https://www.nab.com.au/content/dam/nab/documents/reports/corporate/2025-annual-report.pdf",
+        "https://www.nab.com.au/about-us/shareholder-centre"
+      ]
+    },
+    {
+      "company_id": "3d753c6d-7d88-53fa-b04e-1fffb709bf93",
+      "company_name": "NatWest Group plc",
+      "official_domain": "natwestgroup.com",
+      "notes": "",
+      "references": [
+        "https://investors.natwestgroup.com/shareholder-centre/shareholder-faqs.aspx",
+        "https://investors.natwestgroup.com/"
+      ]
+    },
+    {
+      "company_id": "6a6d608f-7a4e-55bf-9fc2-677fa01bf050",
+      "company_name": "NN Group N.V.",
+      "official_domain": "nn-group.com",
+      "notes": "",
+      "references": [
+        "https://www.nn-group.com/investors"
+      ]
+    },
+    {
+      "company_id": "e47dde4b-715c-5289-b224-d6907654a4be",
+      "company_name": "Prudential plc",
+      "official_domain": "prudentialplc.com",
+      "notes": "UK legal domicile, not the geographic exposure or operational headquarters of its insurance activities.",
+      "references": [
+        "https://www.prudentialplc.com/en/investors/shareholder-centre/shareholder-information-and-corporate-actions/",
+        "https://www.prudentialplc.com/en/investors/overview/"
+      ]
+    },
+    {
+      "company_id": "7f6e5ad1-3874-5f84-af71-dfd2d9491809",
+      "company_name": "Royal Bank of Canada",
+      "official_domain": "rbc.com",
+      "notes": "",
+      "references": [
+        "https://www.rbc.com/investor-relations/share-information.html",
+        "https://www.rbc.com/investor-relations/",
+        "https://www.rbc.com/our-impact/_assets-custom/pdf/RBC-2025-sustainability-report.pdf"
+      ]
+    },
+    {
+      "company_id": "c1198998-bf33-5e54-9574-fa1e661ab35c",
+      "company_name": "Société Générale SA",
+      "official_domain": "societegenerale.com",
+      "notes": "",
+      "references": [
+        "https://investors.societegenerale.com/fr/informations-financieres-extra-financieres/action/actionnariat",
+        "https://investors.societegenerale.com/en/financial-non-financial-information/share-performance/share-capital"
+      ]
+    },
+    {
+      "company_id": "a79b3936-60c6-50a7-8978-81a3c98b61f7",
+      "company_name": "Sumitomo Mitsui Financial Group Inc.",
+      "official_domain": "www.smfg.co.jp",
+      "notes": "",
+      "references": [
+        "https://www.smfg.co.jp/english/investor/faq/stock.html",
+        "https://www.smfg.co.jp/investor/"
+      ]
+    },
+    {
+      "company_id": "fb1093df-d866-515c-8feb-b8d5fe41a06c",
+      "company_name": "Swiss Re AG",
+      "official_domain": "swissre.com",
+      "notes": "",
+      "references": [
+        "https://www.swissre.com/investors.html"
+      ]
+    },
+    {
+      "company_id": "3dee4959-737b-5211-99bf-dca31f88b1d5",
+      "company_name": "The Bank of Nova Scotia",
+      "official_domain": "scotiabank.com",
+      "notes": "",
+      "references": [
+        "https://api.scotiabank.com/investorsolutions/issue/v1.0/download/document?docTypeCd=PRS&issueId=58067&langId=EN",
+        "https://www.scotiabank.com/ca/en/about/investors-shareholders/frequently-asked-questions.html"
+      ]
+    },
+    {
+      "company_id": "41ad2884-7f61-57f7-8f5f-0d105b766fd3",
+      "company_name": "The Goldman Sachs Group Inc.",
+      "official_domain": "goldmansachs.com",
+      "notes": "",
+      "references": [
+        "https://www.goldmansachs.com/investor-relations/faqs",
+        "https://www.goldmansachs.com/investor-relations",
+        "https://www.goldmansachs.com/investor-relations/corporate-governance/sustainability-reporting"
+      ]
+    },
+    {
+      "company_id": "e8ef442f-52e0-5e25-bca2-3860796d7f94",
+      "company_name": "The Toronto-Dominion Bank",
+      "official_domain": "td.com",
+      "notes": "",
+      "references": [
+        "https://www.td.com/ca/en/about-td/for-investors/investor-relations/share-information/common-shares",
+        "https://www.td.com/us/en/about-us/investor-relations"
+      ]
+    },
+    {
+      "company_id": "3bbcd1fe-1b86-51af-ab23-6c52a22f017a",
+      "company_name": "Tokio Marine Holdings Inc.",
+      "official_domain": "www.tokiomarinehd.com",
+      "notes": "",
+      "references": [
+        "https://www.tokiomarinehd.com/en/ir/stock/information.html",
+        "https://www.tokiomarinehd.com/en/ir/"
+      ]
+    },
+    {
+      "company_id": "2b244306-9fc2-5562-9e78-79ce583a80ae",
+      "company_name": "UBS Group AG",
+      "official_domain": "ubs.com",
+      "notes": "",
+      "references": [
+        "https://www.ubs.com/global/en/our-firm/governance/ubs-group-ag.html",
+        "https://www.ubs.com/global/en/investor-relations.html",
+        "https://www.ubs.com/global/en/sustainability-impact/sustainability-reporting.html"
+      ]
+    },
+    {
+      "company_id": "b847276d-e889-56be-a844-4ccb1f22ea6b",
+      "company_name": "Visa Inc.",
+      "official_domain": "visa.com",
+      "notes": "",
+      "references": [
+        "https://investor.visa.com/",
+        "https://corporate.visa.com/en/about-visa/crs.html"
+      ]
+    },
+    {
+      "company_id": "f9e7b5ff-b39c-5f16-b68a-a17ce2fe0fde",
+      "company_name": "Wells Fargo & Company",
+      "official_domain": "wellsfargo.com",
+      "notes": "",
+      "references": [
+        "https://www.wellsfargo.com/about/investor-relations/shareholder-information/",
+        "https://www.wellsfargo.com/about/responsibility-and-impact/reporting-and-resources/"
+      ]
+    },
+    {
+      "company_id": "b9331fd7-6060-5e4e-8052-57289e1a0ccf",
+      "company_name": "Westpac Banking Corporation",
+      "official_domain": "westpac.com.au",
+      "notes": "",
+      "references": [
+        "https://www.westpac.com.au/about-westpac/investor-centre/westpac-share-information/",
+        "https://www.westpac.com.au/about-westpac/investor-centre/contact-investor-relations/"
+      ]
+    },
+    {
+      "company_id": "94471593-f67f-59b8-a119-43fda2232ee7",
+      "company_name": "Zurich Insurance Group AG",
+      "official_domain": "zurich.com",
+      "notes": "",
+      "references": [
+        "https://www.zurich.com/investor-relations/our-shares/registered-share-data",
+        "https://www.zurich.com/investor-relations"
+      ]
+    },
+    {
+      "company_id": "edcdbbdd-a7bc-5dc6-8460-f1c1521be1a3",
+      "company_name": "Aker BP ASA",
+      "official_domain": "akerbp.com",
+      "notes": "",
+      "references": [
+        "https://akerbp.com/en/investor/share/",
+        "https://akerbp.com/en/investor/"
+      ]
+    },
+    {
+      "company_id": "ed12232c-c7e1-5b65-b752-e5cbf00efedd",
+      "company_name": "ARC Resources Ltd.",
+      "official_domain": "arcresources.com",
+      "notes": "",
+      "references": [
+        "https://www.arcresources.com/wp-content/uploads/2026/02/2025-ARC-Annual-Report-web.pdf",
+        "https://www.arcresources.com/investors/"
+      ]
+    },
+    {
+      "company_id": "dd35fcae-9f10-587d-94d1-dcdf972bc018",
+      "company_name": "Baker Hughes Company",
+      "official_domain": "bakerhughes.com",
+      "notes": "",
+      "references": [
+        "https://www.bakerhughes.com/company/newsroom",
+        "https://investors.bakerhughes.com/"
+      ]
+    },
+    {
+      "company_id": "ad60f5c5-0547-599f-b657-94e0ed36c1d3",
+      "company_name": "BP p.l.c.",
+      "official_domain": "bp.com",
+      "notes": "",
+      "references": [
+        "https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/investors/bp-memorandum-and-articles-of-association-2018.pdf"
+      ]
+    },
+    {
+      "company_id": "887d468d-dd39-5e18-96d1-d1c2fc5fb138",
+      "company_name": "Canadian Natural Resources Limited",
+      "official_domain": "cnrl.com",
+      "notes": "",
+      "references": [
+        "https://www.cnrl.com/investors/stock-information/",
+        "https://www.cnrl.com/investors/"
+      ]
+    },
+    {
+      "company_id": "0ae298c6-4ace-552e-a23b-291e761b5898",
+      "company_name": "Cenovus Energy Inc.",
+      "official_domain": "cenovus.com",
+      "notes": "",
+      "references": [
+        "https://www.cenovus.com/Investors/Shareholder-information-and-FAQs",
+        "https://www.cenovus.com/Investors"
+      ]
+    },
+    {
+      "company_id": "9dbf430f-c72a-5b4b-a51f-63a3fe9e882f",
+      "company_name": "Cheniere Energy Inc.",
+      "official_domain": "cheniere.com",
+      "notes": "",
+      "references": [
+        "https://lngir.cheniere.com/company-information/faq",
+        "https://www.cheniere.com/investors"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000010",
+      "company_name": "Chevron Corporation",
+      "official_domain": "chevron.com",
+      "notes": "",
+      "references": [
+        "https://www.chevron.com/investors/stock-and-dividend",
+        "https://www.chevron.com/investors",
+        "https://www.chevron.com/investors/reports-and-filings"
+      ]
+    },
+    {
+      "company_id": "f33a0c07-ad7c-585b-8306-c6d7805e8e01",
+      "company_name": "ConocoPhillips",
+      "official_domain": "conocophillips.com",
+      "notes": "",
+      "references": [
+        "https://www.conocophillips.com/investor-relations/stock-information/",
+        "https://www.conocophillips.com/investor-relations/",
+        "https://www.conocophillips.com/company-reports-resources/"
+      ]
+    },
+    {
+      "company_id": "c3f37443-6925-5572-8525-c4c6f54864de",
+      "company_name": "Devon Energy Corporation",
+      "official_domain": "devonenergy.com",
+      "notes": "",
+      "references": [
+        "https://investors.devonenergy.com/investors/stock-information/default.aspx",
+        "https://investors.devonenergy.com/investors/",
+        "https://www.devonenergy.com/about-our-report"
+      ]
+    },
+    {
+      "company_id": "05a4e5b7-2bba-55cd-9402-e028dae05896",
+      "company_name": "Diamondback Energy Inc.",
+      "official_domain": "www.diamondbackenergy.com",
+      "notes": "",
+      "references": [
+        "https://ir.diamondbackenergy.com/node/17606/html",
+        "https://www.diamondbackenergy.com/investors"
+      ]
+    },
+    {
+      "company_id": "880a93de-059d-5de5-a763-1c4a4b232ea9",
+      "company_name": "Enbridge Inc.",
+      "official_domain": "enbridge.com",
+      "notes": "",
+      "references": [
+        "https://www.enbridge.com/reports/annual-letter-to-shareholders-2026/investor-information"
+      ]
+    },
+    {
+      "company_id": "20d6e30a-7547-5653-b413-26dbd1c0dd84",
+      "company_name": "ENEOS Holdings Inc.",
+      "official_domain": "hd.eneos.co.jp",
+      "notes": "",
+      "references": [
+        "https://www.hd.eneos.co.jp/english/ir/"
+      ]
+    },
+    {
+      "company_id": "4c64f75a-c6c7-5c17-addf-cc5620b24eb0",
+      "company_name": "EOG Resources Inc.",
+      "official_domain": "eogresources.com",
+      "notes": "",
+      "references": [
+        "https://investors.eogresources.com/investors",
+        "https://investors.eogresources.com/",
+        "https://www.eogresources.com/sustainability/"
+      ]
+    },
+    {
+      "company_id": "4f44620c-eb4d-5454-9898-e0438feaa3e7",
+      "company_name": "EQT Corporation",
+      "official_domain": "eqt.com",
+      "notes": "",
+      "references": [
+        "https://ir.eqt.com/investor-relations/overview/",
+        "https://ir.eqt.com/investor-relations/stock-information/transfer-agent-info/default.aspx"
+      ]
+    },
+    {
+      "company_id": "131ffc7e-e2fe-597f-becf-d5154533d82a",
+      "company_name": "Equinor ASA",
+      "official_domain": "equinor.com",
+      "notes": "",
+      "references": [
+        "https://www.equinor.com/investors/the-equinor-share",
+        "https://www.equinor.com/investors",
+        "https://www.equinor.com/sustainability/sustainability-reports-archive"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000009",
+      "company_name": "ExxonMobil",
+      "official_domain": "exxonmobil.com",
+      "notes": "",
+      "references": [
+        "https://ir.exxonmobil.com/static-files/7ec80a3d-9716-4c62-81b3-75b22ea4f28e",
+        "https://investor.exxonmobil.com/",
+        "https://corporate.exxonmobil.com/publications/about-our-sustainability-and-reports-and-legal-information"
+      ]
+    },
+    {
+      "company_id": "e956a824-c84c-5c02-aeac-c1a74f467712",
+      "company_name": "Halliburton Company",
+      "official_domain": "halliburton.com",
+      "notes": "",
+      "references": [
+        "https://ir.halliburton.com/node/36511/xbrl-viewer",
+        "https://ir.halliburton.com/"
+      ]
+    },
+    {
+      "company_id": "59305bb1-97c9-5d47-bb19-f1e09d350f5e",
+      "company_name": "Harbour Energy plc",
+      "official_domain": "harbourenergy.com",
+      "notes": "",
+      "references": [
+        "https://www.harbourenergy.com/investors/"
+      ]
+    },
+    {
+      "company_id": "cb4dd346-6ac0-5207-b094-5c61c26d11ea",
+      "company_name": "Idemitsu Kosan Co. Ltd.",
+      "official_domain": "idemitsu.com",
+      "notes": "",
+      "references": [
+        "https://www.idemitsu.com/en/ir/stock/data/index.html"
+      ]
+    },
+    {
+      "company_id": "f08fea9a-506e-5385-8418-8e8a175c22fe",
+      "company_name": "Imperial Oil Limited",
+      "official_domain": "imperialoil.ca",
+      "notes": "Separately listed Imperial Oil is majority-owned by ExxonMobil. Do not aggregate consolidated group metrics with Imperial metrics.",
+      "references": [
+        "https://www.imperialoil.ca/investors/investor-relations"
+      ]
+    },
+    {
+      "company_id": "8a97f3df-d264-5799-9995-c328511bc140",
+      "company_name": "INPEX Corporation",
+      "official_domain": "inpex.com",
+      "notes": "",
+      "references": [
+        "https://www.inpex.com/english/ir/shareholder/stock.html",
+        "https://www.inpex.com/english/ir/",
+        "https://www.inpex.com/english/sustainability/data/downloads/"
+      ]
+    },
+    {
+      "company_id": "44cbe9f9-963f-5e6b-8357-0e86aacfd85a",
+      "company_name": "Kinder Morgan Inc.",
+      "official_domain": "kindermorgan.com",
+      "notes": "",
+      "references": [
+        "https://www.kindermorgan.com/",
+        "https://ir.kindermorgan.com/home/"
+      ]
+    },
+    {
+      "company_id": "5fb6a288-e9fa-54a1-b991-8dcbaf026199",
+      "company_name": "Marathon Petroleum Corporation",
+      "official_domain": "marathonpetroleum.com",
+      "notes": "",
+      "references": [
+        "https://www.marathonpetroleum.com/Investors/"
+      ]
+    },
+    {
+      "company_id": "e9cd92f3-ad72-5685-9d9d-172091d831cb",
+      "company_name": "Neste Oyj",
+      "official_domain": "neste.com",
+      "notes": "",
+      "references": [
+        "https://www.neste.com/en-us/investors",
+        "https://www.neste.com/investors"
+      ]
+    },
+    {
+      "company_id": "8e24c99b-f993-51c4-8dbd-668ba02f33b3",
+      "company_name": "Occidental Petroleum Corporation",
+      "official_domain": "oxy.com",
+      "notes": "",
+      "references": [
+        "https://www.oxy.com/investors/",
+        "https://calciumchloride-prod.oxy.com/siteassets/documents/publications/2025-sustainability-report-web.pdf"
+      ]
+    },
+    {
+      "company_id": "47d5d94e-6e87-507b-ae32-ee8b39b2032f",
+      "company_name": "ONEOK Inc.",
+      "official_domain": "oneok.com",
+      "notes": "",
+      "references": [
+        "https://ir.oneok.com/how-to-invest/frequently-asked-questions",
+        "https://ir.oneok.com/"
+      ]
+    },
+    {
+      "company_id": "1fdcfbd6-4e64-56f0-ac60-0f8b885d89ee",
+      "company_name": "Pembina Pipeline Corporation",
+      "official_domain": "pembina.com",
+      "notes": "",
+      "references": [
+        "https://www.pembina.com/investors/stock-dividend",
+        "https://www.pembina.com/investors"
+      ]
+    },
+    {
+      "company_id": "b6c8d5b5-ee1f-5538-a624-8d0547201726",
+      "company_name": "Phillips 66",
+      "official_domain": "phillips66.com",
+      "notes": "",
+      "references": [
+        "https://investor.phillips66.com/stock-information/2025/default.aspx",
+        "https://www.phillips66.com/sustainability/"
+      ]
+    },
+    {
+      "company_id": "bf85bd2c-1742-512a-8736-3d9f799812db",
+      "company_name": "Santos Limited",
+      "official_domain": "santos.com",
+      "notes": "",
+      "references": [
+        "https://www.santos.com/investors/shareholder-information/",
+        "https://www.santos.com/investors/"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000011",
+      "company_name": "Shell plc",
+      "official_domain": "shell.com",
+      "notes": "",
+      "references": [
+        "https://www.shell.com/investors/information-for-shareholders/share-prices.html",
+        "https://www.shell.com/investors",
+        "https://www.shell.com/what-we-do/our-strategy/sustainability/reporting-centre.html"
+      ]
+    },
+    {
+      "company_id": "d56aa90e-d04f-5f5f-bbb9-2e92f83cef22",
+      "company_name": "Suncor Energy Inc.",
+      "official_domain": "suncor.com",
+      "notes": "",
+      "references": [
+        "https://www.suncor.com/en-ca/investors/events-and-presentations",
+        "https://www.suncor.com/en-ca/investors"
+      ]
+    },
+    {
+      "company_id": "ce12b5ce-30f7-5424-8a1a-d170d3ee5379",
+      "company_name": "TC Energy Corporation",
+      "official_domain": "tcenergy.com",
+      "notes": "",
+      "references": [
+        "https://www.tcenergy.com/investors/stock-information/frequently-asked-questions/",
+        "https://www.tcenergy.com/investors/stock-information/"
+      ]
+    },
+    {
+      "company_id": "ac1f5418-ab71-5087-9745-17a46615d695",
+      "company_name": "The Williams Companies Inc.",
+      "official_domain": "williams.com",
+      "notes": "",
+      "references": [
+        "https://investor.williams.com/static-files/f8b3ba6b-eaf5-4af0-8685-e803764862dc",
+        "https://investor.williams.com/"
+      ]
+    },
+    {
+      "company_id": "495b28b2-8fa7-539b-8eb0-44a3bc5c6937",
+      "company_name": "TotalEnergies SE",
+      "official_domain": "totalenergies.com",
+      "notes": "",
+      "references": [
+        "https://totalenergies.com/investors/shares-and-dividends/totalenergies-shares/totalenergies-shares-listed-on-the-nyse",
+        "https://totalenergies.com/investors",
+        "https://totalenergies.com/sustainability/our-approach/esg-documentation"
+      ]
+    },
+    {
+      "company_id": "0557cfcd-8186-5177-84c3-ef12c23a435b",
+      "company_name": "Tourmaline Oil Corp.",
+      "official_domain": "tourmalineoil.com",
+      "notes": "",
+      "references": [
+        "https://www.tourmalineoil.com/investors"
+      ]
+    },
+    {
+      "company_id": "89c23748-14a8-5a95-823c-f7dc2463d794",
+      "company_name": "Valero Energy Corporation",
+      "official_domain": "valero.com",
+      "notes": "",
+      "references": [
+        "https://www.valero.com/about/news-room",
+        "https://investorvalero.com/",
+        "https://www.valero.com/responsibility/guiding-principles"
+      ]
+    },
+    {
+      "company_id": "490c21d1-ca38-5687-9ab6-58c9b49f5b18",
+      "company_name": "Vår Energi ASA",
+      "official_domain": "varenergi.no",
+      "notes": "",
+      "references": [
+        "https://varenergi.no/en/investor/"
+      ]
+    },
+    {
+      "company_id": "3313f27b-000c-5027-b535-fb1aca2b8360",
+      "company_name": "Whitecap Resources Inc.",
+      "official_domain": "wcap.ca",
+      "notes": "",
+      "references": [
+        "https://www.wcap.ca/about/corporate-information",
+        "https://www.wcap.ca/investors"
+      ]
+    },
+    {
+      "company_id": "7bf1d5ca-049f-538c-94f6-e6dd941901e9",
+      "company_name": "Woodside Energy Group Ltd",
+      "official_domain": "woodside.com",
+      "notes": "",
+      "references": [
+        "https://www.woodside.com/investors/shareholder-information",
+        "https://www.woodside.com/investors",
+        "https://www.woodside.com/investors/reports-investor-briefings/report/annual-report-2025"
+      ]
+    },
+    {
+      "company_id": "82ee9ace-a82d-57cf-84c0-0c271bc862d7",
+      "company_name": "adidas AG",
+      "official_domain": "adidas-group.com",
+      "notes": "",
+      "references": [
+        "https://www.adidas-group.com/en/investors/share/share-details",
+        "https://www.adidas-group.com/en/investors"
+      ]
+    },
+    {
+      "company_id": "08d230e9-7989-5fe8-8548-92ef31dd3069",
+      "company_name": "Amazon.com Inc.",
+      "official_domain": "aboutamazon.com",
+      "notes": "Classified as Consumer / Retail for this pilot; consolidated Amazon reporting also includes AWS. Use industry and reporting-boundary checks.",
+      "references": [
+        "https://ir.aboutamazon.com/contact-us-and-request-documents/",
+        "https://sustainability.aboutamazon.com/reports"
+      ]
+    },
+    {
+      "company_id": "09e21729-3af4-509c-8f96-4e167bd25c74",
+      "company_name": "Associated British Foods plc",
+      "official_domain": "abf.co.uk",
+      "notes": "",
+      "references": [
+        "https://www.abf.co.uk/investors/shareholder-information",
+        "https://www.abf.co.uk/investors"
+      ]
+    },
+    {
+      "company_id": "99245b84-8c8f-5444-8e53-7685c1ca818f",
+      "company_name": "Beiersdorf AG",
+      "official_domain": "beiersdorf.com",
+      "notes": "",
+      "references": [
+        "https://www.beiersdorf.com/investor-relations/service/faq"
+      ]
+    },
+    {
+      "company_id": "d03d4e6e-607d-586d-8cf9-5f37f553278e",
+      "company_name": "Carlsberg A/S",
+      "official_domain": "carlsberggroup.com",
+      "notes": "",
+      "references": [
+        "https://www.carlsberggroup.com/investor-relations/shares/",
+        "https://carlsberggroup.com/investor-relations/shares/"
+      ]
+    },
+    {
+      "company_id": "c83d6597-2c79-53c7-a9bc-0ac27d4b22ff",
+      "company_name": "Carrefour SA",
+      "official_domain": "carrefour.com",
+      "notes": "",
+      "references": [
+        "https://www.carrefour.com/en/finance/regulated-information?page=0",
+        "https://www.carrefour.com/en/finance/shareholder-section"
+      ]
+    },
+    {
+      "company_id": "db0f56e8-8342-5c80-b6b5-f903b9c43ffc",
+      "company_name": "Coles Group Limited",
+      "official_domain": "colesgroup.com.au",
+      "notes": "",
+      "references": [
+        "https://www.colesgroup.com.au/investors"
+      ]
+    },
+    {
+      "company_id": "3ec8eb0b-b612-5531-9c87-39a9bf2d0764",
+      "company_name": "Colgate-Palmolive Company",
+      "official_domain": "colgatepalmolive.com",
+      "notes": "",
+      "references": [
+        "https://investor.colgatepalmolive.com/investor-faqs",
+        "https://investor.colgatepalmolive.com/shareholder-services/contact-us"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000014",
+      "company_name": "Costco Wholesale Corporation",
+      "official_domain": "costco.com",
+      "notes": "",
+      "references": [
+        "https://investor.costco.com/stock-info/default.aspx",
+        "https://investor.costco.com/overview/",
+        "https://www.costco.com/f/-/sustainability-resources"
+      ]
+    },
+    {
+      "company_id": "1e7de0c4-6f04-5dc7-9beb-829287d88a3b",
+      "company_name": "Danone SA",
+      "official_domain": "danone.com",
+      "notes": "",
+      "references": [
+        "https://www.danone.com/investors/shareholders/faq-and-contact.html",
+        "https://www.danone.com/investors.html"
+      ]
+    },
+    {
+      "company_id": "ea1450d9-60ae-5ff7-915d-bfcf0e885098",
+      "company_name": "Diageo plc",
+      "official_domain": "diageo.com",
+      "notes": "",
+      "references": [
+        "https://www.diageo.com/en/investors"
+      ]
+    },
+    {
+      "company_id": "caf9f0c0-54c8-554c-8bd5-58b793cb807b",
+      "company_name": "Fast Retailing Co. Ltd.",
+      "official_domain": "www.fastretailing.com",
+      "notes": "",
+      "references": [
+        "https://www.fastretailing.com/eng/ir/stockinfo/description.html",
+        "https://www.fastretailing.com/eng/ir/index.html"
+      ]
+    },
+    {
+      "company_id": "2968c2ef-e498-57bd-97dd-c4f4d3779624",
+      "company_name": "H & M Hennes & Mauritz AB",
+      "official_domain": "hmgroup.com",
+      "notes": "",
+      "references": [
+        "https://hmgroup.com/investors/reports/",
+        "https://hmgroup.com/investors/"
+      ]
+    },
+    {
+      "company_id": "652b773c-3fb1-588f-888b-0b55b681875b",
+      "company_name": "Heineken N.V.",
+      "official_domain": "theheinekencompany.com",
+      "notes": "",
+      "references": [
+        "https://www.theheinekencompany.com/sites/heineken-corp/files/2026-02/2025_Heineken_NV_Annual_Report_Interactive_100226_FINAL.pdf"
+      ]
+    },
+    {
+      "company_id": "1eaef703-ae0d-5f99-9164-41e00ae756ee",
+      "company_name": "Henkel AG & Co. KGaA",
+      "official_domain": "henkel.com",
+      "notes": "",
+      "references": [
+        "https://www.henkel.com/investors-and-analysts/shares",
+        "https://www.henkel.com/investors-and-analysts"
+      ]
+    },
+    {
+      "company_id": "090ab269-de81-574f-bddd-3822255ae865",
+      "company_name": "Kao Corporation",
+      "official_domain": "kao.com",
+      "notes": "",
+      "references": [
+        "https://www.kao.com/global/en/investor-relations/faq/",
+        "https://www.kao.com/global/en/investor-relations/",
+        "https://www.kao.com/global/en/sustainability/pdf/sustainability-report/backnumber/"
+      ]
+    },
+    {
+      "company_id": "90157228-7a33-5d5f-86c3-5246162d2b9d",
+      "company_name": "Kering SA",
+      "official_domain": "kering.com",
+      "notes": "",
+      "references": [
+        "https://www.kering.com/jp/finance/kering-share/",
+        "https://www.kering.com/en/finance/shareholders-information/your-publications/"
+      ]
+    },
+    {
+      "company_id": "778bc777-202b-5931-9ddd-8db4c01cedfc",
+      "company_name": "Koninklijke Ahold Delhaize N.V.",
+      "official_domain": "aholddelhaize.com",
+      "notes": "",
+      "references": [
+        "https://media.aholddelhaize.com/media/um1hqw4v/annual-report-2025.pdf",
+        "https://aholddelhaize.com/investors"
+      ]
+    },
+    {
+      "company_id": "f2390422-3349-569b-9810-4ada498f49dc",
+      "company_name": "L'Oréal SA",
+      "official_domain": "loreal.com",
+      "notes": "",
+      "references": [
+        "https://www.loreal.com/en/press-release/group/l-oreal-announces-launch-of-sixth-employee-share-ownership-plan/",
+        "https://www.loreal-finance.com/eng/loreal-individual-shareholder-relations",
+        "https://www.loreal.com/en/esg-performance/"
+      ]
+    },
+    {
+      "company_id": "eab9166e-fd3f-55d1-8880-b68e2544a232",
+      "company_name": "Loblaw Companies Limited",
+      "official_domain": "loblaw.ca",
+      "notes": "",
+      "references": [
+        "https://www.loblaw.ca/en/investors-stock-info/",
+        "https://www.loblaw.ca/en/investors-overview/"
+      ]
+    },
+    {
+      "company_id": "358f97b4-0950-5eb9-9e10-e732f46c076d",
+      "company_name": "Lowe's Companies Inc.",
+      "official_domain": "lowes.com",
+      "notes": "",
+      "references": [
+        "https://corporate.lowes.com/investors",
+        "https://corporate.lowes.com/our-responsibilities/corporate-responsibility-reports-policies"
+      ]
+    },
+    {
+      "company_id": "317f741d-735d-564a-acea-4bb9003c5e9c",
+      "company_name": "LVMH Moët Hennessy Louis Vuitton SE",
+      "official_domain": "lvmh.com",
+      "notes": "",
+      "references": [
+        "https://www.lvmh.com/en/publications/accelerating-growth-in-the-second-quarter---solid-first-half-results",
+        "https://www.lvmh.com/en/investors"
+      ]
+    },
+    {
+      "company_id": "d597dd11-b05e-5a30-8ff3-2f9be6ce9858",
+      "company_name": "McDonald's Corporation",
+      "official_domain": "mcdonalds.com",
+      "notes": "",
+      "references": [
+        "https://corporate.mcdonalds.com/corpmcd/investors.html",
+        "https://corporate.mcdonalds.com/corpmcd/config/investors0.html"
+      ]
+    },
+    {
+      "company_id": "027034e4-41ab-5e83-b437-49e94f246865",
+      "company_name": "Mondelez International Inc.",
+      "official_domain": "mondelezinternational.com",
+      "notes": "",
+      "references": [
+        "https://ir.mondelezinternational.com/investor-relations/",
+        "https://www.mondelezinternational.com/investors/",
+        "https://www.mondelezinternational.com/snacking-made-right/our-positions/sustainability/"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000016",
+      "company_name": "Nestlé S.A.",
+      "official_domain": "nestle.com",
+      "notes": "",
+      "references": [
+        "https://www.nestle.com/investors/individual-shareholders/questions-and-answers",
+        "https://www.nestle.com/investors",
+        "https://www.nestle.com/sustainability/performance-reporting/downloads-archive"
+      ]
+    },
+    {
+      "company_id": "820f708d-13ef-5ed0-aa78-8343d6af8298",
+      "company_name": "NIKE Inc.",
+      "official_domain": "nike.com",
+      "notes": "",
+      "references": [
+        "https://investors.nike.com/investors/stock-information/"
+      ]
+    },
+    {
+      "company_id": "558e7789-fc0d-5c71-993f-5526de1a0caa",
+      "company_name": "PepsiCo Inc.",
+      "official_domain": "pepsico.com",
+      "notes": "",
+      "references": [
+        "https://www.pepsico.com/investors",
+        "https://www.pepsico.com/en/sustainability/report-downloads"
+      ]
+    },
+    {
+      "company_id": "004b9dc2-a59c-5662-a500-76f3004149c3",
+      "company_name": "PUMA SE",
+      "official_domain": "about.puma.com",
+      "notes": "",
+      "references": [
+        "https://about.puma.com/en/investor-relations"
+      ]
+    },
+    {
+      "company_id": "72aa4f52-b23e-51c2-b577-9b7ac103c180",
+      "company_name": "Reckitt Benckiser Group plc",
+      "official_domain": "reckitt.com",
+      "notes": "",
+      "references": [
+        "https://www.reckitt.com/investors/your-shareholding/adr-information/",
+        "https://www.reckitt.com/investors/"
+      ]
+    },
+    {
+      "company_id": "d6184218-f007-5f7f-85da-db2f8e1603ad",
+      "company_name": "Seven & i Holdings Co. Ltd.",
+      "official_domain": "www.7andi.com",
+      "notes": "",
+      "references": [
+        "https://www.7andi.com/en/ir.html",
+        "https://www.7andi.com/en/ir/stocks/"
+      ]
+    },
+    {
+      "company_id": "6ff14a2c-52e1-563f-9b4b-01d81e4b1913",
+      "company_name": "Starbucks Corporation",
+      "official_domain": "starbucks.com",
+      "notes": "",
+      "references": [
+        "https://investor.starbucks.com/stock-info-and-resources/frequently-asked-questions-/default.aspx",
+        "https://investor.starbucks.com/ir-home/default.aspx"
+      ]
+    },
+    {
+      "company_id": "604682a9-6d00-5d2d-8326-19d5ce46c6f1",
+      "company_name": "Target Corporation",
+      "official_domain": "target.com",
+      "notes": "",
+      "references": [
+        "https://corporate.target.com/investors/annual/2025-annual-report/for-investors/shareholder-information",
+        "https://corporate.target.com/investors",
+        "https://corporate.target.com/getmedia/391e0902-54da-4a88-9325-4fa0098c2665/2025-Sustainability-and-Governance-Report.pdf"
+      ]
+    },
+    {
+      "company_id": "a31545f4-e6da-5186-910a-eb0974e05e96",
+      "company_name": "Tesco PLC",
+      "official_domain": "tescoplc.com",
+      "notes": "",
+      "references": [
+        "https://www.tescoplc.com/investors/share-price-information/share-price"
+      ]
+    },
+    {
+      "company_id": "b4a83944-a7a7-5c7e-85b5-351e979e95e4",
+      "company_name": "The Coca-Cola Company",
+      "official_domain": "coca-colacompany.com",
+      "notes": "",
+      "references": [
+        "https://investors.coca-colacompany.com/shareowners/faqs",
+        "https://investors.coca-colacompany.com/",
+        "https://www.coca-colacompany.com/policies-and-practices/sustainability"
+      ]
+    },
+    {
+      "company_id": "bbce71a1-3a7b-5179-a708-9b9530cf078c",
+      "company_name": "The Home Depot Inc.",
+      "official_domain": "homedepot.com",
+      "notes": "",
+      "references": [
+        "https://ir.homedepot.com/investor-resources/investor-documents",
+        "https://ir.homedepot.com/investor-resources/contact-investor-relations",
+        "https://ir.homedepot.com/sustainability"
+      ]
+    },
+    {
+      "company_id": "cc4d1ab2-f9cd-5a9d-b1bc-67f1c6d04644",
+      "company_name": "The Kraft Heinz Company",
+      "official_domain": "kraftheinzcompany.com",
+      "notes": "",
+      "references": [
+        "https://ir.kraftheinzcompany.com/"
+      ]
+    },
+    {
+      "company_id": "ca8b4ccc-17c1-5946-bb9b-20ac183edc62",
+      "company_name": "The Procter & Gamble Company",
+      "official_domain": "pg.com",
+      "notes": "",
+      "references": [
+        "https://us.pg.com/",
+        "https://www.pginvestor.com/financials/annual-reports/default.aspx",
+        "https://us.pg.com/sustainability-reports/"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000015",
+      "company_name": "Unilever PLC",
+      "official_domain": "unilever.com",
+      "notes": "",
+      "references": [
+        "https://www.unilever.com/investors/",
+        "https://www.unilever.com/files/unilever-sustainability-statement.pdf"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000013",
+      "company_name": "Walmart Inc.",
+      "official_domain": "walmart.com",
+      "notes": "",
+      "references": [
+        "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000095/wmt-20260521.htm",
+        "https://stock.walmart.com/",
+        "https://corporate.walmart.com/content/dam/corporate/documents/esgreport/2025/FY2025-Walmart-ESG-Report.pdf"
+      ]
+    },
+    {
+      "company_id": "beda8f9c-8655-5f9b-8184-49d3079787d3",
+      "company_name": "Woolworths Group Limited",
+      "official_domain": "woolworthsgroup.com.au",
+      "notes": "",
+      "references": [
+        "https://www.woolworthsgroup.com.au/au/en/investors/shareholding-information/shareholder-faqs.html",
+        "https://www.woolworthsgroup.com.au/au/en/investors.html",
+        "https://www.woolworthsgroup.com.au/content/dam/wwg/sustainability/reports/2025_WG_Sustainability_Report_Interactive_SPREADS.pdf"
+      ]
+    },
+    {
+      "company_id": "336a0d17-a6b1-5087-a560-6b5eab179f6f",
+      "company_name": "AB SKF",
+      "official_domain": "skf.com",
+      "notes": "",
+      "references": [
+        "https://www.skf.com/financial-reports-service/download/2242/report/Annual%20Report%202025",
+        "https://www.skf.com/group/investors"
+      ]
+    },
+    {
+      "company_id": "497cb6e3-f9fa-58f2-878d-ae5385f4b00d",
+      "company_name": "AB Volvo",
+      "official_domain": "volvogroup.com",
+      "notes": "",
+      "references": [
+        "https://www.volvogroup.com/en/investors/the-volvo-share.html"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000020",
+      "company_name": "ABB Ltd",
+      "official_domain": "global.abb",
+      "notes": "",
+      "references": [
+        "https://global.abb/group/en/investors/investor-and-shareholder-resources/share-listing",
+        "https://global.abb/group/en/investors/investor-and-shareholder-resources"
+      ]
+    },
+    {
+      "company_id": "3fe07e32-633d-5f9c-9787-a66794e762d9",
+      "company_name": "Airbus SE",
+      "official_domain": "airbus.com",
+      "notes": "Country is Netherlands legal domicile; the representative listing is Euronext Paris. Country is not the reporting or operating footprint.",
+      "references": [
+        "https://www.airbus.com/en/newsroom/press-releases/2026-07-airbus-reports-half-year-h1-2026-results",
+        "https://www.airbus.com/en/investors"
+      ]
+    },
+    {
+      "company_id": "7a96b60f-2ce2-5582-92f2-1f66a11edfc6",
+      "company_name": "ASSA ABLOY AB",
+      "official_domain": "assaabloy.com",
+      "notes": "",
+      "references": [
+        "https://www.assaabloy.com/group/en/investors"
+      ]
+    },
+    {
+      "company_id": "b72c84c9-3a63-57a1-981e-5dc633175395",
+      "company_name": "Atlas Copco AB",
+      "official_domain": "atlascopcogroup.com",
+      "notes": "",
+      "references": [
+        "https://www.atlascopcogroup.com/en/investors/atlas-copco-ab-share",
+        "https://www.atlascopcogroup.com/en/investors"
+      ]
+    },
+    {
+      "company_id": "cc3f0f06-61ae-5724-9630-90c6f155aa3b",
+      "company_name": "Bouygues SA",
+      "official_domain": "bouygues.com",
+      "notes": "",
+      "references": [
+        "https://www.bouygues.com/en/becoming-a-shareholder/"
+      ]
+    },
+    {
+      "company_id": "59471794-cb04-5e1b-8597-1e34fde90163",
+      "company_name": "Canadian National Railway Company",
+      "official_domain": "cn.ca",
+      "notes": "",
+      "references": [
+        "https://www.cn.ca/en/investors/stock-information/?x=CNI",
+        "https://www.cn.ca/investors"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000019",
+      "company_name": "Caterpillar Inc.",
+      "official_domain": "caterpillar.com",
+      "notes": "",
+      "references": [
+        "https://investors.caterpillar.com/stock-info/stock-trade-history/default.aspx",
+        "https://investors.caterpillar.com/stock-info/",
+        "https://www.caterpillar.com/en/company/sustainability/sustainability-report.html"
+      ]
+    },
+    {
+      "company_id": "ebccf4f3-7c5a-5e75-894d-759dfcf4aa61",
+      "company_name": "Daikin Industries Ltd.",
+      "official_domain": "www.daikin.com",
+      "notes": "",
+      "references": [
+        "https://www.daikin.com/investor/stock/stock_info",
+        "https://www.daikin.com/investor"
+      ]
+    },
+    {
+      "company_id": "88ecc59a-e07a-5664-9dd4-97e22a89c942",
+      "company_name": "Deere & Company",
+      "official_domain": "deere.com",
+      "notes": "",
+      "references": [
+        "https://investor.deere.com/investor-resources/default.aspx?appName=dcom&sourceLinkHref=https%253A%252F%252Finvestor.deere.com%252Finvestor-resources%252Fdefault.aspx%2523section%253Dcontact&sourceLinkId=cta%2520%253A%2520inquiries%2520%253A%2520investor-relations-contact&sourcePageName=en_us%2520%253A%2520our-company%2520%253A%2520contact-us&sourcePageURL=https%253A%252F%252Fwww.deere.com%252Fen%252Four-company%252Fcontact-us%252F",
+        "https://investor.deere.com/Home/"
+      ]
+    },
+    {
+      "company_id": "e2d22bf0-59a7-551d-8ec5-b7fa28a64bb9",
+      "company_name": "DHL Group",
+      "official_domain": "group.dhl.com",
+      "notes": "",
+      "references": [
+        "https://group.dhl.com/en/investors.html",
+        "https://group.dhl.com/en/investors/preview/investors.html"
+      ]
+    },
+    {
+      "company_id": "0a741fe8-3fe8-5ecf-95ff-f89f8d0753fc",
+      "company_name": "Emerson Electric Co.",
+      "official_domain": "emerson.com",
+      "notes": "",
+      "references": [
+        "https://ir.emerson.com/company-info/faq",
+        "https://ir.emerson.com/"
+      ]
+    },
+    {
+      "company_id": "0a41147c-c133-58c7-83fa-682da0b53006",
+      "company_name": "FedEx Corporation",
+      "official_domain": "fedex.com",
+      "notes": "",
+      "references": [
+        "https://investors.fedex.com/shareowner-services/investor-faqs/default.aspx",
+        "https://investor.fedex.com/"
+      ]
+    },
+    {
+      "company_id": "1a30bb31-add6-5d87-8e1e-b88b546a662e",
+      "company_name": "GE Aerospace",
+      "official_domain": "geaerospace.com",
+      "notes": "",
+      "references": [
+        "https://www.geaerospace.com/investor-relations/ir-updates",
+        "https://www.geaerospace.com/sustainability/reporting"
+      ]
+    },
+    {
+      "company_id": "8a84f1cf-eca8-5ead-85a3-bb8b4bfda0d2",
+      "company_name": "GE Vernova Inc.",
+      "official_domain": "gevernova.com",
+      "notes": "",
+      "references": [
+        "https://www.gevernova.com/investors/faq",
+        "https://www.gevernova.com/investors",
+        "https://www.gevernova.com/sustainability/reports-data"
+      ]
+    },
+    {
+      "company_id": "2872f76d-33f5-56d4-998a-73177b0d9c9f",
+      "company_name": "Geberit AG",
+      "official_domain": "geberit.com",
+      "notes": "",
+      "references": [
+        "https://www.geberit.com/en/media-and-investors/share",
+        "https://www.geberit.com/investors/"
+      ]
+    },
+    {
+      "company_id": "4e06235a-682a-5cfc-87e8-1047075ad11c",
+      "company_name": "General Dynamics Corporation",
+      "official_domain": "gd.com",
+      "notes": "",
+      "references": [
+        "https://investorrelations.gd.com/investor-resources/shareholder-information/default.aspx",
+        "https://investorrelations.gd.com/investor-resources/contact-investor-relations/default.aspx",
+        "https://www.gd.com/-/media/gd-corporate/pdf/gd-2025-sustainability-report.ashx"
+      ]
+    },
+    {
+      "company_id": "9f21e222-6f11-5e13-a758-90a1cfc734fc",
+      "company_name": "Hitachi Ltd.",
+      "official_domain": "hitachi.com",
+      "notes": "",
+      "references": [
+        "https://www.hitachi.com/en/ir/faq/",
+        "https://www.hitachi.com/en/ir/investor/",
+        "https://www.hitachi.com/en/sustainability/download/"
+      ]
+    },
+    {
+      "company_id": "09681a8c-81e7-501f-85e9-3624567259f6",
+      "company_name": "Illinois Tool Works Inc.",
+      "official_domain": "itw.com",
+      "notes": "",
+      "references": [
+        "https://investor.itw.com/",
+        "https://www.itw.com/media/cwbkuwfa/itw_2025sustainabilityreport_final.pdf"
+      ]
+    },
+    {
+      "company_id": "1a849e94-23c6-5f3c-b1f9-c97912443a95",
+      "company_name": "Komatsu Ltd.",
+      "official_domain": "komatsu.jp",
+      "notes": "",
+      "references": [
+        "https://www.komatsu.jp/en/ir"
+      ]
+    },
+    {
+      "company_id": "1f70350d-4f78-5b1c-b919-dafe7d0e8d5c",
+      "company_name": "KONE Oyj",
+      "official_domain": "kone.com",
+      "notes": "",
+      "references": [
+        "https://www.kone.com/en/Images/KONE_Annual%20Review_2025_tcm17-141619.pdf",
+        "https://www.kone.com/global/en/investors.html"
+      ]
+    },
+    {
+      "company_id": "7f6bffd6-538e-5ced-88bc-86271087a82c",
+      "company_name": "Legrand SA",
+      "official_domain": "legrandgroup.com",
+      "notes": "",
+      "references": [
+        "https://www.legrandgroup.com/fr/investisseurs-et-actionnaires/espace-actionnaires/questions-reponses",
+        "https://www.legrandgroup.com/en/investors-and-shareholders/share-price"
+      ]
+    },
+    {
+      "company_id": "e71e9a7a-7c6f-5ae2-8350-58d27bd4ac75",
+      "company_name": "Lockheed Martin Corporation",
+      "official_domain": "lockheedmartin.com",
+      "notes": "",
+      "references": [
+        "https://investors.lockheedmartin.com/shareholder-services/investor-faqs",
+        "https://investors.lockheedmartin.com/",
+        "https://sustainability.lockheedmartin.com/sustainability/disclosure-hub/"
+      ]
+    },
+    {
+      "company_id": "e89603b8-634d-5b25-b1e3-f83d0bff0c7b",
+      "company_name": "Metso Oyj",
+      "official_domain": "metso.com",
+      "notes": "",
+      "references": [
+        "https://www.metso.com/corporate/investors/"
+      ]
+    },
+    {
+      "company_id": "388e7b53-47f1-5b8c-a57d-9c85342b814d",
+      "company_name": "Mitsubishi Heavy Industries Ltd.",
+      "official_domain": "mhi.com",
+      "notes": "",
+      "references": [
+        "https://www.mhi.com/finance/stock/status",
+        "https://www.mhi.com/finance"
+      ]
+    },
+    {
+      "company_id": "6bcbb872-869d-5d20-a827-bbe840b0ace3",
+      "company_name": "MTU Aero Engines AG",
+      "official_domain": "mtu.de",
+      "notes": "",
+      "references": [
+        "https://www.mtu.de/investors/mtu-share/basic-information/",
+        "https://www.mtu.de/investors/"
+      ]
+    },
+    {
+      "company_id": "367bb55f-3cbe-573d-b955-dd1e37dc0b01",
+      "company_name": "Northrop Grumman Corporation",
+      "official_domain": "northropgrumman.com",
+      "notes": "",
+      "references": [
+        "https://investor.northropgrumman.com/static-files/ab8309ed-4317-46de-977c-613bdc4aa00b",
+        "https://investor.northropgrumman.com/",
+        "https://www.northropgrumman.com/corporate-responsibility/sustainability-reports"
+      ]
+    },
+    {
+      "company_id": "ef1701d3-56e6-5666-9027-9c21aea94a51",
+      "company_name": "Rockwell Automation Inc.",
+      "official_domain": "rockwellautomation.com",
+      "notes": "",
+      "references": [
+        "https://www.rockwellautomation.com/en-ca/company/investor-relations/investor-resources/faq.html"
+      ]
+    },
+    {
+      "company_id": "fc77e03a-ec64-5d79-8074-f92078e106ac",
+      "company_name": "RTX Corporation",
+      "official_domain": "rtx.com",
+      "notes": "",
+      "references": [
+        "https://investors.rtx.com/",
+        "https://www.rtx.com/who-we-are/our-responsibility"
+      ]
+    },
+    {
+      "company_id": "80ba9c6c-22f1-5160-ac6c-507c3dc1edc1",
+      "company_name": "Safran SA",
+      "official_domain": "safran-group.com",
+      "notes": "",
+      "references": [
+        "https://www.safran-group.com/finance/publications-results",
+        "https://www.safran-group.com/finance/analysts-and-investors"
+      ]
+    },
+    {
+      "company_id": "64cf8c22-8dfb-52e1-99fc-f5190291700b",
+      "company_name": "Sandvik AB",
+      "official_domain": "home.sandvik",
+      "notes": "",
+      "references": [
+        "https://www.home.sandvik/en/investors/"
+      ]
+    },
+    {
+      "company_id": "c8db4812-8a1f-5366-8cad-baad5b1f077d",
+      "company_name": "Schindler Holding Ltd",
+      "official_domain": "group.schindler.com",
+      "notes": "",
+      "references": [
+        "https://group.schindler.com/en/investor-relations/share-information.html",
+        "https://group.schindler.com/en/investor-relations.html"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000018",
+      "company_name": "Schneider Electric SE",
+      "official_domain": "se.com",
+      "notes": "",
+      "references": [
+        "https://www.se.com/ww/en/about-us/investor-relations/share-information/share-price/",
+        "https://www.se.com/ww/en/about-us/investor-relations/",
+        "https://www.se.com/ww/en/download/document/2025_Sustainability_Report/"
+      ]
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000017",
+      "company_name": "Siemens AG",
+      "official_domain": "siemens.com",
+      "notes": "",
+      "references": [
+        "https://www.siemens.com/en-us/company/investor-relations/",
+        "https://www.siemens.com/sk-sk/company/investor-relations/faq/",
+        "https://www.siemens.com/en-gb/company/sustainability/reports-figures/"
+      ]
+    },
+    {
+      "company_id": "f7bbb4b1-0414-54f0-866d-5bdc71c6da68",
+      "company_name": "Siemens Energy AG",
+      "official_domain": "siemensenergy.com",
+      "notes": "",
+      "references": [
+        "https://www.siemens-energy.com/us/en/home/contact.html",
+        "https://www.siemensenergy.com/global/en/home/investor-relations.html"
+      ]
+    },
+    {
+      "company_id": "e5929791-22b4-50a3-96c8-1a9f94b8e52f",
+      "company_name": "Union Pacific Corporation",
+      "official_domain": "up.com",
+      "notes": "",
+      "references": [
+        "https://www.up.com/cs/groups/public/%40uprr/%40investor/documents/investordocuments/pdf_up_10k_02092024.pdf",
+        "https://investor.unionpacific.com/",
+        "https://www.up.com/investors/sustainability/sustainability-reports"
+      ]
+    },
+    {
+      "company_id": "a7c01dd2-b8e5-5d99-8cf1-52eec918d3d7",
+      "company_name": "United Parcel Service Inc.",
+      "official_domain": "ups.com",
+      "notes": "",
+      "references": [
+        "https://investors.ups.com/employee-shareowner-services/faq",
+        "https://investors.ups.com/"
+      ]
+    },
+    {
+      "company_id": "9a8a29c9-2c64-5d88-9f29-08746f08848f",
+      "company_name": "Vestas Wind Systems A/S",
+      "official_domain": "vestas.com",
+      "notes": "",
+      "references": [
+        "https://www.vestas.com/en/investor",
+        "https://www.vestas.com/en/sustainability/reports-and-ratings"
+      ]
+    },
+    {
+      "company_id": "a05213d4-1932-5221-a98e-ed375dcafd6e",
+      "company_name": "VINCI SA",
+      "official_domain": "vinci.com",
+      "notes": "",
+      "references": [
+        "https://www.vinci.com/en/finance/share/stock-data",
+        "https://www.vinci.com/en/finance/investors"
+      ]
+    }
+  ]
+}

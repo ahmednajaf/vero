@@ -1,0 +1,86 @@
+[
+  {
+    "observation_id": "1601ef81-0906-498e-b518-06dbcc29f8c9",
+    "document_sha256": "f92b68f3cbbd87ac6aa55c7705a865de34ff300a5bc9e25d3d47f71edd8c117f",
+    "metric_id": "scope_1_emissions",
+    "reporting_year": 2024,
+    "source_page": 38,
+    "raw_value": "65,763",
+    "raw_unit": "Metric tons CO2e",
+    "year_excerpt": "2024",
+    "unit_excerpt": "Metric tons CO2e",
+    "review_note": "Visually checked the complete page-38 GHG table. The Scope 1 direct emissions row under the 2024 column is 65,763 Metric tons CO2e, repeated consistently in the market-based section. This is gross Scope 1, not a combined total or carbon-credit-adjusted net value. Boundary and peer compatibility have not been approved."
+  },
+  {
+    "observation_id": "e21180e1-a7b7-4386-a266-55a4a6c95156",
+    "document_sha256": "925fb257f1b3df67afdb8a6532e93922581f58926f56c05b92811a5cb0164d98",
+    "metric_id": "scope_2_location_based",
+    "reporting_year": 2024,
+    "source_page": 20,
+    "raw_value": "773,852",
+    "raw_unit": "tCO2e",
+    "year_excerpt": "2024",
+    "unit_excerpt": "GHG emissions (tCO2e)",
+    "review_note": "Visually checked page 20: 2024 is the left numeric column, 2023 the right. Scope 2 GHG emissions (location-based) is 773,852 under the tCO2e table heading. The 873,876 row is the separate Scope 1+2 total and was not used. Footnotes note acquisition estimates and excluded Neovest data centres; peer compatibility remains unchecked."
+  },
+  {
+    "observation_id": "5c2e502e-b2f5-4653-9dc3-d68d70b811f7",
+    "document_sha256": "925fb257f1b3df67afdb8a6532e93922581f58926f56c05b92811a5cb0164d98",
+    "metric_id": "scope_2_market_based",
+    "reporting_year": 2024,
+    "source_page": 20,
+    "raw_value": "6,806",
+    "raw_unit": "tCO2e",
+    "year_excerpt": "2024",
+    "unit_excerpt": "GHG emissions (tCO2e)",
+    "review_note": "Visually checked page 20: the 2024 Scope 2 GHG emissions (market-based) row is 6,806 under the tCO2e heading. This is not the combined 106,830 Scope 1+2 total. The electricity dash is explained by the footnote but was not itself converted to zero. Location- and market-based figures remain separate; no peer compatibility approval."
+  },
+  {
+    "observation_id": "c704c853-1c17-4634-ba15-e478555c209a",
+    "document_sha256": "597676e8b48ac45529303abc7ef47425ca62ff4efc3a375962a077a033525f74",
+    "metric_id": "scope_2_location_based",
+    "reporting_year": 2024,
+    "source_page": 104,
+    "raw_value": "1,224,500",
+    "raw_unit": "tCO2e",
+    "year_excerpt": "2024 reporting period (October 1, 2023",
+    "unit_excerpt": "tCO2e",
+    "review_note": "Visually checked the centre assurance table on physical page 104 of the 2025 Environmental Progress Report. The location-based Scope 2 row is 1,224,500 tCO2e; market-based is a separate 3,300 row. The statement specifies fiscal 2024 (October 1, 2023 through September 30, 2024) and worldwide occupied properties. This is a fiscal-year facilities figure, not the entire value-chain footprint. No peer compatibility approval."
+  },
+  {
+    "observation_id": "2b7f7b32-a5e1-4e32-8403-340ecd1dfe14",
+    "document_sha256": "f92b68f3cbbd87ac6aa55c7705a865de34ff300a5bc9e25d3d47f71edd8c117f",
+    "metric_id": "scope_1_emissions",
+    "reporting_year": 2024,
+    "source_page": 38,
+    "raw_value": "65,763",
+    "raw_unit": "Metric tons CO2e",
+    "year_excerpt": "2024",
+    "unit_excerpt": "Metric tons CO2e",
+    "review_note": "This is the batch extraction of the same source fact previously reviewed independently. Visually checked page 38: the 2024 Scope 1 direct emissions row is 65,763 Metric tons CO2e in both location-based and market-based sections. It is not the combined or net-after-offsets total. The previous extraction remains in the audit, not a second independent measurement. No peer compatibility approval."
+  },
+  {
+    "observation_id": "68abd1a5-c6de-411d-9533-a28022a1f1a2",
+    "document_sha256": "f92b68f3cbbd87ac6aa55c7705a865de34ff300a5bc9e25d3d47f71edd8c117f",
+    "metric_id": "scope_2_location_based",
+    "reporting_year": 2024,
+    "source_page": 38,
+    "raw_value": "617,413",
+    "raw_unit": "Metric tons CO2e",
+    "year_excerpt": "2024",
+    "unit_excerpt": "Metric tons CO2e",
+    "review_note": "Visually checked the page-38 GHG table: 2024 is the rightmost numeric column after baseline 2010, 2022 and 2023. Scope 2 indirect emissions (location-based) is 617,413 Metric tons CO2e. The 683,176 row is the separate combined Scope 1+2 figure. No cross-method aggregation or peer compatibility approval."
+  },
+  {
+    "observation_id": "ac32034f-d44f-4cc9-b0e2-2ef8dcfcc50a",
+    "document_sha256": "f92b68f3cbbd87ac6aa55c7705a865de34ff300a5bc9e25d3d47f71edd8c117f",
+    "metric_id": "scope_2_market_based",
+    "reporting_year": 2024,
+    "source_page": 38,
+    "raw_value": "16,587",
+    "raw_unit": "Metric tons CO2e",
+    "year_excerpt": "2024",
+    "unit_excerpt": "Metric tons CO2e",
+    "review_note": "Visually checked page 38: the 2024 Scope 2 indirect emissions (market-based) row is 16,587 Metric tons CO2e. The subsequent combined Scope 1+2 row is 82,350 and the offset-adjusted net row is zero; neither was substituted for gross Scope 2. No peer compatibility approval."
+  }
+]

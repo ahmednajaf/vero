@@ -1,0 +1,13 @@
+{
+  "input_sha256": "5245b9005abfb10f0c3701c808d0ed02ccd324d2bd7d1d8f600443cbde9d9b34",
+  "briefing": {
+    "path": "output/pdf/vero-2025-preview-briefing.pdf",
+    "mime": "application/pdf",
+    "sha256": "b1bd46e58832c238660eec4b44ee68aae095a977006f5f011c9ca6855332bc4d"
+  },
+  "workbook": {
+    "path": "outputs/vero-annual-preview/vero-2025-preview-workbook.xlsx",
+    "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "sha256": "6259514cf3212d42baa36b256421d3697a30fc93fc9ee91220c8a81929aed08a"
+  }
+}

@@ -1,0 +1,3880 @@
+{
+  "catalogue_version": "1.0.0",
+  "definition_policy": "Platform-owned definitions, not certification of compliance with a reporting standard. Aliases are retrieval clues, not permission to merge different scopes or concepts. Rules are declarative, not an implemented normalisation/scoring engine. Missing remains null; targets never equal performance.",
+  "reference_sources": [
+    {
+      "title": "GHG Protocol Scope 2 Guidance",
+      "url": "https://ghgprotocol.org/scope-2-guidance",
+      "checked_on": "2026-09-29",
+      "use": "Separate location- and market-based methods; retain accounting-method version."
+    },
+    {
+      "title": "GRI Water and Effluents (303)",
+      "url": "https://www.globalreporting.org/standards/standards-development/topic-standard-for-water-and-effluents-gri-303/",
+      "checked_on": "2026-09-29",
+      "use": "Keep withdrawal, consumption and discharge distinct; preserve water context."
+    },
+    {
+      "title": "SBTi Target Dashboard",
+      "url": "https://sciencebasedtargets.org/target-dashboard",
+      "checked_on": "2026-09-29",
+      "use": "Distinguish commitments, validated targets and removed commitments; preserve raw labels and as-of dates."
+    },
+    {
+      "title": "IFRS S2 Climate-related Disclosures",
+      "url": "https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/",
+      "checked_on": "2026-09-29",
+      "use": "Disclosure/reference is not an independent compliance assessment."
+    }
+  ],
+  "metrics": [
+    {
+      "canonical_id": "base_year_emissions",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Base-year emissions",
+      "description": "Historical emissions baseline for the identified metric, target and inventory boundary.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "tCO2e",
+      "allowed_units": [
+        "tCO2e",
+        "kgCO2e",
+        "ktCO2e",
+        "MtCO2e"
+      ],
+      "aliases": [
+        "baseline emissions",
+        "emissions in base year"
+      ],
+      "normalisation_rule": {
+        "id": "ghg_mass_to_tco2e",
+        "version": "1",
+        "kind": "scale",
+        "description": "Multiply only explicit CO2-equivalent mass units by exact decimal factors. Never convert CO2-only, carbon mass, offsets or avoided emissions into gross GHG emissions.",
+        "factors_to_canonical": {
+          "tCO2e": "1",
+          "kgCO2e": "0.001",
+          "ktCO2e": "1000",
+          "MtCO2e": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "A baseline is historical context, not current achieved performance. Restated and original baselines must not be mixed; the baseline year is not the current reporting year.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment",
+          "base_year",
+          "baseline_metric_id",
+          "included_scopes",
+          "restatement_basis",
+          "target_reference"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Gross inventory values exclude offsets, avoided emissions and separately reported removals."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment",
+        "base_year",
+        "baseline_metric_id",
+        "included_scopes",
+        "restatement_basis",
+        "target_reference"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "base_year_emissions"
+    },
+    {
+      "canonical_id": "emissions_intensity",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Emissions intensity",
+      "description": "Reported GHG emissions per explicitly defined activity, output, employee or monetary denominator.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "intensity",
+      "canonical_unit": null,
+      "allowed_units": [
+        "tCO2e/{denominator_unit}",
+        "kgCO2e/{denominator_unit}",
+        "ktCO2e/{denominator_unit}"
+      ],
+      "aliases": [
+        "GHG intensity",
+        "carbon emissions intensity"
+      ],
+      "normalisation_rule": {
+        "id": "ghg_intensity_contextual",
+        "version": "1",
+        "kind": "contextual",
+        "description": "Normalise the numerator to tCO2e only after its scope and GWP basis are known. Preserve denominator identity, unit and scale; no currency FX, revenue inflation adjustment or denominator substitution is implicit.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": "tCO2e/{denominator_unit}",
+        "requires_context": [
+          "numerator_metric_id",
+          "denominator_name",
+          "denominator_unit",
+          "denominator_scale",
+          "currency_code_if_monetary",
+          "currency_basis_if_monetary"
+        ],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Revenue, production, electricity and headcount intensities cannot be pooled. Currency, price year, denominator scaling, sector and included emissions must match.",
+      "score_eligibility": "conditional",
+      "preferred_direction": "lower",
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment",
+          "numerator_metric_id",
+          "denominator_name",
+          "denominator_unit",
+          "denominator_scale",
+          "denominator_value",
+          "currency_code_if_monetary",
+          "currency_basis_if_monetary",
+          "peer_activity"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Denominator value must be greater than zero.",
+          "Unit entries are templates, not interchangeable units; unresolved denominator or scope means not_comparable."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment",
+        "numerator_metric_id",
+        "denominator_name",
+        "denominator_unit",
+        "denominator_scale",
+        "denominator_value",
+        "currency_code_if_monetary",
+        "currency_basis_if_monetary",
+        "peer_activity"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "emissions_intensity"
+    },
+    {
+      "canonical_id": "scope_1_2_combined",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Combined Scope 1 and Scope 2 emissions",
+      "description": "Reported sum of gross Scope 1 plus exactly one explicitly identified Scope 2 method.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "tCO2e",
+      "allowed_units": [
+        "tCO2e",
+        "kgCO2e",
+        "ktCO2e",
+        "MtCO2e"
+      ],
+      "aliases": [
+        "scope 1 and 2 emissions",
+        "combined scope 1+2 emissions"
+      ],
+      "normalisation_rule": {
+        "id": "ghg_mass_to_tco2e",
+        "version": "1",
+        "kind": "scale",
+        "description": "Multiply only explicit CO2-equivalent mass units by exact decimal factors. Never convert CO2-only, carbon mass, offsets or avoided emissions into gross GHG emissions.",
+        "factors_to_canonical": {
+          "tCO2e": "1",
+          "kgCO2e": "0.001",
+          "ktCO2e": "1000",
+          "MtCO2e": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Do not sum location- and market-based Scope 2. A combined number without its Scope 2 method is not comparable; no automatic total is derived.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment",
+          "scope2_method",
+          "included_scopes"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Gross inventory values exclude offsets, avoided emissions and separately reported removals."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment",
+        "scope2_method",
+        "included_scopes"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope_1_2_combined"
+    },
+    {
+      "canonical_id": "scope_1_emissions",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Scope 1 emissions",
+      "description": "Direct gross GHG emissions from sources owned or controlled under the stated consolidation basis.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "tCO2e",
+      "allowed_units": [
+        "tCO2e",
+        "kgCO2e",
+        "ktCO2e",
+        "MtCO2e"
+      ],
+      "aliases": [
+        "scope 1 GHG emissions",
+        "direct greenhouse gas emissions"
+      ],
+      "normalisation_rule": {
+        "id": "ghg_mass_to_tco2e",
+        "version": "1",
+        "kind": "scale",
+        "description": "Multiply only explicit CO2-equivalent mass units by exact decimal factors. Never convert CO2-only, carbon mass, offsets or avoided emissions into gross GHG emissions.",
+        "factors_to_canonical": {
+          "tCO2e": "1",
+          "kgCO2e": "0.001",
+          "ktCO2e": "1000",
+          "MtCO2e": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Company size, acquisitions, control basis, gas coverage and GWP versions affect totals; gross direct emissions are not offset-adjusted net emissions.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Gross inventory values exclude offsets, avoided emissions and separately reported removals."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope_1_emissions"
+    },
+    {
+      "canonical_id": "scope_2_location_based",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Scope 2 emissions — location-based",
+      "description": "Gross indirect energy emissions using the stated location-based method.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "tCO2e",
+      "allowed_units": [
+        "tCO2e",
+        "kgCO2e",
+        "ktCO2e",
+        "MtCO2e"
+      ],
+      "aliases": [
+        "location-based scope 2 emissions",
+        "scope 2 location based"
+      ],
+      "normalisation_rule": {
+        "id": "ghg_mass_to_tco2e",
+        "version": "1",
+        "kind": "scale",
+        "description": "Multiply only explicit CO2-equivalent mass units by exact decimal factors. Never convert CO2-only, carbon mass, offsets or avoided emissions into gross GHG emissions.",
+        "factors_to_canonical": {
+          "tCO2e": "1",
+          "kgCO2e": "0.001",
+          "ktCO2e": "1000",
+          "MtCO2e": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Never pool with market-based Scope 2 or add both methods together. Grid geography and included purchased energy types differ.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment",
+          "scope2_method",
+          "purchased_energy_types"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "scope2_method must equal location_based."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment",
+        "scope2_method",
+        "purchased_energy_types"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope_2_location_based"
+    },
+    {
+      "canonical_id": "scope_2_market_based",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Scope 2 emissions — market-based",
+      "description": "Gross indirect energy emissions using the stated market-based method and eligible contractual instruments.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "tCO2e",
+      "allowed_units": [
+        "tCO2e",
+        "kgCO2e",
+        "ktCO2e",
+        "MtCO2e"
+      ],
+      "aliases": [
+        "market-based scope 2 emissions",
+        "scope 2 market based"
+      ],
+      "normalisation_rule": {
+        "id": "ghg_mass_to_tco2e",
+        "version": "1",
+        "kind": "scale",
+        "description": "Multiply only explicit CO2-equivalent mass units by exact decimal factors. Never convert CO2-only, carbon mass, offsets or avoided emissions into gross GHG emissions.",
+        "factors_to_canonical": {
+          "tCO2e": "1",
+          "kgCO2e": "0.001",
+          "ktCO2e": "1000",
+          "MtCO2e": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Never pool with location-based Scope 2 or treat contractual reductions as identical to physical grid reductions. Instrument quality and residual mixes matter.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment",
+          "scope2_method",
+          "purchased_energy_types",
+          "contractual_instrument_basis"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "scope2_method must equal market_based."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment",
+        "scope2_method",
+        "purchased_energy_types",
+        "contractual_instrument_basis"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope_2_market_based"
+    },
+    {
+      "canonical_id": "scope_3_emissions",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Scope 3 emissions",
+      "description": "Reported gross value-chain GHG emissions for the explicit set of included categories.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "tCO2e",
+      "allowed_units": [
+        "tCO2e",
+        "kgCO2e",
+        "ktCO2e",
+        "MtCO2e"
+      ],
+      "aliases": [
+        "scope 3 GHG emissions",
+        "value chain emissions"
+      ],
+      "normalisation_rule": {
+        "id": "ghg_mass_to_tco2e",
+        "version": "1",
+        "kind": "scale",
+        "description": "Multiply only explicit CO2-equivalent mass units by exact decimal factors. Never convert CO2-only, carbon mass, offsets or avoided emissions into gross GHG emissions.",
+        "factors_to_canonical": {
+          "tCO2e": "1",
+          "kgCO2e": "0.001",
+          "ktCO2e": "1000",
+          "MtCO2e": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Different category coverage, estimation methods and financed-emissions boundaries make totals non-comparable; do not imply coverage of all 15 categories.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment",
+          "scope3_categories",
+          "category_methodologies",
+          "financed_emissions_boundary"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Gross inventory values exclude offsets, avoided emissions and separately reported removals."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment",
+        "scope3_categories",
+        "category_methodologies",
+        "financed_emissions_boundary"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope_3_emissions"
+    },
+    {
+      "canonical_id": "total_ghg_reported",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Total GHG emissions as reported",
+      "description": "Company-labelled GHG total with its original included scopes and reconciliation retained.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "tCO2e",
+      "allowed_units": [
+        "tCO2e",
+        "kgCO2e",
+        "ktCO2e",
+        "MtCO2e"
+      ],
+      "aliases": [
+        "total greenhouse gas emissions",
+        "total carbon footprint"
+      ],
+      "normalisation_rule": {
+        "id": "ghg_mass_to_tco2e",
+        "version": "1",
+        "kind": "scale",
+        "description": "Multiply only explicit CO2-equivalent mass units by exact decimal factors. Never convert CO2-only, carbon mass, offsets or avoided emissions into gross GHG emissions.",
+        "factors_to_canonical": {
+          "tCO2e": "1",
+          "kgCO2e": "0.001",
+          "ktCO2e": "1000",
+          "MtCO2e": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "The word total is not a consistent boundary. May omit Scope 3 or include netting; never equate this generic total with a defined Scope 1+2+3 inventory.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment",
+          "included_scopes",
+          "scope2_method",
+          "scope3_categories",
+          "total_reconciliation"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Gross inventory values exclude offsets, avoided emissions and separately reported removals."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment",
+        "included_scopes",
+        "scope2_method",
+        "scope3_categories",
+        "total_reconciliation"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "total_ghg_reported"
+    },
+    {
+      "canonical_id": "yoy_emissions_change",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Year-on-year emissions change",
+      "description": "Percentage change in the same emissions measure relative to a comparable immediately preceding annual period.",
+      "category": "climate",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "percent_change",
+      "canonical_unit": "%",
+      "allowed_units": [
+        "%",
+        "fraction"
+      ],
+      "aliases": [
+        "year over year GHG change",
+        "annual emissions reduction percent"
+      ],
+      "normalisation_rule": {
+        "id": "yoy_percent_change",
+        "version": "1",
+        "kind": "contextual",
+        "description": "Canonical sign is (current - prior) / prior * 100. Use reported change only with stated sign convention; reverse a stated reduction percentage explicitly. Do not treat percentage points as percent change or derive from incompatible periods.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [
+          "prior_year",
+          "prior_emissions",
+          "comparison_metric_id",
+          "sign_convention",
+          "restatement_basis"
+        ],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Prior emissions must be positive. Restatements, boundary changes, acquisitions, period length and absolute-versus-intensity definitions can invalidate the trend.",
+      "score_eligibility": "conditional",
+      "preferred_direction": "lower",
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "-100",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "ghg_inventory_standard",
+          "gwp_basis",
+          "gases_included",
+          "gross_or_net",
+          "biogenic_co2_treatment",
+          "prior_year",
+          "prior_emissions",
+          "comparison_metric_id",
+          "sign_convention",
+          "restatement_basis"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Prior year must immediately precede the current reporting year and prior value must be greater than zero.",
+          "Negative means decrease; positive means increase. An increase above 100 percent is allowed.",
+          "The -100 percent floor applies only to comparable nonnegative gross inventories."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "ghg_inventory_standard",
+        "gwp_basis",
+        "gases_included",
+        "gross_or_net",
+        "biogenic_co2_treatment",
+        "prior_year",
+        "prior_emissions",
+        "comparison_metric_id",
+        "sign_convention",
+        "restatement_basis"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "yoy_emissions_change"
+    },
+    {
+      "canonical_id": "electricity_consumption",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Electricity consumption",
+      "description": "Electricity consumed by the stated operations, with purchased and self-generated coverage identified.",
+      "category": "energy",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "GJ",
+      "allowed_units": [
+        "GJ",
+        "MJ",
+        "TJ",
+        "PJ",
+        "kWh",
+        "MWh",
+        "GWh"
+      ],
+      "aliases": [
+        "electricity used",
+        "total electricity consumed"
+      ],
+      "normalisation_rule": {
+        "id": "energy_to_gj",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert explicit energy quantities to GJ using exact decimal factors. Power units (kW/MW), primary-versus-final energy, heating-value bases and sold-versus-consumed energy are not interchangeable.",
+        "factors_to_canonical": {
+          "GJ": "1",
+          "MJ": "0.001",
+          "TJ": "1000",
+          "PJ": "1000000",
+          "kWh": "0.0036",
+          "MWh": "3.6",
+          "GWh": "3600"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Consumed electricity differs from purchased, generated or exported electricity. Do not treat this subset as total energy.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "energy_basis",
+          "heating_value_basis",
+          "included_energy_carriers",
+          "self_generation_and_exports"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "energy_basis",
+        "heating_value_basis",
+        "included_energy_carriers",
+        "self_generation_and_exports"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "electricity_consumption"
+    },
+    {
+      "canonical_id": "renewable_electricity_percent",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Renewable electricity percentage",
+      "description": "Renewable electricity consumed divided by total electricity consumed for the same boundary.",
+      "category": "energy",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "share",
+      "canonical_unit": "%",
+      "allowed_units": [
+        "%",
+        "fraction"
+      ],
+      "aliases": [
+        "renewable electricity share",
+        "percentage renewable electricity"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_share_to_percent",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert a share explicitly labelled percent or fraction to percent. A decimal such as 0.5 is not assumed to be a fraction. Percentage-point changes are not percentage levels.",
+        "factors_to_canonical": {
+          "%": "1",
+          "fraction": "100"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Electricity is only a subset of energy. Physical supply, certificates and contractual procurement methods require separate or harmonised comparison groups.",
+      "score_eligibility": "conditional",
+      "preferred_direction": "higher",
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": "100",
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "renewable_electricity_numerator",
+          "total_electricity_denominator",
+          "renewable_claim_method"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Numerator and denominator must cover the same period/boundary and denominator must be greater than zero."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "renewable_electricity_numerator",
+        "total_electricity_denominator",
+        "renewable_claim_method"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "renewable_electricity_percent"
+    },
+    {
+      "canonical_id": "renewable_energy_percent",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Renewable energy percentage",
+      "description": "Renewable energy consumed divided by total energy consumed on a consistent energy basis.",
+      "category": "energy",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "share",
+      "canonical_unit": "%",
+      "allowed_units": [
+        "%",
+        "fraction"
+      ],
+      "aliases": [
+        "renewable energy share",
+        "percentage renewable energy"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_share_to_percent",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert a share explicitly labelled percent or fraction to percent. A decimal such as 0.5 is not assumed to be a fraction. Percentage-point changes are not percentage levels.",
+        "factors_to_canonical": {
+          "%": "1",
+          "fraction": "100"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Do not substitute renewable electricity share. Fuel sustainability definitions, heating values and energy carrier coverage affect comparability.",
+      "score_eligibility": "conditional",
+      "preferred_direction": "higher",
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": "100",
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "renewable_energy_numerator",
+          "total_energy_denominator",
+          "renewable_definition",
+          "energy_basis"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Numerator and denominator must cover the same period/boundary and denominator must be greater than zero."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "renewable_energy_numerator",
+        "total_energy_denominator",
+        "renewable_definition",
+        "energy_basis"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "renewable_energy_percent"
+    },
+    {
+      "canonical_id": "total_energy_consumption",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Total energy consumption",
+      "description": "Energy consumed within the stated organisational boundary, across explicitly included energy carriers.",
+      "category": "energy",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "GJ",
+      "allowed_units": [
+        "GJ",
+        "MJ",
+        "TJ",
+        "PJ",
+        "kWh",
+        "MWh",
+        "GWh"
+      ],
+      "aliases": [
+        "total energy use",
+        "energy consumed within the organisation"
+      ],
+      "normalisation_rule": {
+        "id": "energy_to_gj",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert explicit energy quantities to GJ using exact decimal factors. Power units (kW/MW), primary-versus-final energy, heating-value bases and sold-versus-consumed energy are not interchangeable.",
+        "factors_to_canonical": {
+          "GJ": "1",
+          "MJ": "0.001",
+          "TJ": "1000",
+          "PJ": "1000000",
+          "kWh": "0.0036",
+          "MWh": "3.6",
+          "GWh": "3600"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Do not combine primary/final energy, heating-value conventions or energy sold with energy consumed. Absolute totals are size-dependent.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "energy_basis",
+          "heating_value_basis",
+          "included_energy_carriers",
+          "self_generation_and_exports"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "energy_basis",
+        "heating_value_basis",
+        "included_energy_carriers",
+        "self_generation_and_exports"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "total_energy_consumption"
+    },
+    {
+      "canonical_id": "carbon_neutral_target_year",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Carbon-neutral target year",
+      "description": "Target year for the company's explicitly defined carbon-neutrality commitment; not an achieved result.",
+      "category": "targets",
+      "evidence_kind": "target",
+      "data_type": "integer",
+      "quantity_kind": "absolute",
+      "canonical_unit": "year",
+      "allowed_units": [
+        "year"
+      ],
+      "aliases": [
+        "carbon neutrality target date",
+        "carbon neutral by"
+      ],
+      "normalisation_rule": {
+        "id": "target_year_identity",
+        "version": "1",
+        "kind": "identity",
+        "description": "Retain an explicitly stated four-digit target calendar year. No inferred year from phrases such as soon, future or carbon neutral; retain claim wording separately.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Net zero and carbon neutrality are not interchangeable. Target scope, gases, residual emissions, offsets/removals and validation differ; earlier does not automatically rank better.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "1900",
+        "maximum": "2200",
+        "integer_only": true,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "target_scope",
+          "included_gases",
+          "target_definition",
+          "offsets_and_removals_role",
+          "target_status"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Store under targets, never as achieved performance.",
+          "A past target date is retained with status evidence; do not silently roll it forward."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "target_scope",
+        "included_gases",
+        "target_definition",
+        "offsets_and_removals_role",
+        "target_status"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "carbon_neutral_target_year"
+    },
+    {
+      "canonical_id": "interim_emissions_target",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Interim emissions target",
+      "description": "A time-bound interim GHG target with baseline, amount, metric basis and scope retained together.",
+      "category": "targets",
+      "evidence_kind": "target",
+      "data_type": "object",
+      "quantity_kind": "categorical",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "near-term emissions target",
+        "interim GHG reduction target"
+      ],
+      "normalisation_rule": {
+        "id": "interim_target_structured",
+        "version": "1",
+        "kind": "structured",
+        "description": "Retain a structured target: absolute or intensity basis, stated amount/unit, target and baseline years, scope and status. Numeric/unit normalisation is deferred until all target dimensions are explicit; no single scalar unit exists.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "A 50 percent intensity target and a 50 percent absolute reduction target are not equivalent. Targets are commitments, not achieved reductions.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "target_year": {
+              "type": "integer",
+              "minimum": 1900,
+              "maximum": 2200
+            },
+            "baseline_year": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 1900,
+              "maximum": 2200
+            },
+            "target_basis": {
+              "enum": [
+                "absolute",
+                "intensity"
+              ]
+            },
+            "amount": {
+              "type": "string",
+              "description": "Exact raw decimal string, not a float."
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scope": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "target_year",
+            "baseline_year",
+            "target_basis",
+            "amount",
+            "unit",
+            "scope",
+            "status"
+          ]
+        },
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "target_year",
+          "baseline_year",
+          "target_basis",
+          "target_scope",
+          "baseline_value",
+          "target_status"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Baseline year must not exceed target year when present.",
+          "Percent reductions must be between 0 and 100; an absolute target amount must be nonnegative.",
+          "Intensity targets additionally require denominator identity, unit and scale.",
+          "Store under targets; no observation or ranked scalar is created."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "target_year",
+        "baseline_year",
+        "target_basis",
+        "target_scope",
+        "baseline_value",
+        "target_status"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "interim_emissions_target"
+    },
+    {
+      "canonical_id": "net_zero_target_year",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Net-zero target year",
+      "description": "Target year for an explicitly defined net-zero commitment; not an achieved result.",
+      "category": "targets",
+      "evidence_kind": "target",
+      "data_type": "integer",
+      "quantity_kind": "absolute",
+      "canonical_unit": "year",
+      "allowed_units": [
+        "year"
+      ],
+      "aliases": [
+        "net zero by",
+        "net-zero ambition year"
+      ],
+      "normalisation_rule": {
+        "id": "target_year_identity",
+        "version": "1",
+        "kind": "identity",
+        "description": "Retain an explicitly stated four-digit target calendar year. No inferred year from phrases such as soon, future or carbon neutral; retain claim wording separately.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Net zero and carbon neutrality are not interchangeable. Target scope, gases, residual emissions, offsets/removals and validation differ; earlier does not automatically rank better.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "1900",
+        "maximum": "2200",
+        "integer_only": true,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "target_scope",
+          "included_gases",
+          "target_definition",
+          "offsets_and_removals_role",
+          "target_status"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Store under targets, never as achieved performance.",
+          "A past target date is retained with status evidence; do not silently roll it forward."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "target_scope",
+        "included_gases",
+        "target_definition",
+        "offsets_and_removals_role",
+        "target_status"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "net_zero_target_year"
+    },
+    {
+      "canonical_id": "sbti_status",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "SBTi status",
+      "description": "Reported science-based-target commitment or validation status at a specific date, including near-term/net-zero applicability.",
+      "category": "targets",
+      "evidence_kind": "target",
+      "data_type": "enum",
+      "quantity_kind": "categorical",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "science based targets initiative status",
+        "SBTi commitment or validation"
+      ],
+      "normalisation_rule": {
+        "id": "sbti_status_map",
+        "version": "1",
+        "kind": "enum_map",
+        "description": "Map only explicit reported labels to the internal non-ordinal status vocabulary. Preserve the original status label, source/date and whether the claim was checked against SBTi. Unrecognised labels remain other_reported_status with raw text.",
+        "factors_to_canonical": {},
+        "value_aliases": {
+          "Committed": "committed",
+          "Commitment to Set Targets": "committed",
+          "Targets Set": "validated_targets",
+          "Validated Targets": "validated_targets",
+          "Commitment Removed": "commitment_removed"
+        },
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Commitment is not validation, and target validation is not achieved performance. SBTi labels and standard versions evolve; retain as-of date, target type and raw label.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [
+          "committed",
+          "validated_targets",
+          "commitment_removed",
+          "other_reported_status"
+        ],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "status_as_of",
+          "raw_status_label",
+          "status_source",
+          "target_type",
+          "sbti_standard_version"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "This internal vocabulary is not an ordinal score or a claim to reproduce every official SBTi status.",
+          "Company-reported validation is not independently verified unless the status source documents that check."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "status_as_of",
+        "raw_status_label",
+        "status_source",
+        "target_type",
+        "sbti_standard_version"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "sbti_status"
+    },
+    {
+      "canonical_id": "water_consumption",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Water consumption",
+      "description": "Water consumed under the report's stated definition, including the treatment of storage changes.",
+      "category": "water",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "m3",
+      "allowed_units": [
+        "m3",
+        "L",
+        "kL",
+        "ML",
+        "GL"
+      ],
+      "aliases": [
+        "total water consumed",
+        "consumptive water use"
+      ],
+      "normalisation_rule": {
+        "id": "water_to_m3",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert explicit water volume to cubic metres. An unspecified gallon is ambiguous; no density-based mass conversion, netting, or withdrawal/consumption/discharge substitution.",
+        "factors_to_canonical": {
+          "m3": "1",
+          "L": "0.001",
+          "kL": "1",
+          "ML": "1000",
+          "GL": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Consumption is not gross withdrawal. Do not automatically compute withdrawal minus discharge when periods, storage or boundaries differ.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "water_sources_or_destinations",
+          "freshwater_definition",
+          "water_stress_boundary",
+          "basin_coverage",
+          "storage_change_treatment"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "water_sources_or_destinations",
+        "freshwater_definition",
+        "water_stress_boundary",
+        "basin_coverage",
+        "storage_change_treatment"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "water_consumption"
+    },
+    {
+      "canonical_id": "water_discharge",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Water discharge",
+      "description": "Water discharged to explicitly identified destinations during the reporting period.",
+      "category": "water",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "m3",
+      "allowed_units": [
+        "m3",
+        "L",
+        "kL",
+        "ML",
+        "GL"
+      ],
+      "aliases": [
+        "total water discharged",
+        "water effluent volume"
+      ],
+      "normalisation_rule": {
+        "id": "water_to_m3",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert explicit water volume to cubic metres. An unspecified gallon is ambiguous; no density-based mass conversion, netting, or withdrawal/consumption/discharge substitution.",
+        "factors_to_canonical": {
+          "m3": "1",
+          "L": "0.001",
+          "kL": "1",
+          "ML": "1000",
+          "GL": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Discharge volume says nothing alone about water quality or receiving-basin impact. Withdrawal, consumption and discharge cannot be pooled.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "water_sources_or_destinations",
+          "freshwater_definition",
+          "water_stress_boundary",
+          "basin_coverage",
+          "storage_change_treatment"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "water_sources_or_destinations",
+        "freshwater_definition",
+        "water_stress_boundary",
+        "basin_coverage",
+        "storage_change_treatment"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "water_discharge"
+    },
+    {
+      "canonical_id": "water_withdrawal",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Water withdrawal",
+      "description": "Water drawn into the organisation from all explicitly included sources during the reporting period.",
+      "category": "water",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "m3",
+      "allowed_units": [
+        "m3",
+        "L",
+        "kL",
+        "ML",
+        "GL"
+      ],
+      "aliases": [
+        "total water withdrawal",
+        "water abstracted"
+      ],
+      "normalisation_rule": {
+        "id": "water_to_m3",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert explicit water volume to cubic metres. An unspecified gallon is ambiguous; no density-based mass conversion, netting, or withdrawal/consumption/discharge substitution.",
+        "factors_to_canonical": {
+          "m3": "1",
+          "L": "0.001",
+          "kL": "1",
+          "ML": "1000",
+          "GL": "1000000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Withdrawal is not consumption or discharge. Compare sources, freshwater coverage and water-stressed basin exposure; company-wide volume alone is not water impact.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "water_sources_or_destinations",
+          "freshwater_definition",
+          "water_stress_boundary",
+          "basin_coverage",
+          "storage_change_treatment"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "water_sources_or_destinations",
+        "freshwater_definition",
+        "water_stress_boundary",
+        "basin_coverage",
+        "storage_change_treatment"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "water_withdrawal"
+    },
+    {
+      "canonical_id": "hazardous_waste",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Hazardous waste generated",
+      "description": "Mass of waste generated and classified hazardous under the explicitly identified legal or reporting definition.",
+      "category": "waste",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "t",
+      "allowed_units": [
+        "t",
+        "kg",
+        "kt"
+      ],
+      "aliases": [
+        "hazardous waste generation",
+        "total hazardous waste"
+      ],
+      "normalisation_rule": {
+        "id": "waste_mass_to_t",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert explicit metric mass to tonnes. An unspecified ton, short ton, long ton, volume or percentage requires review; do not infer metric tonnes.",
+        "factors_to_canonical": {
+          "t": "1",
+          "kg": "0.001",
+          "kt": "1000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Hazardous definitions vary by jurisdiction. Compare the same classification and boundary; do not assume every report uses the same hazard criteria.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "waste_boundary",
+          "waste_classification",
+          "jurisdiction",
+          "generated_or_managed"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "waste_boundary",
+        "waste_classification",
+        "jurisdiction",
+        "generated_or_managed"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "hazardous_waste"
+    },
+    {
+      "canonical_id": "recycled_or_diverted_percent",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Waste recycled or diverted percentage",
+      "description": "Share of the stated waste denominator recycled or diverted, with the exact recovery routes retained.",
+      "category": "waste",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "share",
+      "canonical_unit": "%",
+      "allowed_units": [
+        "%",
+        "fraction"
+      ],
+      "aliases": [
+        "waste recycling rate",
+        "waste diversion rate"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_share_to_percent",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert a share explicitly labelled percent or fraction to percent. A decimal such as 0.5 is not assumed to be a fraction. Percentage-point changes are not percentage levels.",
+        "factors_to_canonical": {
+          "%": "1",
+          "fraction": "100"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Recycling, diversion from disposal and diversion from landfill are not synonyms. Incineration with energy recovery may count in diversion but not recycling; compare identical route definitions only.",
+      "score_eligibility": "conditional",
+      "preferred_direction": "higher",
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": "100",
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "recovery_route_definition",
+          "included_treatment_routes",
+          "waste_denominator",
+          "generated_or_managed"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Denominator must be positive and numerator must be a subset of the same waste boundary.",
+          "The canonical ID is a family; recycling and diversion must use separate comparison groups."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "recovery_route_definition",
+        "included_treatment_routes",
+        "waste_denominator",
+        "generated_or_managed"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "recycled_or_diverted_percent"
+    },
+    {
+      "canonical_id": "total_waste",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Total waste generated",
+      "description": "Total mass of waste generated within the disclosed boundary, not merely waste disposed.",
+      "category": "waste",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "absolute",
+      "canonical_unit": "t",
+      "allowed_units": [
+        "t",
+        "kg",
+        "kt"
+      ],
+      "aliases": [
+        "total waste generated",
+        "waste generation"
+      ],
+      "normalisation_rule": {
+        "id": "waste_mass_to_t",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert explicit metric mass to tonnes. An unspecified ton, short ton, long ton, volume or percentage requires review; do not infer metric tonnes.",
+        "factors_to_canonical": {
+          "t": "1",
+          "kg": "0.001",
+          "kt": "1000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Generation, disposal and waste managed for customers are different quantities. Hazardous classifications and construction/operational coverage differ.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "waste_boundary",
+          "waste_classification",
+          "jurisdiction",
+          "generated_or_managed"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "waste_boundary",
+        "waste_classification",
+        "jurisdiction",
+        "generated_or_managed"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "total_waste"
+    },
+    {
+      "canonical_id": "assurance_status",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Assurance status",
+      "description": "External assurance status and level for the specified report or metric subset.",
+      "category": "governance",
+      "evidence_kind": "governance",
+      "data_type": "enum",
+      "quantity_kind": "categorical",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "external assurance level",
+        "independent sustainability assurance"
+      ],
+      "normalisation_rule": {
+        "id": "assurance_level_map",
+        "version": "1",
+        "kind": "enum_map",
+        "description": "Classify explicit assurance opinion wording and retain covered metrics, period, provider, standard and opinion. Do not promote limited assurance to reasonable assurance.",
+        "factors_to_canonical": {},
+        "value_aliases": {
+          "limited assurance": "limited",
+          "reasonable assurance": "reasonable",
+          "mixed levels": "mixed",
+          "explicitly not assured": "explicitly_not_assured"
+        },
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Assurance of selected indicators is not assurance of the whole report. Scope, level, provider independence and qualifications matter; no simple ordinal ranking is assigned.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [
+          "limited",
+          "reasonable",
+          "mixed",
+          "explicitly_not_assured",
+          "other_reported_level"
+        ],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "assurance_scope",
+          "assurance_level",
+          "assurance_provider",
+          "assurance_standard",
+          "assurance_opinion"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Unknown or unstated level cannot be mapped to reasonable or limited.",
+          "An assurance report must cover the relevant period and measures."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "assurance_scope",
+        "assurance_level",
+        "assurance_provider",
+        "assurance_standard",
+        "assurance_opinion"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "assurance_status"
+    },
+    {
+      "canonical_id": "board_sustainability_oversight",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Board sustainability oversight",
+      "description": "Explicitly documented board or board-committee accountability for sustainability oversight.",
+      "category": "governance",
+      "evidence_kind": "governance",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "board ESG oversight",
+        "board sustainability responsibility"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Committee existence alone does not prove effective oversight or sustainability outcomes; remit, reporting cadence and authority differ.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "oversight_body",
+          "oversight_remit"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "True requires an explicit board-level remit; generic management responsibility is insufficient."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "oversight_body",
+        "oversight_remit"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "board_sustainability_oversight"
+    },
+    {
+      "canonical_id": "climate_linked_remuneration",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Climate-linked remuneration",
+      "description": "Explicit presence of climate-related criteria in executive remuneration arrangements.",
+      "category": "governance",
+      "evidence_kind": "governance",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "climate linked executive pay",
+        "climate incentive remuneration"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "A binary link omits incentive weight, measure quality and actual payout. Generic ESG pay criteria are not necessarily climate-linked.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "covered_executives",
+          "incentive_period",
+          "climate_measure",
+          "incentive_weight"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "True requires a climate-specific measure; do not infer from generic ESG terminology."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "covered_executives",
+        "incentive_period",
+        "climate_measure",
+        "incentive_weight"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "climate_linked_remuneration"
+    },
+    {
+      "canonical_id": "executive_sustainability_owner",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Executive sustainability owner",
+      "description": "Explicitly identified executive role accountable for sustainability, distinct from board oversight.",
+      "category": "governance",
+      "evidence_kind": "governance",
+      "data_type": "text",
+      "quantity_kind": "categorical",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "executive ESG accountability",
+        "chief sustainability officer responsibility"
+      ],
+      "normalisation_rule": {
+        "id": "executive_role_identity",
+        "version": "1",
+        "kind": "identity",
+        "description": "Retain the explicitly named executive role or accountable office as text; trim surrounding whitespace only. Preserve raw wording and do not infer authority from a title.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Job titles, seniority, remit and accountability differ. A named sustainability officer is not evidence of effective execution and is not an ordinal metric.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "executive_role",
+          "responsibility_remit"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Non-null text must be nonblank and supported by a role/accountability excerpt.",
+          "Do not store private contact details or infer a named individual where only an office is disclosed."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "executive_role",
+        "responsibility_remit"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "executive_sustainability_owner"
+    },
+    {
+      "canonical_id": "issb_disclosure",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "ISSB disclosure status",
+      "description": "Reported reference, alignment claim or explicit compliance statement for identified ISSB standards.",
+      "category": "governance",
+      "evidence_kind": "governance",
+      "data_type": "enum",
+      "quantity_kind": "categorical",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "ISSB reporting",
+        "IFRS S1 S2 disclosure"
+      ],
+      "normalisation_rule": {
+        "id": "issb_disclosure_map",
+        "version": "1",
+        "kind": "enum_map",
+        "description": "Map explicit disclosure statements only; retain raw claim and framework coverage. Do not infer alignment from keywords or independently certify compliance.",
+        "factors_to_canonical": {},
+        "value_aliases": {
+          "ISSB referenced": "reference_only",
+          "partial IFRS sustainability disclosure": "partial_disclosure",
+          "ISSB aligned": "claimed_alignment",
+          "explicit IFRS S1 and S2 compliance statement": "explicit_compliance_statement"
+        },
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Mentioning ISSB or IFRS S2 does not establish compliance with IFRS S1 and S2. Preserve standard/version, jurisdiction, transition relief and exact claim.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [
+          "reference_only",
+          "partial_disclosure",
+          "claimed_alignment",
+          "explicit_compliance_statement"
+        ],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "framework_version",
+          "disclosure_extent",
+          "claim_basis",
+          "jurisdiction"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Absence is null/not_reported after documented review, not an invented non-compliance finding."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "framework_version",
+        "disclosure_extent",
+        "claim_basis",
+        "jurisdiction"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "issb_disclosure"
+    },
+    {
+      "canonical_id": "tcfd_disclosure",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "TCFD disclosure status",
+      "description": "Reported use or claimed alignment with TCFD recommendations, retaining the exact extent of disclosure.",
+      "category": "governance",
+      "evidence_kind": "governance",
+      "data_type": "enum",
+      "quantity_kind": "categorical",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "TCFD reporting",
+        "TCFD alignment disclosure"
+      ],
+      "normalisation_rule": {
+        "id": "tcfd_disclosure_map",
+        "version": "1",
+        "kind": "enum_map",
+        "description": "Map explicit disclosure statements only; retain raw claim and framework coverage. Do not infer alignment from keywords or independently certify compliance.",
+        "factors_to_canonical": {},
+        "value_aliases": {
+          "TCFD referenced": "reference_only",
+          "partial TCFD disclosure": "partial_disclosure",
+          "TCFD aligned": "claimed_alignment"
+        },
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Mentioning TCFD is not full alignment, assurance or regulatory compliance. Framework reference and substantive disclosure must remain distinct.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [
+          "reference_only",
+          "partial_disclosure",
+          "claimed_alignment",
+          "explicitly_not_aligned"
+        ],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "framework_version",
+          "disclosure_extent",
+          "claim_basis",
+          "jurisdiction"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Absence is null/not_reported after documented review, not an invented non-compliance finding."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "framework_version",
+        "disclosure_extent",
+        "claim_basis",
+        "jurisdiction"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "tcfd_disclosure"
+    },
+    {
+      "canonical_id": "employees",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Employees",
+      "description": "Employee headcount for an explicitly stated date or annual averaging basis.",
+      "category": "social",
+      "evidence_kind": "performance",
+      "data_type": "integer",
+      "quantity_kind": "absolute",
+      "canonical_unit": "persons",
+      "allowed_units": [
+        "persons",
+        "thousand_persons"
+      ],
+      "aliases": [
+        "employee headcount",
+        "number of employees"
+      ],
+      "normalisation_rule": {
+        "id": "headcount_to_persons",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert explicitly stated headcount to persons. FTE and contractor counts are not headcount units; no implicit conversion or rounding to manufacture an integer.",
+        "factors_to_canonical": {
+          "persons": "1",
+          "thousand_persons": "1000"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Year-end headcount, average headcount, FTE and workers including contractors differ. More employees is not inherently better sustainability performance.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": true,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "headcount_basis",
+          "reference_date_or_averaging_period",
+          "worker_population"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Normalised headcount must be an integer; preserve rounding qualifiers on scaled reported values.",
+          "FTE-only figures require a different definition, not relabelling as persons."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "headcount_basis",
+        "reference_date_or_averaging_period",
+        "worker_population"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "employees"
+    },
+    {
+      "canonical_id": "injury_rate",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Work-related injury rate",
+      "description": "Reported work-related injury incidence rate with injury definition, population and hours basis retained.",
+      "category": "social",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "rate",
+      "canonical_unit": "cases/1000000_hours",
+      "allowed_units": [
+        "cases/1000000_hours",
+        "cases/200000_hours"
+      ],
+      "aliases": [
+        "recordable injury rate",
+        "lost time injury frequency rate",
+        "TRIR",
+        "LTIFR"
+      ],
+      "normalisation_rule": {
+        "id": "injury_rate_per_million_hours",
+        "version": "1",
+        "kind": "scale",
+        "description": "Rescale an explicitly defined injury-rate denominator to one million hours. Retain rate type and covered population; never convert TRIR into LTIFR or employee-only into all-worker rates.",
+        "factors_to_canonical": {
+          "cases/1000000_hours": "1",
+          "cases/200000_hours": "5"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Recordable, lost-time, high-consequence and fatal-injury measures are different metrics. Jurisdiction, reporting incentives and contractor coverage affect comparisons.",
+      "score_eligibility": "conditional",
+      "preferred_direction": "lower",
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "injury_rate_type",
+          "injury_definition",
+          "worker_population",
+          "hours_worked",
+          "rate_denominator_hours",
+          "jurisdiction"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Hours worked must be positive; base must explicitly equal 200000 or 1000000 hours.",
+          "Aliases are retrieval clues only: recordable and lost-time rates remain separate comparison groups."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "injury_rate_type",
+        "injury_definition",
+        "worker_population",
+        "hours_worked",
+        "rate_denominator_hours",
+        "jurisdiction"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "injury_rate"
+    },
+    {
+      "canonical_id": "women_management_percent",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Women in management percentage",
+      "description": "Reported proportion of women within the company's explicitly defined management population.",
+      "category": "social",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "share",
+      "canonical_unit": "%",
+      "allowed_units": [
+        "%",
+        "fraction"
+      ],
+      "aliases": [
+        "female managers percentage",
+        "women in leadership share"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_share_to_percent",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert a share explicitly labelled percent or fraction to percent. A decimal such as 0.5 is not assumed to be a fraction. Percentage-point changes are not percentage levels.",
+        "factors_to_canonical": {
+          "%": "1",
+          "fraction": "100"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Population, management levels, geography, self-identification and missing gender data differ. This descriptive composition measure has no universal higher-is-better direction or automatic ranking.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": "100",
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "management_level_definition",
+          "population_definition",
+          "gender_data_collection_basis"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Denominator must be positive; retain undisclosed/other gender handling and collection method.",
+          "Do not infer counts, gender identities or workforce coverage from the percentage alone."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "management_level_definition",
+        "population_definition",
+        "gender_data_collection_basis"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "women_management_percent"
+    },
+    {
+      "canonical_id": "women_percent",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Women in workforce percentage",
+      "description": "Reported proportion of the explicitly defined employee/workforce population identifying as women.",
+      "category": "social",
+      "evidence_kind": "performance",
+      "data_type": "decimal",
+      "quantity_kind": "share",
+      "canonical_unit": "%",
+      "allowed_units": [
+        "%",
+        "fraction"
+      ],
+      "aliases": [
+        "female employees percentage",
+        "women in workforce share"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_share_to_percent",
+        "version": "1",
+        "kind": "scale",
+        "description": "Convert a share explicitly labelled percent or fraction to percent. A decimal such as 0.5 is not assumed to be a fraction. Percentage-point changes are not percentage levels.",
+        "factors_to_canonical": {
+          "%": "1",
+          "fraction": "100"
+        },
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Population, management levels, geography, self-identification and missing gender data differ. This descriptive composition measure has no universal higher-is-better direction or automatic ranking.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": true,
+        "minimum": "0",
+        "maximum": "100",
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "period_start",
+          "period_end",
+          "organisational_boundary",
+          "consolidation_basis",
+          "coverage_description",
+          "methodology_version",
+          "population_definition",
+          "gender_data_collection_basis"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Denominator must be positive; retain undisclosed/other gender handling and collection method.",
+          "Do not infer counts, gender identities or workforce coverage from the percentage alone."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "period_start",
+        "period_end",
+        "organisational_boundary",
+        "consolidation_basis",
+        "coverage_description",
+        "methodology_version",
+        "population_definition",
+        "gender_data_collection_basis"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "women_percent"
+    },
+    {
+      "canonical_id": "responsible_sourcing_policy",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Responsible sourcing policy",
+      "description": "Explicitly published or described responsible-sourcing policy applying to the stated suppliers or materials.",
+      "category": "supply_chain",
+      "evidence_kind": "programme",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "sustainable sourcing policy",
+        "responsible procurement policy"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "A policy is not audited compliance or demonstrated outcomes. Coverage, issue scope, enforcement and exceptions differ.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "policy_scope",
+          "materials_or_suppliers_covered",
+          "enforcement_basis"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "True requires substantive policy/programme evidence, not only an aspirational slogan.",
+          "Targets or supplier code documents do not by themselves establish achieved emissions performance."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "policy_scope",
+        "materials_or_suppliers_covered",
+        "enforcement_basis"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "responsible_sourcing_policy"
+    },
+    {
+      "canonical_id": "scope3_supplier_engagement",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Scope 3 supplier engagement",
+      "description": "Explicit engagement of suppliers on identified Scope 3 categories, not a numeric emissions outcome.",
+      "category": "supply_chain",
+      "evidence_kind": "programme",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "scope 3 supplier engagement",
+        "value chain supplier climate engagement"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Generic procurement engagement is not necessarily Scope 3 engagement. Supplier-spend coverage, categories and outcomes differ.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "scope3_categories",
+          "engagement_scope",
+          "supplier_population"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "True requires substantive policy/programme evidence, not only an aspirational slogan.",
+          "Targets or supplier code documents do not by themselves establish achieved emissions performance."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "scope3_categories",
+        "engagement_scope",
+        "supplier_population"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope3_supplier_engagement"
+    },
+    {
+      "canonical_id": "supplier_emissions_programme",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Supplier emissions programme",
+      "description": "Explicit existence of a supplier-focused emissions measurement or reduction programme.",
+      "category": "supply_chain",
+      "evidence_kind": "programme",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "supplier decarbonisation programme",
+        "supplier carbon programme"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Programme existence does not prove supplier coverage, participation or achieved emissions reductions.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "programme_scope",
+          "supplier_population",
+          "programme_activities"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "True requires substantive policy/programme evidence, not only an aspirational slogan.",
+          "Targets or supplier code documents do not by themselves establish achieved emissions performance."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "programme_scope",
+        "supplier_population",
+        "programme_activities"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "supplier_emissions_programme"
+    },
+    {
+      "canonical_id": "assurance_available",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Assurance disclosure available",
+      "description": "Whether an assurance statement is available in the explicitly reviewed source set.",
+      "category": "disclosure_quality",
+      "evidence_kind": "disclosure",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "assurance statement available"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Disclosure availability is not environmental or social performance. A failed parser, missing report or absence in a retrieved chunk cannot establish false.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "reviewed_source_set",
+          "assurance_statement_reference",
+          "assurance_scope"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Presence says nothing by itself about assurance level, coverage, qualifications or independence.",
+          "False requires a completed, documented review of the defined source set; otherwise retain null and the appropriate review state.",
+          "Do not encode boolean disclosure indicators as 0/1 performance scores."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "reviewed_source_set",
+        "assurance_statement_reference",
+        "assurance_scope"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "assurance_available"
+    },
+    {
+      "canonical_id": "base_year_stated",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Base year stated",
+      "description": "Whether a baseline year is explicitly stated for the reviewed inventory or target.",
+      "category": "disclosure_quality",
+      "evidence_kind": "disclosure",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "baseline year disclosed"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Disclosure availability is not environmental or social performance. A failed parser, missing report or absence in a retrieved chunk cannot establish false.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "reviewed_source_set",
+          "base_year_reference",
+          "baseline_scope"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "Presence of a base year does not establish that its emissions amount or restatement basis is available.",
+          "False requires a completed, documented review of the defined source set; otherwise retain null and the appropriate review state.",
+          "Do not encode boolean disclosure indicators as 0/1 performance scores."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "reviewed_source_set",
+        "base_year_reference",
+        "baseline_scope"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "base_year_stated"
+    },
+    {
+      "canonical_id": "boundaries_stated",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Boundaries stated",
+      "description": "Whether organisational and operational boundaries are stated for the reviewed metric or inventory.",
+      "category": "disclosure_quality",
+      "evidence_kind": "disclosure",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "reporting boundary disclosed"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Disclosure availability is not environmental or social performance. A failed parser, missing report or absence in a retrieved chunk cannot establish false.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "reviewed_source_set",
+          "boundary_scope",
+          "boundary_reference"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "The review must identify which inventory/metric the stated boundary actually covers.",
+          "False requires a completed, documented review of the defined source set; otherwise retain null and the appropriate review state.",
+          "Do not encode boolean disclosure indicators as 0/1 performance scores."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "reviewed_source_set",
+        "boundary_scope",
+        "boundary_reference"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "boundaries_stated"
+    },
+    {
+      "canonical_id": "methodology_stated",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Methodology stated",
+      "description": "Whether an identifiable methodology is stated for the explicitly reviewed metric or inventory.",
+      "category": "disclosure_quality",
+      "evidence_kind": "disclosure",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "calculation methodology disclosed"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Disclosure availability is not environmental or social performance. A failed parser, missing report or absence in a retrieved chunk cannot establish false.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "reviewed_source_set",
+          "methodology_scope",
+          "methodology_reference"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "A generic standard mention may not explain calculation methods for every metric.",
+          "False requires a completed, documented review of the defined source set; otherwise retain null and the appropriate review state.",
+          "Do not encode boolean disclosure indicators as 0/1 performance scores."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "reviewed_source_set",
+        "methodology_scope",
+        "methodology_reference"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "methodology_stated"
+    },
+    {
+      "canonical_id": "scope1_available",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Scope 1 disclosure available",
+      "description": "Whether a usable reported Scope 1 figure is present in the explicitly reviewed source set.",
+      "category": "disclosure_quality",
+      "evidence_kind": "disclosure",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "scope 1 reported",
+        "scope 1 disclosure availability"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Disclosure availability is not environmental or social performance. A failed parser, missing report or absence in a retrieved chunk cannot establish false.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "reviewed_source_set",
+          "scope1_observation_reference"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "An explicit reported zero counts as available; a target-only figure does not.",
+          "False requires a completed, documented review of the defined source set; otherwise retain null and the appropriate review state.",
+          "Do not encode boolean disclosure indicators as 0/1 performance scores."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "reviewed_source_set",
+        "scope1_observation_reference"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope1_available"
+    },
+    {
+      "canonical_id": "scope2_available",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Scope 2 disclosure available",
+      "description": "Whether at least one reported Scope 2 figure is present, with method availability recorded separately.",
+      "category": "disclosure_quality",
+      "evidence_kind": "disclosure",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "scope 2 reported",
+        "scope 2 disclosure availability"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Disclosure availability is not environmental or social performance. A failed parser, missing report or absence in a retrieved chunk cannot establish false.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "reviewed_source_set",
+          "scope2_methods_available",
+          "scope2_observation_reference"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "True does not imply both location- and market-based figures are disclosed or comparable.",
+          "False requires a completed, documented review of the defined source set; otherwise retain null and the appropriate review state.",
+          "Do not encode boolean disclosure indicators as 0/1 performance scores."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "reviewed_source_set",
+        "scope2_methods_available",
+        "scope2_observation_reference"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope2_available"
+    },
+    {
+      "canonical_id": "scope3_available",
+      "definition_version": 1,
+      "catalogue_version": "1.0.0",
+      "name": "Scope 3 disclosure available",
+      "description": "Whether a reported Scope 3 figure is present for at least one identified category or aggregate.",
+      "category": "disclosure_quality",
+      "evidence_kind": "disclosure",
+      "data_type": "boolean",
+      "quantity_kind": "indicator",
+      "canonical_unit": null,
+      "allowed_units": [],
+      "aliases": [
+        "scope 3 reported",
+        "scope 3 disclosure availability"
+      ],
+      "normalisation_rule": {
+        "id": "explicit_boolean",
+        "version": "1",
+        "kind": "identity",
+        "description": "Accept explicit true/false assertions only. Do not infer false from silence, missing pages, absence of keywords or missing model output.",
+        "factors_to_canonical": {},
+        "value_aliases": {},
+        "canonical_unit_template": null,
+        "requires_context": [],
+        "unknown_unit_action": "needs_review",
+        "preserves_raw": true
+      },
+      "comparability_warning": "Disclosure availability is not environmental or social performance. A failed parser, missing report or absence in a retrieved chunk cannot establish false.",
+      "score_eligibility": "not_eligible",
+      "preferred_direction": null,
+      "validation_constraints": {
+        "nullable": true,
+        "missing_is_zero": false,
+        "absence_is_false": false,
+        "finite": false,
+        "minimum": null,
+        "maximum": null,
+        "integer_only": false,
+        "enum_values": [],
+        "value_schema": null,
+        "required_context": [
+          "reporting_year",
+          "assessment_date",
+          "entity_scope",
+          "supporting_evidence",
+          "reviewed_source_set",
+          "scope3_categories_available",
+          "scope3_observation_reference"
+        ],
+        "rules": [
+          "Preserve raw value, raw unit, source page/excerpt and validation state separately from normalised values.",
+          "A missing disclosure or extraction failure is null, never zero or false.",
+          "Unknown required context prevents comparison; schema validation alone is not factual validation.",
+          "True does not mean all 15 categories or financed emissions are disclosed.",
+          "False requires a completed, documented review of the defined source set; otherwise retain null and the appropriate review state.",
+          "Do not encode boolean disclosure indicators as 0/1 performance scores."
+        ]
+      },
+      "required_comparison_dimensions": [
+        "reporting_year",
+        "assessment_date",
+        "entity_scope",
+        "supporting_evidence",
+        "reviewed_source_set",
+        "scope3_categories_available",
+        "scope3_observation_reference"
+      ],
+      "sector_applicability": [
+        "Financial Services",
+        "Technology",
+        "Energy",
+        "Consumer / Retail",
+        "Industrials"
+      ],
+      "scope": "scope3_available"
+    }
+  ]
+}
+

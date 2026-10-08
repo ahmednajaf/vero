@@ -1,0 +1,18 @@
+.peer-gap-explanation { margin:42px 0; border-block:1px solid var(--line); padding:28px 0; }
+.peer-gap-explanation>header { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-bottom:20px; }
+.peer-gap-explanation h2 { font-size:27px; letter-spacing:-.6px; margin:8px 0; }
+.peer-gap-explanation p { color:var(--muted); font-size:12px; line-height:1.8; margin:10px 0; }
+.peer-gap-exports { display:flex; gap:8px; flex-shrink:0; }
+.peer-gap-notice { border-left:3px solid #87afa6; padding:8px 16px; background:#f0f5f4; }
+.peer-gap-table-wrap { overflow-x:auto; margin-top:22px; }
+.peer-gap-table { width:100%; min-width:760px; border-collapse:collapse; font-size:12px; }
+.peer-gap-table caption { text-align:left; font-size:11px; color:var(--muted); padding:0 0 13px; }
+.peer-gap-table th,.peer-gap-table td { text-align:left; padding:18px 15px; vertical-align:top; border-bottom:1px solid var(--line); font-weight:400; }
+.peer-gap-table thead th { color:#647b89; font-size:10px; text-transform:uppercase; letter-spacing:1px; border-top:1px solid var(--line); background:#f2f5f7; }
+.peer-gap-table tbody th { width:25%; }.peer-gap-table strong { display:block; font-weight:550; line-height:1.6; }.peer-gap-table small { display:block; color:var(--muted); font-size:10px; line-height:1.8; margin-top:5px; }
+.peer-gap-source { display:block; background:none; border:0; color:#326779; font-size:10px; margin-top:10px; padding:3px 0; white-space:nowrap; cursor:pointer; }
+.peer-gap-source:hover { text-decoration:underline; text-underline-offset:3px; }
+.peer-gap-footnote { font-size:10px!important; max-width:940px; }
+.peer-gap-opportunities { margin-top:30px; }.peer-gap-opportunities h3 { font-size:19px; }.peer-gap-opportunities h4 { font-size:14px; margin-top:22px; }.peer-gap-opportunity { display:grid; grid-template-columns:180px 1fr auto; align-items:start; gap:20px; border-bottom:1px solid var(--line); padding:14px 0; font-size:11px; }.peer-gap-opportunity strong { font-weight:550; }.peer-gap-opportunity>span { color:var(--muted); line-height:1.7; }.peer-gap-opportunity button { margin-top:0; }
+.peer-gap-opportunities details,.peer-gap-audit { margin-top:22px; font-size:11px; }.peer-gap-audit code { font-size:10px; overflow-wrap:anywhere; }.peer-gap-audit p { font-size:10px; }
+@media(max-width:700px) { .peer-gap-explanation>header { align-items:start; flex-direction:column; }.peer-gap-explanation h2 { font-size:24px; }.peer-gap-opportunity { grid-template-columns:1fr auto; gap:8px; }.peer-gap-opportunity>span { grid-column:1/-1; grid-row:2; }.peer-gap-explanation { margin:28px 0; } }

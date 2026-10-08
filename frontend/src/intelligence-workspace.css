@@ -1,0 +1,36 @@
+/* Additive content layout; existing globe, navigation and chat skin are untouched. */
+.intelligence-coverage{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid #ffffff16;margin:28px 0 40px}
+.intelligence-coverage>a,.intelligence-coverage>div{padding:26px 20px;color:#bac7d7;text-decoration:none}
+.intelligence-coverage strong{display:block;font-size:34px;font-weight:400;color:#e5edf6;margin-bottom:9px}
+.intelligence-coverage span{font-size:12px;color:#899aae}
+.intelligence-saved{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:0 36px;margin:20px 0 40px}
+.intelligence-saved>a{padding:24px 0;border-bottom:1px solid #ffffff14;text-decoration:none;display:flex;flex-direction:column;gap:10px;color:#d8e4ee}
+.intelligence-saved strong{font-size:15px;font-weight:450}.intelligence-saved span,.intelligence-saved small{font-size:11px;color:#90a5b9}
+.intelligence-saved small{color:#a6baf3}
+.intelligence-setup{display:grid;grid-template-columns:minmax(220px,1fr) minmax(0,2fr);align-items:start;padding:24px;gap:32px}
+.intelligence-setup select{width:100%}.intelligence-setup .report-topic-actions{margin:10px 0}
+.intelligence-topics{display:flex;flex-wrap:wrap;gap:20px;border:0;padding:24px 0;color:#c1ccdc;font-size:12px}
+.intelligence-topics legend{padding:0;color:#92a4b9}.intelligence-topics label{display:flex;gap:8px;align-items:center}
+.intelligence-topics input{accent-color:#9bb3f2}
+.intelligence-focus{display:block;font-size:12px;color:#bdcadb;margin:12px 0 22px}.intelligence-focus span{color:#7f90a5;margin-left:8px}
+.intelligence-focus input{display:block;width:100%;margin-top:12px;padding:14px 16px;background:#ffffff04;border:1px solid #ffffff18;border-radius:10px;color:#e3edf8;font:inherit}
+.intelligence-stage{font-size:13px;color:#aec5e6;margin:24px 0 16px}
+.intelligence-steps{list-style:none;display:flex;flex-wrap:wrap;gap:12px 28px;padding:0;font-size:12px;color:#8394a8}.intelligence-steps span{margin-right:8px}.intelligence-steps [data-state=completed]{color:#b9d5ee}.intelligence-steps [data-state=running]{color:#c0b7fa}.intelligence-steps [data-state=failed]{color:#d6b7a5}
+.intelligence-findings>section{padding:14px 0 28px;border-bottom:1px solid #ffffff16}.intelligence-findings header{display:flex;justify-content:space-between;gap:20px;align-items:center}.intelligence-findings h2,.intelligence-gap h2,.intelligence-company h2{font-size:19px;font-weight:450;color:#dce7f1}
+.intelligence-findings article{padding:14px 0}.intelligence-findings article p,.intelligence-gap p{font-size:14px;line-height:1.9;max-width:950px;color:#b9c7d7}
+.intelligence-finding[data-expanded=false]>p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.finding-expand{border:0;background:none;color:#a6baf3;padding:0 0 14px;font:inherit;font-size:11px}
+.intelligence-findings .report-view-tabs{gap:6px;flex-wrap:wrap}.intelligence-findings .report-view-tabs small{opacity:.6;margin-left:6px}
+.intelligence-findings .report-citations{flex-wrap:wrap}.intelligence-findings .report-citations button{white-space:normal;text-align:left}
+.intelligence-details{padding:20px 0;margin:12px 0;color:#8f9fb1;font-size:12px;line-height:1.85}.intelligence-details summary{cursor:pointer;color:#adc0d3}.intelligence-details p{max-width:960px}
+.intelligence-gap{padding:20px 0;border-bottom:1px solid #ffffff16}.intelligence-gap>.report-button{margin-top:20px}.intelligence-company{padding:18px 0 10px;border-top:1px solid #ffffff12}
+.vero-reported-comparison .report-peer-table{min-width:520px}
+.vero-reported-comparison .report-peer-table td{min-width:180px}
+.vero-comp-observation{display:grid;justify-items:start;gap:8px;padding:4px 0 18px}
+.vero-comp-observation strong{font-size:18px;font-weight:450}
+.vero-comp-observation .vero-status{font-size:10px}
+.vero-observation-boundary{max-width:260px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:normal}
+.intelligence-details>.report-select{margin:12px 0;max-width:720px}
+.intelligence-details .report-filters{flex-wrap:wrap}
+.intelligence-details .report-filters label{display:grid;gap:7px}
+@media(max-width:760px){.intelligence-setup{grid-template-columns:1fr;padding:16px}.intelligence-coverage{grid-template-columns:1fr}.intelligence-coverage>a,.intelligence-coverage>div{padding:15px 0}.intelligence-coverage strong{font-size:26px}.intelligence-findings header{align-items:flex-start;flex-direction:column}.intelligence-saved{grid-template-columns:1fr}}

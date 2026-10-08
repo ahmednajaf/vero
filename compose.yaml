@@ -1,0 +1,20 @@
+name: sustainability-benchmarking
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-sbi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sbi_local_dev}
+      POSTGRES_DB: ${POSTGRES_DB:-sbi}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  postgres_data:

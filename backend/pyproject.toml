@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sustainability-benchmarking-api"
+version = "0.1.0"
+description = "Provenance-first sustainability benchmarking platform foundation"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.35,<1",
+  "pydantic>=2.12,<3",
+  "pydantic-settings>=2.11,<3",
+  "SQLAlchemy>=2.0.44,<2.1",
+  "psycopg[binary]>=3.2.10,<4",
+  "alembic>=1.16,<2",
+  "pycountry>=24.6.1,<27",
+  "requests>=2.32.4,<3",
+  "beautifulsoup4>=4.13,<5",
+  "protego>=0.4,<1",
+  "PyMuPDF>=1.28.2,<1.29",
+  "pdfplumber>=0.11,<1",
+  "httpx>=0.28,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.4,<10", "mypy>=1.18,<2", "types-requests>=2.32", "reportlab>=4.4,<5"]
+browser = ["playwright>=1.50,<2"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+"app.catalogue" = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["live: explicit opt-in requests to official company websites"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["app"]
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+[[tool.mypy.overrides]]
+module = ["pymupdf", "pymupdf.*"]
+ignore_missing_imports = true

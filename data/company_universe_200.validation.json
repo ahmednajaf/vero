@@ -1,0 +1,1249 @@
+{
+  "metadata_reference_date": "2026-09-29",
+  "csv_sha256": "da45384c0c3ea0d207b8eb3c4f615711f55f7e3b17da15764c58c738b328f58d",
+  "companies": 200,
+  "sector_counts": {
+    "Consumer / Retail": 40,
+    "Energy": 40,
+    "Financial Services": 40,
+    "Industrials": 40,
+    "Technology": 40
+  },
+  "country_counts": {
+    "AU": 8,
+    "CA": 19,
+    "CH": 8,
+    "DE": 13,
+    "DK": 2,
+    "FI": 4,
+    "FR": 17,
+    "GB": 14,
+    "JP": 18,
+    "NL": 7,
+    "NO": 3,
+    "SE": 7,
+    "US": 80
+  },
+  "unique_company_ids": 200,
+  "unique_company_names": 200,
+  "unique_exchange_ticker_pairs": 200,
+  "unique_official_domains": 200,
+  "existing_seed_ids_preserved": 17,
+  "investor_relations_urls": 196,
+  "sustainability_urls": 70,
+  "blank_investor_relations_urls": [
+    "Adobe Inc.",
+    "Barclays PLC",
+    "BP p.l.c.",
+    "Heineken N.V."
+  ],
+  "financial_values_supplied": 0,
+  "domain_syntax_pass": 200,
+  "dns_resolved": 200,
+  "dns_failed": 0,
+  "domain_validation_limit": "DNS resolution plus official-source identity review does not verify robots permission, HTTP availability, PDF accessibility or an appropriate requested-year report.",
+  "database_imported": false,
+  "pipeline_started": false,
+  "domain_checks": [
+    {
+      "company_id": "95b65def-1a7a-533f-a04f-518a241906ec",
+      "official_domain": "3ds.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.024Z"
+    },
+    {
+      "company_id": "09e21729-3af4-509c-8f96-4e167bd25c74",
+      "official_domain": "abf.co.uk",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.247Z"
+    },
+    {
+      "company_id": "004b9dc2-a59c-5662-a500-76f3004149c3",
+      "official_domain": "about.puma.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.591Z"
+    },
+    {
+      "company_id": "08d230e9-7989-5fe8-8548-92ef31dd3069",
+      "official_domain": "aboutamazon.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.231Z"
+    },
+    {
+      "company_id": "82ee9ace-a82d-57cf-84c0-0c271bc862d7",
+      "official_domain": "adidas-group.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.207Z"
+    },
+    {
+      "company_id": "f0c5c79c-14fe-5bb3-aec7-93ee3581f6e3",
+      "official_domain": "adobe.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.907Z"
+    },
+    {
+      "company_id": "778bc777-202b-5931-9ddd-8db4c01cedfc",
+      "official_domain": "aholddelhaize.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.512Z"
+    },
+    {
+      "company_id": "3fe07e32-633d-5f9c-9787-a66794e762d9",
+      "official_domain": "airbus.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.662Z"
+    },
+    {
+      "company_id": "edcdbbdd-a7bc-5dc6-8460-f1c1521be1a3",
+      "official_domain": "akerbp.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.847Z"
+    },
+    {
+      "company_id": "7eaa0f89-37b4-5d29-aff3-c91b82389447",
+      "official_domain": "allianz.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.805Z"
+    },
+    {
+      "company_id": "8b9c4300-8755-585a-86d4-a188b63a462c",
+      "official_domain": "amd.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.911Z"
+    },
+    {
+      "company_id": "c3711b16-7fe0-5f1a-a615-7af5badce0e1",
+      "official_domain": "americanexpress.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.836Z"
+    },
+    {
+      "company_id": "bf78b90a-2b08-5972-9274-44a1af57489e",
+      "official_domain": "analog.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.912Z"
+    },
+    {
+      "company_id": "bd5eb209-5787-5baa-a4a4-4ed2fd0eda9a",
+      "official_domain": "anz.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.853Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000005",
+      "official_domain": "apple.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.912Z"
+    },
+    {
+      "company_id": "c440dcb2-857d-5e75-95c4-3dc6ff76ea20",
+      "official_domain": "appliedmaterials.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.912Z"
+    },
+    {
+      "company_id": "ed12232c-c7e1-5b65-b752-e5cbf00efedd",
+      "official_domain": "arcresources.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.874Z"
+    },
+    {
+      "company_id": "803197c3-3756-5c0f-a747-e54aa823759d",
+      "official_domain": "asm.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.912Z"
+    },
+    {
+      "company_id": "6c7baad6-6e10-5ad5-b311-5a412af81e56",
+      "official_domain": "asml.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.912Z"
+    },
+    {
+      "company_id": "7a96b60f-2ce2-5582-92f2-1f66a11edfc6",
+      "official_domain": "assaabloy.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.680Z"
+    },
+    {
+      "company_id": "b72c84c9-3a63-57a1-981e-5dc633175395",
+      "official_domain": "atlascopcogroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.700Z"
+    },
+    {
+      "company_id": "b0c875e8-7d64-55e5-9cdc-b413bb9e4fd7",
+      "official_domain": "autodesk.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.912Z"
+    },
+    {
+      "company_id": "0aac19ee-c1fb-5805-b9dd-2d65a528bdb0",
+      "official_domain": "axa.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.870Z"
+    },
+    {
+      "company_id": "dd35fcae-9f10-587d-94d1-dcdf972bc018",
+      "official_domain": "bakerhughes.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.875Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000002",
+      "official_domain": "bankofamerica.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.019Z"
+    },
+    {
+      "company_id": "99245b84-8c8f-5444-8e53-7685c1ca818f",
+      "official_domain": "beiersdorf.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.393Z"
+    },
+    {
+      "company_id": "67b3c7d5-2869-5bfe-98c2-cfe3cf18c6dd",
+      "official_domain": "blackrock.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.131Z"
+    },
+    {
+      "company_id": "2c6a05db-2729-55c9-857d-10cd374a8f90",
+      "official_domain": "bmo.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.021Z"
+    },
+    {
+      "company_id": "cc3f0f06-61ae-5724-9630-90c6f155aa3b",
+      "official_domain": "bouygues.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.715Z"
+    },
+    {
+      "company_id": "ad60f5c5-0547-599f-b657-94e0ed36c1d3",
+      "official_domain": "bp.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.891Z"
+    },
+    {
+      "company_id": "f083953c-0345-5e5d-b482-cb3f9ebe83db",
+      "official_domain": "broadcom.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.928Z"
+    },
+    {
+      "company_id": "0634e972-1163-5af9-8ef7-659a72b1dc06",
+      "official_domain": "capgemini.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.934Z"
+    },
+    {
+      "company_id": "d03d4e6e-607d-586d-8cf9-5f37f553278e",
+      "official_domain": "carlsberggroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.399Z"
+    },
+    {
+      "company_id": "c83d6597-2c79-53c7-a9bc-0ac27d4b22ff",
+      "official_domain": "carrefour.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.414Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000019",
+      "official_domain": "caterpillar.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.839Z"
+    },
+    {
+      "company_id": "0ae298c6-4ace-552e-a23b-291e761b5898",
+      "official_domain": "cenovus.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.906Z"
+    },
+    {
+      "company_id": "088fcb5e-bb3a-5350-8add-406fcac19c53",
+      "official_domain": "cgi.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.941Z"
+    },
+    {
+      "company_id": "9dbf430f-c72a-5b4b-a51f-63a3fe9e882f",
+      "official_domain": "cheniere.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.929Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000010",
+      "official_domain": "chevron.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.967Z"
+    },
+    {
+      "company_id": "928a9b76-417e-56d0-91d4-b4bdf3156600",
+      "official_domain": "cisco.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:46.948Z"
+    },
+    {
+      "company_id": "e5dfc91f-c82a-5d9c-967d-9488e500f3fe",
+      "official_domain": "citigroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.148Z"
+    },
+    {
+      "company_id": "59471794-cb04-5e1b-8597-1e34fde90163",
+      "official_domain": "cn.ca",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.736Z"
+    },
+    {
+      "company_id": "887d468d-dd39-5e18-96d1-d1c2fc5fb138",
+      "official_domain": "cnrl.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.894Z"
+    },
+    {
+      "company_id": "b4a83944-a7a7-5c7e-85b5-351e979e95e4",
+      "official_domain": "coca-colacompany.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.680Z"
+    },
+    {
+      "company_id": "db0f56e8-8342-5c80-b6b5-f903b9c43ffc",
+      "official_domain": "colesgroup.com.au",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.418Z"
+    },
+    {
+      "company_id": "3ec8eb0b-b612-5531-9c87-39a9bf2d0764",
+      "official_domain": "colgatepalmolive.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.434Z"
+    },
+    {
+      "company_id": "989ca521-9357-536e-81f9-ded209863164",
+      "official_domain": "commbank.com.au",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.250Z"
+    },
+    {
+      "company_id": "f33a0c07-ad7c-585b-8306-c6d7805e8e01",
+      "official_domain": "conocophillips.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.000Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000014",
+      "official_domain": "costco.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.436Z"
+    },
+    {
+      "company_id": "0db8ad8a-1b6a-58e3-b45c-e1e5143db7fb",
+      "official_domain": "credit-agricole.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.263Z"
+    },
+    {
+      "company_id": "dd6e151b-d324-5686-8885-2938ddd69649",
+      "official_domain": "csisoftware.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:47.996Z"
+    },
+    {
+      "company_id": "1e7de0c4-6f04-5dc7-9beb-829287d88a3b",
+      "official_domain": "danone.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.456Z"
+    },
+    {
+      "company_id": "0e710baa-b8fe-5e42-b58b-671e199f98ab",
+      "official_domain": "db.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.277Z"
+    },
+    {
+      "company_id": "88ecc59a-e07a-5664-9dd4-97e22a89c942",
+      "official_domain": "deere.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.867Z"
+    },
+    {
+      "company_id": "8ad44f05-7f51-5889-842f-35cb49b64383",
+      "official_domain": "dell.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.042Z"
+    },
+    {
+      "company_id": "c3f37443-6925-5572-8525-c4c6f54864de",
+      "official_domain": "devonenergy.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.019Z"
+    },
+    {
+      "company_id": "ea1450d9-60ae-5ff7-915d-bfcf0e885098",
+      "official_domain": "diageo.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.456Z"
+    },
+    {
+      "company_id": "0a741fe8-3fe8-5ecf-95ff-f89f8d0753fc",
+      "official_domain": "emerson.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.914Z"
+    },
+    {
+      "company_id": "880a93de-059d-5de5-a763-1c4a4b232ea9",
+      "official_domain": "enbridge.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.089Z"
+    },
+    {
+      "company_id": "4c64f75a-c6c7-5c17-addf-cc5620b24eb0",
+      "official_domain": "eogresources.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.476Z"
+    },
+    {
+      "company_id": "4f44620c-eb4d-5454-9898-e0438feaa3e7",
+      "official_domain": "eqt.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.595Z"
+    },
+    {
+      "company_id": "131ffc7e-e2fe-597f-becf-d5154533d82a",
+      "official_domain": "equinor.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.611Z"
+    },
+    {
+      "company_id": "8f330107-6917-567a-8fe1-ddad4a3de9db",
+      "official_domain": "ericsson.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.742Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000009",
+      "official_domain": "exxonmobil.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.738Z"
+    },
+    {
+      "company_id": "0a41147c-c133-58c7-83fa-682da0b53006",
+      "official_domain": "fedex.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.019Z"
+    },
+    {
+      "company_id": "4e06235a-682a-5cfc-87e8-1047075ad11c",
+      "official_domain": "gd.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.162Z"
+    },
+    {
+      "company_id": "1a30bb31-add6-5d87-8e1e-b88b546a662e",
+      "official_domain": "geaerospace.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.109Z"
+    },
+    {
+      "company_id": "2872f76d-33f5-56d4-998a-73177b0d9c9f",
+      "official_domain": "geberit.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.147Z"
+    },
+    {
+      "company_id": "8a84f1cf-eca8-5ead-85a3-bb8b4bfda0d2",
+      "official_domain": "gevernova.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.128Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000020",
+      "official_domain": "global.abb",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.832Z"
+    },
+    {
+      "company_id": "0c9983ec-a48f-5898-a892-24d85368cf40",
+      "official_domain": "global.fujitsu",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.057Z"
+    },
+    {
+      "company_id": "41ad2884-7f61-57f7-8f5f-0d105b766fd3",
+      "official_domain": "goldmansachs.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.775Z"
+    },
+    {
+      "company_id": "1916905b-020b-5f58-b65f-22dbd6811c14",
+      "official_domain": "group.bnpparibas",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.147Z"
+    },
+    {
+      "company_id": "e2d22bf0-59a7-551d-8ec5-b7fa28a64bb9",
+      "official_domain": "group.dhl.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.882Z"
+    },
+    {
+      "company_id": "c8db4812-8a1f-5366-8cad-baad5b1f077d",
+      "official_domain": "group.schindler.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.813Z"
+    },
+    {
+      "company_id": "e956a824-c84c-5c02-aeac-c1a74f467712",
+      "official_domain": "halliburton.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.757Z"
+    },
+    {
+      "company_id": "59305bb1-97c9-5d47-bb19-f1e09d350f5e",
+      "official_domain": "harbourenergy.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.871Z"
+    },
+    {
+      "company_id": "20d6e30a-7547-5653-b413-26dbd1c0dd84",
+      "official_domain": "hd.eneos.co.jp",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.346Z"
+    },
+    {
+      "company_id": "1eaef703-ae0d-5f99-9164-41e00ae756ee",
+      "official_domain": "henkel.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.490Z"
+    },
+    {
+      "company_id": "9f21e222-6f11-5e13-a758-90a1cfc734fc",
+      "official_domain": "hitachi.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.178Z"
+    },
+    {
+      "company_id": "2968c2ef-e498-57bd-97dd-c4f4d3779624",
+      "official_domain": "hmgroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.476Z"
+    },
+    {
+      "company_id": "dab27691-c506-5964-9f1e-a9937c2d8a96",
+      "official_domain": "home.barclays",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.036Z"
+    },
+    {
+      "company_id": "64cf8c22-8dfb-52e1-99fc-f5190291700b",
+      "official_domain": "home.sandvik",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.797Z"
+    },
+    {
+      "company_id": "bbce71a1-3a7b-5179-a708-9b9530cf078c",
+      "official_domain": "homedepot.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.695Z"
+    },
+    {
+      "company_id": "3c0c4b0a-0ee3-504b-a277-7b42a5935da6",
+      "official_domain": "hp.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.077Z"
+    },
+    {
+      "company_id": "c181ebf0-98d8-515d-958c-00a9e50f3ed6",
+      "official_domain": "hpe.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.074Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000003",
+      "official_domain": "hsbc.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.291Z"
+    },
+    {
+      "company_id": "89f6859f-5ba0-5007-864e-13e520e3353d",
+      "official_domain": "ibm.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.087Z"
+    },
+    {
+      "company_id": "cb4dd346-6ac0-5207-b094-5c61c26d11ea",
+      "official_domain": "idemitsu.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.894Z"
+    },
+    {
+      "company_id": "f08fea9a-506e-5385-8418-8e8a175c22fe",
+      "official_domain": "imperialoil.ca",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.913Z"
+    },
+    {
+      "company_id": "f407af83-686e-5b72-b07f-e8e00ee35f63",
+      "official_domain": "infineon.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.078Z"
+    },
+    {
+      "company_id": "3c70930c-b1ba-501e-af11-291a4fb307a5",
+      "official_domain": "ing.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.303Z"
+    },
+    {
+      "company_id": "8a97f3df-d264-5799-9995-c328511bc140",
+      "official_domain": "inpex.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.913Z"
+    },
+    {
+      "company_id": "bae4890c-dbb8-56bd-a2b7-95f96b300eb7",
+      "official_domain": "intel.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.078Z"
+    },
+    {
+      "company_id": "df9829f9-24bb-53ea-9c30-7e728adffc36",
+      "official_domain": "intuit.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.097Z"
+    },
+    {
+      "company_id": "09681a8c-81e7-501f-85e9-3624567259f6",
+      "official_domain": "itw.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.180Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000001",
+      "official_domain": "jpmorganchase.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.318Z"
+    },
+    {
+      "company_id": "090ab269-de81-574f-bddd-3822255ae865",
+      "official_domain": "kao.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.492Z"
+    },
+    {
+      "company_id": "90157228-7a33-5d5f-86c3-5246162d2b9d",
+      "official_domain": "kering.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.506Z"
+    },
+    {
+      "company_id": "44cbe9f9-963f-5e6b-8357-0e86aacfd85a",
+      "official_domain": "kindermorgan.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.934Z"
+    },
+    {
+      "company_id": "9eebd785-af54-5c54-9e52-649680842b7c",
+      "official_domain": "kla.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.097Z"
+    },
+    {
+      "company_id": "1a849e94-23c6-5f3c-b1f9-c97912443a95",
+      "official_domain": "komatsu.jp",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.332Z"
+    },
+    {
+      "company_id": "1f70350d-4f78-5b1c-b919-dafe7d0e8d5c",
+      "official_domain": "kone.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.346Z"
+    },
+    {
+      "company_id": "cc4d1ab2-f9cd-5a9d-b1bc-67f1c6d04644",
+      "official_domain": "kraftheinzcompany.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.715Z"
+    },
+    {
+      "company_id": "39b71fe8-64eb-57e4-9ff6-42f1c0ac4eaa",
+      "official_domain": "lamresearch.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.110Z"
+    },
+    {
+      "company_id": "7f6bffd6-538e-5ced-88bc-86271087a82c",
+      "official_domain": "legrandgroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.368Z"
+    },
+    {
+      "company_id": "3e62177a-d6a5-5b6a-8066-c10dd923665b",
+      "official_domain": "lloydsbankinggroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.337Z"
+    },
+    {
+      "company_id": "eab9166e-fd3f-55d1-8880-b68e2544a232",
+      "official_domain": "loblaw.ca",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.541Z"
+    },
+    {
+      "company_id": "e71e9a7a-7c6f-5ae2-8350-58d27bd4ac75",
+      "official_domain": "lockheedmartin.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.397Z"
+    },
+    {
+      "company_id": "a3a6dcef-2f27-5bc4-8d3c-35142bc18a20",
+      "official_domain": "logitech.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.469Z"
+    },
+    {
+      "company_id": "f2390422-3349-569b-9810-4ada498f49dc",
+      "official_domain": "loreal.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.522Z"
+    },
+    {
+      "company_id": "358f97b4-0950-5eb9-9e10-e732f46c076d",
+      "official_domain": "lowes.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.543Z"
+    },
+    {
+      "company_id": "317f741d-735d-564a-acea-4bb9003c5e9c",
+      "official_domain": "lvmh.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.561Z"
+    },
+    {
+      "company_id": "1ad3887e-d2e4-5faa-82e1-1c336a85557a",
+      "official_domain": "manulife.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.355Z"
+    },
+    {
+      "company_id": "5fb6a288-e9fa-54a1-b991-8dcbaf026199",
+      "official_domain": "marathonpetroleum.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.935Z"
+    },
+    {
+      "company_id": "ed7cacd2-245a-5693-a4ca-1dc13f7acec6",
+      "official_domain": "mastercard.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.379Z"
+    },
+    {
+      "company_id": "d597dd11-b05e-5a30-8ff3-2f9be6ce9858",
+      "official_domain": "mcdonalds.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.561Z"
+    },
+    {
+      "company_id": "e89603b8-634d-5b25-b1e3-f83d0bff0c7b",
+      "official_domain": "metso.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.431Z"
+    },
+    {
+      "company_id": "388e7b53-47f1-5b8c-a57d-9c85342b814d",
+      "official_domain": "mhi.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.447Z"
+    },
+    {
+      "company_id": "8619c279-3f13-508a-9aaf-a040b69f9f86",
+      "official_domain": "micron.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.488Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000006",
+      "official_domain": "microsoft.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.518Z"
+    },
+    {
+      "company_id": "734b061f-3423-5c90-acc7-9959cb3da62c",
+      "official_domain": "mizuhogroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.411Z"
+    },
+    {
+      "company_id": "027034e4-41ab-5e83-b437-49e94f246865",
+      "official_domain": "mondelezinternational.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.562Z"
+    },
+    {
+      "company_id": "91a8fd35-a273-5e7e-aa6f-75e91641713e",
+      "official_domain": "morganstanley.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.425Z"
+    },
+    {
+      "company_id": "6bcbb872-869d-5d20-a827-bbe840b0ace3",
+      "official_domain": "mtu.de",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.558Z"
+    },
+    {
+      "company_id": "4a276eef-5b6a-51e2-9254-aac2eacefc3c",
+      "official_domain": "munichre.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.509Z"
+    },
+    {
+      "company_id": "ef6f1f78-6280-53c6-9cb9-82cba0aa6722",
+      "official_domain": "nab.com.au",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.527Z"
+    },
+    {
+      "company_id": "3d753c6d-7d88-53fa-b04e-1fffb709bf93",
+      "official_domain": "natwestgroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.547Z"
+    },
+    {
+      "company_id": "d92cff36-6149-53ae-805f-b7cf4766f2d4",
+      "official_domain": "nec.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.536Z"
+    },
+    {
+      "company_id": "e9cd92f3-ad72-5685-9d9d-172091d831cb",
+      "official_domain": "neste.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.948Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000016",
+      "official_domain": "nestle.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.576Z"
+    },
+    {
+      "company_id": "820f708d-13ef-5ed0-aa78-8343d6af8298",
+      "official_domain": "nike.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.577Z"
+    },
+    {
+      "company_id": "6a6d608f-7a4e-55bf-9fc2-677fa01bf050",
+      "official_domain": "nn-group.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.561Z"
+    },
+    {
+      "company_id": "e720f44a-2d9b-54cd-97a1-8d0656acd3c3",
+      "official_domain": "nokia.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.556Z"
+    },
+    {
+      "company_id": "367bb55f-3cbe-573d-b955-dd1e37dc0b01",
+      "official_domain": "northropgrumman.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.577Z"
+    },
+    {
+      "company_id": "1acfd502-3d6c-5d48-9b62-037d70337711",
+      "official_domain": "nvidia.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.573Z"
+    },
+    {
+      "company_id": "47d5d94e-6e87-507b-ae32-ee8b39b2032f",
+      "official_domain": "oneok.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.955Z"
+    },
+    {
+      "company_id": "0c4aa2dd-0c1c-5436-88e6-a9da5c179ac2",
+      "official_domain": "oracle.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.592Z"
+    },
+    {
+      "company_id": "8e24c99b-f993-51c4-8dbd-668ba02f33b3",
+      "official_domain": "oxy.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.949Z"
+    },
+    {
+      "company_id": "1fdcfbd6-4e64-56f0-ac60-0f8b885d89ee",
+      "official_domain": "pembina.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.969Z"
+    },
+    {
+      "company_id": "558e7789-fc0d-5c71-993f-5526de1a0caa",
+      "official_domain": "pepsico.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.577Z"
+    },
+    {
+      "company_id": "ca8b4ccc-17c1-5946-bb9b-20ac183edc62",
+      "official_domain": "pg.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.737Z"
+    },
+    {
+      "company_id": "b6c8d5b5-ee1f-5538-a624-8d0547201726",
+      "official_domain": "phillips66.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.990Z"
+    },
+    {
+      "company_id": "e47dde4b-715c-5289-b224-d6907654a4be",
+      "official_domain": "prudentialplc.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.575Z"
+    },
+    {
+      "company_id": "2979ab89-31cf-5098-899c-ecd1e2dc24d8",
+      "official_domain": "qualcomm.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.593Z"
+    },
+    {
+      "company_id": "7f6e5ad1-3874-5f84-af71-dfd2d9491809",
+      "official_domain": "rbc.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.589Z"
+    },
+    {
+      "company_id": "72aa4f52-b23e-51c2-b577-9b7ac103c180",
+      "official_domain": "reckitt.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.593Z"
+    },
+    {
+      "company_id": "8690678d-5a62-5880-af7c-083b7f81c967",
+      "official_domain": "renesas.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.611Z"
+    },
+    {
+      "company_id": "ef1701d3-56e6-5666-9027-9c21aea94a51",
+      "official_domain": "rockwellautomation.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.599Z"
+    },
+    {
+      "company_id": "fc77e03a-ec64-5d79-8074-f92078e106ac",
+      "official_domain": "rtx.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.630Z"
+    },
+    {
+      "company_id": "80ba9c6c-22f1-5160-ac6c-507c3dc1edc1",
+      "official_domain": "safran-group.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.782Z"
+    },
+    {
+      "company_id": "7ae62feb-55be-5bee-ac60-85b41efa590b",
+      "official_domain": "sage.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.774Z"
+    },
+    {
+      "company_id": "2bfa4b17-35ef-58e1-aaa1-4c395206058b",
+      "official_domain": "salesforce.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.613Z"
+    },
+    {
+      "company_id": "bf85bd2c-1742-512a-8736-3d9f799812db",
+      "official_domain": "santos.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.004Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000007",
+      "official_domain": "sap.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.627Z"
+    },
+    {
+      "company_id": "3dee4959-737b-5211-99bf-dca31f88b1d5",
+      "official_domain": "scotiabank.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.675Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000018",
+      "official_domain": "se.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:55.829Z"
+    },
+    {
+      "company_id": "670c9710-8d98-57e8-9051-894ac1ec2fc6",
+      "official_domain": "servicenow.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.724Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000011",
+      "official_domain": "shell.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.022Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000017",
+      "official_domain": "siemens.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:56.069Z"
+    },
+    {
+      "company_id": "f7bbb4b1-0414-54f0-866d-5bdc71c6da68",
+      "official_domain": "siemensenergy.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:56.087Z"
+    },
+    {
+      "company_id": "336a0d17-a6b1-5087-a560-6b5eab179f6f",
+      "official_domain": "skf.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.805Z"
+    },
+    {
+      "company_id": "c1198998-bf33-5e54-9574-fa1e661ab35c",
+      "official_domain": "societegenerale.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.607Z"
+    },
+    {
+      "company_id": "6ff14a2c-52e1-563f-9b4b-01d81e4b1913",
+      "official_domain": "starbucks.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.623Z"
+    },
+    {
+      "company_id": "d56aa90e-d04f-5f5f-bbb9-2e92f83cef22",
+      "official_domain": "suncor.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.066Z"
+    },
+    {
+      "company_id": "fb1093df-d866-515c-8feb-b8d5fe41a06c",
+      "official_domain": "swissre.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.652Z"
+    },
+    {
+      "company_id": "604682a9-6d00-5d2d-8326-19d5ce46c6f1",
+      "official_domain": "target.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.639Z"
+    },
+    {
+      "company_id": "ce12b5ce-30f7-5424-8a1a-d170d3ee5379",
+      "official_domain": "tcenergy.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.084Z"
+    },
+    {
+      "company_id": "e8ef442f-52e0-5e25-bca2-3860796d7f94",
+      "official_domain": "td.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.775Z"
+    },
+    {
+      "company_id": "a31545f4-e6da-5186-910a-eb0974e05e96",
+      "official_domain": "tescoplc.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.661Z"
+    },
+    {
+      "company_id": "652b773c-3fb1-588f-888b-0b55b681875b",
+      "official_domain": "theheinekencompany.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.476Z"
+    },
+    {
+      "company_id": "f699e48f-dd77-58ce-8242-abf5d10c17f3",
+      "official_domain": "ti.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.760Z"
+    },
+    {
+      "company_id": "495b28b2-8fa7-539b-8eb0-44a3bc5c6937",
+      "official_domain": "totalenergies.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.128Z"
+    },
+    {
+      "company_id": "0557cfcd-8186-5177-84c3-ef12c23a435b",
+      "official_domain": "tourmalineoil.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.145Z"
+    },
+    {
+      "company_id": "2b244306-9fc2-5562-9e78-79ce583a80ae",
+      "official_domain": "ubs.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.796Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000015",
+      "official_domain": "unilever.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.757Z"
+    },
+    {
+      "company_id": "e5929791-22b4-50a3-96c8-1a9f94b8e52f",
+      "official_domain": "up.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:56.090Z"
+    },
+    {
+      "company_id": "a7c01dd2-b8e5-5d99-8cf1-52eec918d3d7",
+      "official_domain": "ups.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:56.110Z"
+    },
+    {
+      "company_id": "89c23748-14a8-5a95-823c-f7dc2463d794",
+      "official_domain": "valero.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.154Z"
+    },
+    {
+      "company_id": "490c21d1-ca38-5687-9ab6-58c9b49f5b18",
+      "official_domain": "varenergi.no",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.169Z"
+    },
+    {
+      "company_id": "9a8a29c9-2c64-5d88-9f29-08746f08848f",
+      "official_domain": "vestas.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:56.112Z"
+    },
+    {
+      "company_id": "a05213d4-1932-5221-a98e-ed375dcafd6e",
+      "official_domain": "vinci.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:56.122Z"
+    },
+    {
+      "company_id": "b847276d-e889-56be-a844-4ccb1f22ea6b",
+      "official_domain": "visa.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.810Z"
+    },
+    {
+      "company_id": "497cb6e3-f9fa-58f2-878d-ae5385f4b00d",
+      "official_domain": "volvogroup.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.817Z"
+    },
+    {
+      "company_id": "01900000-0000-4000-8000-000000000013",
+      "official_domain": "walmart.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.771Z"
+    },
+    {
+      "company_id": "3313f27b-000c-5027-b535-fb1aca2b8360",
+      "official_domain": "wcap.ca",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.170Z"
+    },
+    {
+      "company_id": "f9e7b5ff-b39c-5f16-b68a-a17ce2fe0fde",
+      "official_domain": "wellsfargo.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.812Z"
+    },
+    {
+      "company_id": "b9331fd7-6060-5e4e-8052-57289e1a0ccf",
+      "official_domain": "westpac.com.au",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.822Z"
+    },
+    {
+      "company_id": "ac1f5418-ab71-5087-9745-17a46615d695",
+      "official_domain": "williams.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.106Z"
+    },
+    {
+      "company_id": "7bf1d5ca-049f-538c-94f6-e6dd941901e9",
+      "official_domain": "woodside.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.178Z"
+    },
+    {
+      "company_id": "beda8f9c-8655-5f9b-8184-49d3079787d3",
+      "official_domain": "woolworthsgroup.com.au",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.787Z"
+    },
+    {
+      "company_id": "d6184218-f007-5f7f-85da-db2f8e1603ad",
+      "official_domain": "www.7andi.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:53.603Z"
+    },
+    {
+      "company_id": "ebccf4f3-7c5a-5e75-894d-759dfcf4aa61",
+      "official_domain": "www.daikin.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:54.852Z"
+    },
+    {
+      "company_id": "05a4e5b7-2bba-55cd-9402-e028dae05896",
+      "official_domain": "www.diamondbackenergy.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:51.070Z"
+    },
+    {
+      "company_id": "caf9f0c0-54c8-554c-8bd5-58b793cb807b",
+      "official_domain": "www.fastretailing.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:52.474Z"
+    },
+    {
+      "company_id": "b4fb62a2-c364-5f86-b1b0-d1f029d666d3",
+      "official_domain": "www.mufg.jp",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.389Z"
+    },
+    {
+      "company_id": "a79b3936-60c6-50a7-8978-81a3c98b61f7",
+      "official_domain": "www.smfg.co.jp",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.621Z"
+    },
+    {
+      "company_id": "c5546429-ccae-5c5b-b50e-cb8b5c95244b",
+      "official_domain": "www.tel.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:48.790Z"
+    },
+    {
+      "company_id": "3bbcd1fe-1b86-51af-ab23-6c52a22f017a",
+      "official_domain": "www.tokiomarinehd.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:49.794Z"
+    },
+    {
+      "company_id": "94471593-f67f-59b8-a119-43fda2232ee7",
+      "official_domain": "zurich.com",
+      "status": "resolved",
+      "checked_at": "2026-09-29T13:58:50.847Z"
+    }
+  ]
+}

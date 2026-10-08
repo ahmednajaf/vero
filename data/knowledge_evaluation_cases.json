@@ -1,0 +1,98 @@
+{
+  "version": "real-report-retrieval-regression-v1",
+  "purpose": "Exploratory regression cases curated from retained official reports. Not a held-out model benchmark or a claim about metric accuracy.",
+  "sources": {
+    "apple": {
+      "company_id": "01900000-0000-4000-8000-000000000005",
+      "report_id": "6e186818-f8a7-451d-94b7-40841dd782fd",
+      "sha256": "597676e8b48ac45529303abc7ef47425ca62ff4efc3a375962a077a033525f74"
+    },
+    "amazon": {
+      "company_id": "08d230e9-7989-5fe8-8548-92ef31dd3069",
+      "report_id": "9c0c69b7-7acf-44ee-a710-dfee7116cac7",
+      "sha256": "f559e2fe2ff3498d3e8dbb8041daf20569fda0bc26ea63b62c3f401685d99e70"
+    },
+    "unilever": {
+      "company_id": "01900000-0000-4000-8000-000000000015",
+      "report_id": "9ca8513a-9c6e-411f-8557-d19ed671b87b",
+      "sha256": "a09d17de00844759cd02dbb3937d2d8f5ef9eaf084b30a48a11694388dc43281"
+    }
+  },
+  "cases": [
+    {
+      "id": "apple-target-not-achievement",
+      "sources": ["apple"],
+      "question": "What is the carbon neutrality target for the entire footprint?",
+      "anchors": [{"source": "apple", "page": 5, "quote": "Achieve carbon neutrality for our entire carbon footprint by 2030"}]
+    },
+    {
+      "id": "apple-supplier-electricity",
+      "sources": ["apple"],
+      "question": "How does the company help suppliers transition to renewable electricity?",
+      "anchors": [{"source": "apple", "page": 25, "quote": "Our Supplier Clean Energy Program (CEP) helps enable suppliers’ transition to renewable electricity"}]
+    },
+    {
+      "id": "apple-year-definition",
+      "sources": ["apple"],
+      "question": "Does the report use fiscal or calendar years?",
+      "anchors": [{"source": "apple", "page": 124, "quote": "We track our environmental progress based on Apple’s fiscal year."}]
+    },
+    {
+      "id": "amazon-net-zero",
+      "sources": ["amazon"],
+      "question": "What net-zero carbon emissions goal has the company set?",
+      "anchors": [{"source": "amazon", "page": 7, "quote": "our commitment to reach net-zero carbon emissions across our global operations by 2040"}]
+    },
+    {
+      "id": "amazon-report-period",
+      "sources": ["amazon"],
+      "question": "What reporting period does the report cover?",
+      "anchors": [{"source": "amazon", "page": 2, "quote": "Data in this report reflects the period from January 1 through December 31, 2025, unless otherwise indicated."}]
+    },
+    {
+      "id": "amazon-renewable-method",
+      "sources": ["amazon"],
+      "question": "How does the company calculate renewable electricity matching?",
+      "anchors": [{"source": "amazon", "page": 50, "quote": "then dividing by Amazon's global electricity use"}]
+    },
+    {
+      "id": "unilever-period",
+      "sources": ["unilever"],
+      "question": "What reporting period and operational boundary does the statement use?",
+      "anchors": [{"source": "unilever", "page": 3, "quote": "reporting period (1 January to 31 December 2025)"}]
+    },
+    {
+      "id": "unilever-demerged-boundary",
+      "sources": ["unilever"],
+      "question": "How did the Ice Cream demerger change the reporting boundary?",
+      "anchors": [{"source": "unilever", "page": 3, "quote": "Following the demerger of our Ice Cream business on 6 December 2025"}]
+    },
+    {
+      "id": "unilever-supplier-data",
+      "sources": ["unilever"],
+      "question": "How does the company obtain supplier product carbon footprint data?",
+      "anchors": [{"source": "unilever", "page": 20, "quote": "Supplier product carbon footprint data: These are received annually directly from suppliers participating in the Supplier Climate Programme"}]
+    },
+    {
+      "id": "peer-target-context",
+      "sources": ["apple", "amazon", "unilever"],
+      "question": "What net zero and carbon neutral targets are stated?",
+      "anchors": [],
+      "check": "Every selected company must contribute evidence; this does not assess target comparability or answer correctness."
+    },
+    {
+      "id": "peer-supplier-context",
+      "sources": ["apple", "amazon", "unilever"],
+      "question": "How do suppliers reduce emissions?",
+      "anchors": [],
+      "check": "Every selected company must contribute evidence; this does not assess the quality of a generated comparison."
+    },
+    {
+      "id": "peer-electricity-context",
+      "sources": ["apple", "amazon", "unilever"],
+      "question": "What are the renewable electricity goals?",
+      "anchors": [],
+      "check": "Every selected company must contribute evidence; electricity and energy are not assumed comparable."
+    }
+  ]
+}

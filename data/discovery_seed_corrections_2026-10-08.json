@@ -1,0 +1,65 @@
+[
+  {
+    "company_id": "8ad44f05-7f51-5889-842f-35cb49b64383",
+    "company": "Dell Technologies Inc.",
+    "previous_sustainability_url": null,
+    "sustainability_url": "https://www.dell.com/en-us/learn/corporate-impact/lp/reports-and-resources",
+    "verified_aliases": ["delltechnologies.com"],
+    "evidence": "Dell's official Reports & Resources page links its reports and company resources on delltechnologies.com.",
+    "checked_at": "2026-10-08T04:41:34Z"
+  },
+  {
+    "company_id": "1916905b-020b-5f58-b65f-22dbd6811c14",
+    "company": "BNP Paribas SA",
+    "previous_sustainability_url": null,
+    "sustainability_url": "https://group.bnpparibas/en/group/publications/group-documents",
+    "verified_aliases": ["cdn-group.bnpparibas.com", "invest.bnpparibas"],
+    "evidence": "Official Group key documents links the 2025 integrated report on the branded document domain and names invest.bnpparibas as its investor destination.",
+    "checked_at": "2026-10-08T04:41:34Z"
+  },
+  {
+    "company_id": "ca8b4ccc-17c1-5946-bb9b-20ac183edc62",
+    "company": "The Procter & Gamble Company",
+    "previous_sustainability_url": "https://us.pg.com/sustainability-reports/",
+    "sustainability_url": "https://us.pg.com/citizenship/",
+    "verified_aliases": ["pginvestor.com"],
+    "evidence": "The old page is an archive; the current Citizenship page links the FY25 data report and explicitly names pginvestor.com as its ESG portal. Contentful is only an exact published-PDF grant, never an owned-domain alias.",
+    "checked_at": "2026-10-08T04:41:34Z"
+  },
+  {
+    "company_id": "bae4890c-dbb8-56bd-a2b7-95f96b300eb7",
+    "company": "Intel Corporation",
+    "previous_sustainability_url": "https://www.intel.com/content/www/us/en/corporate-responsibility/resource-center.html",
+    "sustainability_url": "https://www.intel.com/content/www/us/en/corporate-responsibility/resource-center.html",
+    "verified_aliases": ["intc.com"],
+    "evidence": "The official resource center links intc.com as Investors. The 2024–25 CSR report explicitly measures 2024 performance, not 2025; no metric-period relabelling was performed.",
+    "checked_at": "2026-10-08T04:41:34Z"
+  },
+  {
+    "company_id": "01900000-0000-4000-8000-000000000020",
+    "company": "ABB Ltd",
+    "previous_sustainability_url": null,
+    "sustainability_url": "https://www.abb.com/global/en/company/sustainability/reports",
+    "verified_aliases": ["abb.com"],
+    "evidence": "ABB's current official reporting page and disclosure dashboard are on abb.com, while the retained registry lists its earlier global.abb domain. Both refer to ABB Ltd and its official annual reporting suite.",
+    "checked_at": "2026-10-08T05:08:02Z"
+  },
+  {
+    "company_id": "0aac19ee-c1fb-5805-b9dd-2d65a528bdb0",
+    "company": "AXA SA",
+    "previous_sustainability_url": null,
+    "sustainability_url": "https://www.axa.com/en/press/publications/2025-integrated-report",
+    "verified_aliases": [],
+    "evidence": "Official English publication page labels the 2025 Integrated Report and directly links its PDF on the company's Prismic publishing tenant. The PDF is an exact link, not a general CDN trust grant.",
+    "checked_at": "2026-10-08T05:08:02Z"
+  },
+  {
+    "company_id": "131ffc7e-e2fe-597f-becf-d5154533d82a",
+    "company": "Equinor ASA",
+    "previous_sustainability_url": "https://www.equinor.com/sustainability/sustainability-reports-archive",
+    "sustainability_url": "https://www.equinor.com/investors/annual-reports",
+    "verified_aliases": [],
+    "evidence": "Official 2025 annual report page explicitly includes financial and sustainability reporting. Its literal page download data contains the exact PDF URL and originalFilename; no guessed URL is used.",
+    "checked_at": "2026-10-08T05:08:02Z"
+  }
+]

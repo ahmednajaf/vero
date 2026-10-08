@@ -1,0 +1,15 @@
+[
+  {
+    "company_id": "01900000-0000-4000-8000-000000000011",
+    "requested_year": 2025,
+    "detected_year": 2025,
+    "title": "Shell Annual Report and Accounts 2025",
+    "report_type": "annual",
+    "source_url": "https://www.shell.com/what-we-do/our-strategy/sustainability/reporting-centre/_jcr_content/root/main/section_597740108/promo.multi.stream/1774544186011/5727c329a58b5eb7a54442c0a03f562a5aef1159/shell-annual-report-2025-interactive.pdf",
+    "discovered_from_url": "https://www.shell.com/what-we-do/our-strategy/sustainability/reporting-centre.html",
+    "year_basis": "Official reporting centre labels this Annual Report and Accounts 2025, for the year ended December 31, 2025. Observation years remain page-specific.",
+    "scope_basis": "Official reporting centre identifies the full group annual report and explicitly locates its Sustainability Statements on printed pages 335–425. This is source selection, not metric validation.",
+    "reviewed_by": "Codex official-link check (not expert metric review)",
+    "reviewed_at": "2026-10-06T20:04:29Z"
+  }
+]
