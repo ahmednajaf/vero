@@ -16,6 +16,7 @@ from app.knowledge.inspection import inspect_source
 from app.knowledge.research import ask, preview
 from app.knowledge.search import coverage, evidence, reports, search, topic_coverage
 from app.knowledge.workspace import company_directory, recent_answers
+from app.knowledge.budget import usage_summary
 
 router = APIRouter(prefix="/api/knowledge", tags=["knowledge"])
 
@@ -99,6 +100,7 @@ def status(request: Request, session: Session = Depends(get_session)) -> dict[st
             "connectivity_tested": False,
             "monthly_budget_usd": settings.knowledge_monthly_budget_usd,
             "daily_app_token_limit": settings.openai_daily_token_limit,
+            "usage": usage_summary(session, settings),
             "cost_basis": "Conservative list-price estimate, not actual OpenAI billing or remaining organization allowance",
         },
     }

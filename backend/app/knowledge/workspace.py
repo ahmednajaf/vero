@@ -111,7 +111,7 @@ def recent_answers(session: Session) -> dict[str, Any]:
                 .where(
                     KnowledgeAnswer.status == "completed",
                     func.coalesce(KnowledgeAnswer.payload["task_type"].astext, "")
-                    != "metric_extraction",
+                    .in_(["", "analysis_explanation"]),
                     ~KnowledgeAnswer.question.startswith(BRIEFING_PROMPT_PREFIX),
                 )
                 .order_by(KnowledgeAnswer.created_at.desc())

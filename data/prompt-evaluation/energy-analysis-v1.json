@@ -1,0 +1,43 @@
+{
+  "version": "energy-analysis-v1",
+  "observation_year": 2025,
+  "purpose": "Frozen raw-page prompt trial. This is not a published analysis or a complete disclosure census.",
+  "documents": [
+    {"key":"aramco","company":"Saudi Aramco","company_id":"01900000-0000-4000-8000-000000000012","sha256":"69decead8f9cdb30104d669fe19585870955a165079134344a139a57c85b5141","pages":[16,17,18,25,28,48,49]},
+    {"key":"shell","company":"Shell plc","company_id":"01900000-0000-4000-8000-000000000011","sha256":"90b21028e1616c41c7d73c3e996fd6128d837a41b38d432286e991aed3fbd9a1","pages":[73,90,91,92,116,121,269,420]},
+    {"key":"total","company":"TotalEnergies SE","company_id":"495b28b2-8fa7-539b-8eb0-44a3bc5c6937","sha256":"6a15f2d83d5cb910cc7111f23715fec0f68ad00ee892a72042d59a8418c58ca7","pages":[43,349,389,393,453]},
+    {"key":"total-climate","company":"TotalEnergies SE","company_id":"495b28b2-8fa7-539b-8eb0-44a3bc5c6937","sha256":"0b514e2154820eddbccaa9c37078a1a09657edc06299cc2ad045d129ac769428","pages":[47]},
+    {"key":"equinor","company":"Equinor ASA","company_id":"131ffc7e-e2fe-597f-becf-d5154533d82a","sha256":"4266bb0b2f31bb9a8cc2ed11248cd579e0f98bb3c81fcffaf5c93a89e62e5d98","pages":[80,113,114,138,140,142]},
+    {"key":"eni","company":"Eni S.p.A.","company_id":"a598237a-a3f0-5bb3-bd41-9e51a8b65dce","sha256":"8655e28929650c846d5177aff3ce13466feefd9b0781351f86b4f3b3c990b561","pages":[166,167,201,207,210,213,225,376]}
+  ],
+  "review_only": {
+    "never_send_to_model": true,
+    "status": "Not run. Expected relationships are researcher-authored evaluation criteria, not model findings.",
+    "scale": {"0":"missed, incorrect or generic", "1":"relevant facts but shallow analysis", "2":"correct relationship, explanation, sources and business implication"},
+    "cases": [
+      {"id":"01-progress-versus-avoidance","sources":["aramco:16","aramco:18","aramco:48"],"expectation":"Connect 2024 Scope 1+2 market-based 68.5 Mt with 2025 58+14=72 Mt: about +5.11%, despite reported avoided emissions of 1.57 Mt. Explain growth/efficiency tension; do not subtract avoided emissions from the inventory again."},
+      {"id":"02-portfolio-versus-operational-change","sources":["shell:90","shell:91"],"expectation":"Distinguish rounded decline 58 to 53 Mt (about 8.62%) from the bridge's divestments 4.8 Mt, acquisitions 1.4 Mt, and reduction activities 1.238 Mt. A 96% divestment/rounded-decline ratio is a possible lens, not a complete attribution or proof of 96% decarbonisation by asset sales. Preserve the bridge's net/gross labels and rounding."},
+      {"id":"03-units-and-boundaries","sources":["aramco:48","total:349","eni:166","equinor:113"],"expectation":"Convert tonnes and millions routinely to a shared unit; pair Scope 1 and market-based Scope 2 within the same reported perimeter. Retain useful comparisons with the perimeter stated. Do not combine TotalEnergies consolidated Scope 1 with operated Scope 2 or reject all companies merely for unit scaling."},
+      {"id":"04-cross-report-social-value","sources":["shell:121","shell:269","eni:225","eni:376"],"expectation":"Discover a social-investment/business-scale relationship across narrative and financial sections. Shell total 115 / customer sales 257352 * 1000000 is about 446.86 USD per million USD sales; its voluntary portion 103 gives about 400.23. Eni local development 81 / sales 82151 * 1000000 is about 985.99 EUR per million EUR sales. Currency cancels in these ratios. Explain the spend-definition difference rather than naming the larger ratio social impact."},
+      {"id":"05-representation-and-leadership","sources":["aramco:28","shell:116","total:393","eni:201","eni:207","equinor:138","equinor:140"],"expectation":"Discover a workforce/leadership relationship, preserve the definition of seniority and show underlying percentages. Shell 35/35 is parity; Total senior executives 30.2/36.7 is about 0.823. Eni senior managers 19.8 and senior+middle management 30.8 are different populations. Do not cherry-pick a seniority definition to award a preferred company or equate parity with best diversity."},
+      {"id":"06-training-opportunity","sources":["total:389","equinor:142","eni:207","shell:116"],"expectation":"Discover the gender training-hours gap: Total women 24.6 versus men 26.6 (-2.0 h), Equinor 22.6 versus 28.7 (-6.1 h), Eni 27.5 versus 35.9 (-8.4 h). Explain an actionable opportunity without claiming causation. Shell training days including JV partners cannot become comparable hours by assuming eight-hour days."},
+      {"id":"07-credits-and-promises","sources":["shell:92","total-climate:47","equinor:114","eni:166"],"expectation":"Compare how credits are used: Shell energy-product NCI, Total's planned use from 2030, Equinor flight retirements and Eni equity targets. Analyse current versus future reliance and transparency; do not rank raw volumes with these different purposes or imply purchases equal retirements. Surface what would permit a useful same-scope reliance calculation."},
+      {"id":"08-ai-outcomes","sources":["aramco:18","shell:73","total:43","equinor:80","eni:210"],"expectation":"Develop a qualitative comparison of AI implementation and reported benefit. Aramco's 95% relates to manual reporting effort, not energy savings. Eni's roughly 800 alerts are not 800 prevented injuries. Equinor's R&D+digital budget is not AI-only investment. Treat deployed monitoring, reported time gains and quantified business outcomes as substantively different evidence."},
+      {"id":"09-promise-delivery","sources":["aramco:17","shell:91","total-climate:47"],"expectation":"Create a promise register linking scope, baseline, deadline, implementation and latest result. Recognise Shell's reported elimination of routine flaring against its 2025 target, preserving routine versus all flaring. Identify Total's 2025 achieved emissions versus 2026 and 2030 ambitions. Do not convert the earliest deadline into a net-zero performance winner."},
+      {"id":"10-safety-populations","sources":["aramco:25","shell:420","eni:213"],"expectation":"Investigate contractor versus employee outcomes. Do not issue a zero-fatality badge to a company with zero employee fatalities and contractor deaths, or conclude AI caused a reported safety result. Propose an exposure-adjusted comparison or a precise disclosure insight where evidence permits."},
+      {"id":"11-disclosure-assessment","sources":["aramco:48","aramco:49","shell:116","total:389","eni:207"],"expectation":"Propose a shared atomic checklist and identify positive disclosures with sources. The trial supplies selected pages, not completed searches: final scores must remain pending where absence has not been assessed. Still specify missing-item deductions and the focused searches needed. Do not substitute retrieved-source counts for disclosure performance."},
+      {"id":"12-awards-and-editorial-value","sources":[],"expectation":"Propose useful, criterion-specific awards from analytical relationships, apply the same basis to all assessed peers, allow ties, and develop non-numerical insights. The report outline and chart suggestions must centre business questions and derived results, not volumes of research activity. Findings beyond these expected examples are welcome and reviewed on merit."}
+    ],
+    "additional_tests_before_production": [
+      "Completed disclosure matrix: explicit zeros qualify; a missing common item deducts the published weight; a missing source remains pending; ties and equal rules are preserved. Use a separately labelled mechanical fixture, never a real-company assertion.",
+      "Held-out official pages/companies not used to refine v1, with no expected findings in model input.",
+      "Full retrieval trial: verify that missing denominators and counter-evidence are found rather than supplied by the evaluator.",
+      "Execute proposed calculations, then test PUBLISH mode on those results; assess complete PDF/workbook output later."
+    ],
+    "release_review": {
+      "required":"No unsupported headline quantity or winner; no false disclosure penalty; arithmetic and source checks; usable qualitative analysis; both package perspectives.",
+      "quality":"Review all twelve cases and unanticipated findings. Record successes and misses, not just JSON validity. No pass claim until a live model output is reviewed.",
+      "rubric_not_sent":"Keep this section out of both developer instructions and user evidence."
+    }
+  }
+}

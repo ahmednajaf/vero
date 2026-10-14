@@ -14,6 +14,7 @@ from sqlalchemy.orm import Session
 
 from app.core.config import Settings
 from app.knowledge.budget import check_limits
+from app.knowledge.grounding import literal_excerpt
 from app.db.models import Company, KnowledgeAnswer
 from app.knowledge.contracts import (
     AskRequest,
@@ -121,11 +122,10 @@ def validate_claims(
         citations = []
         for citation in claim.citations:
             source = by_id.get(citation.evidence_id)
-            if source is None or normalise(citation.quote) not in normalise(
-                source["text"]
-            ):
+            match = literal_excerpt(source['text'],citation.quote) if source else None
+            if source is None or match is None:
                 raise ResearchError("unsupported_citation")
-            citations.append({**source, "quote": citation.quote})
+            citations.append({**source, "quote": match.quote, 'grounding_method':match.method})
         quoted = " ".join(c["quote"] for c in citations)
 
         # Deterministic numerical grounding is an extra guard, not semantic verification.
@@ -577,6 +577,7 @@ async def ask(
         claims: list[dict[str, Any]]
         withheld: list[str]
         unmatched_numbers: set[str] = set()
+        rejected_drafts: list[dict[str, Any]] = []
         if plan.intent == "library_coverage":
             # These are exact database counts, not AI-inferred disclosure coverage.
             calculations = [
@@ -605,9 +606,10 @@ async def ask(
             )
             claims, withheld = [], []
         else:
+            aliases = {f'S{i+1}':s['evidence_id'] for i,s in enumerate(payload['evidence'])}
             model_payload = {
                 **payload,
-                "evidence": [model_evidence(s) for s in payload["evidence"]],
+                "evidence": [{**model_evidence(s),'evidence_id':f'S{i+1}'} for i,s in enumerate(payload["evidence"])],
             }
             if (
                 len(
@@ -624,6 +626,10 @@ async def ask(
             if not isinstance(result.data, ResearchOutput):
                 raise ResearchError("openai_malformed_output")
             output = result.data
+            output = output.model_copy(deep=True)
+            for claim in output.claims:
+                for citation in claim.citations:
+                    citation.evidence_id = aliases.get(citation.evidence_id,citation.evidence_id)
             if (output.status in {"answered", "partial"}) != bool(output.claims):
                 raise ResearchError("answer_status_conflict")
             claims, withheld = [], []
@@ -639,6 +645,7 @@ async def ask(
                     )
                 except ResearchError as exc:
                     withheld.append(exc.code)
+                    rejected_drafts.append({'reason':exc.code,'draft':claim.model_dump()})
                     if exc.code == "unsupported_number":
                         evidence_by_id = {
                             e["evidence_id"]: e for e in payload["evidence"]
@@ -709,6 +716,9 @@ async def ask(
             "validation": {
                 "withheld_statements": len(withheld),
                 "reasons": withheld,
+                # Unpublished diagnostic drafts allow citation bugs to be fixed
+                # without discarding the only copy or paying to recreate output.
+                "rejected_drafts": rejected_drafts,
                 **(
                     {"unmatched_numeric_tokens": sorted(unmatched_numbers)}
                     if unmatched_numbers

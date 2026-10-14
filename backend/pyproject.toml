@@ -22,10 +22,12 @@ dependencies = [
   "PyMuPDF>=1.28.2,<1.29",
   "pdfplumber>=0.11,<1",
   "httpx>=0.28,<1",
+  "tiktoken>=0.12,<1",
+  "reportlab>=4.4,<5",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.4,<10", "mypy>=1.18,<2", "types-requests>=2.32", "reportlab>=4.4,<5"]
+dev = ["pytest>=8.4,<10", "mypy>=1.18,<2", "types-requests>=2.32"]
 browser = ["playwright>=1.50,<2"]
 
 [tool.setuptools.packages.find]
@@ -34,6 +36,7 @@ include = ["app*"]
 
 [tool.setuptools.package-data]
 "app.catalogue" = ["data/*.json"]
+"app.knowledge" = ["workbook.mjs", "prompts/*.txt"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -52,5 +55,5 @@ init_typed = true
 warn_required_dynamic_aliases = true
 
 [[tool.mypy.overrides]]
-module = ["pymupdf", "pymupdf.*"]
+module = ["pymupdf", "pymupdf.*", "reportlab", "reportlab.*"]
 ignore_missing_imports = true

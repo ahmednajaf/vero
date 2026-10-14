@@ -13,7 +13,7 @@ beforeEach(()=>{window.history.replaceState(null,"","/");vi.stubGlobal("fetch",v
 }));});
 it("retires the sample study without loading a hidden pharma dataset",async()=>{
  window.history.replaceState(null,"","/edition");render(<ReportApp/>);
- expect(await screen.findByRole("heading",{name:"Your workspace."})).toBeInTheDocument();
+ expect(await screen.findByRole("heading",{name:"Your reports."})).toBeInTheDocument();
  expect(vi.mocked(fetch).mock.calls.every(([url])=>!String(url).includes("/research/pharma"))).toBe(true);
  expect(screen.queryByText(/Reviewed pharma/)).not.toBeInTheDocument();
 });
@@ -24,6 +24,7 @@ it("supports company search and country filters",async()=>{
 });
 it("opens a saved reported figure and restores source-button focus",async()=>{
  window.history.replaceState(null,"","/companies/c0");render(<ReportApp/>);const user=userEvent.setup();
+ await user.click(await screen.findByRole("button",{name:"Figures"}));
  const button=await screen.findByRole("button",{name:/Fixture Company 0 Scope 1 emissions 2024 page 9/});
  await user.click(button);expect(screen.getByRole("dialog",{name:"Source evidence"})).toHaveTextContent(observation.supporting_excerpt);
  await user.keyboard("{Escape}");expect(button).toHaveFocus();
@@ -33,7 +34,7 @@ it("shows proposed pricing with working scope links and no checkout",async()=>{
  window.history.replaceState(null,"","/pricing");render(<ReportApp/>);
  expect(screen.getByRole("heading",{name:"Company benchmark"})).toBeInTheDocument();
  expect(screen.getByText("$5,000")).toBeInTheDocument();expect(screen.getByText("$10,000")).toBeInTheDocument();
- expect(screen.getByRole("link",{name:/Build your peer group/})).toHaveAttribute("href","/compare");
+ expect(screen.getByRole("link",{name:/Request company benchmark/})).toHaveAttribute("href","/contact?package=company");
  expect(screen.getByText(/checkout is not enabled/)).toBeInTheDocument();
  await waitFor(()=>expect(fetch).toHaveBeenCalled());
 });
@@ -52,5 +53,41 @@ it("preserves the globe landing and navigates through the existing wheel",async(
  await userEvent.setup().click(screen.getByRole("button",{name:"Open navigation"}));
  const nav=screen.getByRole("navigation",{name:"Main navigation"});
  expect(within(nav).getByRole("link",{name:"Pricing"})).toHaveAttribute("href","/pricing");
+ expect(within(nav).getAllByRole("link").map(link=>link.textContent)).toEqual(["Home","Workspace","Pricing","How it works"]);
  expect(within(nav).queryByRole("link",{name:"Race"})).not.toBeInTheDocument();
+});
+it("groups companies and source reports under one library",async()=>{
+ window.history.replaceState(null,"","/workspace/library");render(<ReportApp/>);const user=userEvent.setup();
+ expect(await screen.findByRole("heading",{name:"Company library."})).toBeInTheDocument();
+ await user.click(within(screen.getByRole("navigation",{name:"Library views"})).getByRole("link",{name:"Reports"}));
+ expect(await screen.findByRole("heading",{name:"Report library."})).toBeInTheDocument();
+ expect(screen.getByRole("link",{name:/Open PDF/})).toHaveAttribute("href",new URL(report.file_url,window.location.origin).href);
+});
+it("keeps methodology concise with technical detail on demand",async()=>{
+ window.history.replaceState(null,"","/methodology");render(<ReportApp/>);
+ expect(screen.getByRole("heading",{name:"From reports to a clearer picture."})).toBeInTheDocument();
+ expect(screen.getByText("How are figures compared?").closest("details")).not.toHaveAttribute("open");
+ await userEvent.setup().click(screen.getByText("How are figures compared?"));
+ expect(screen.getByText(/Compatible units are converted automatically/)).toBeVisible();
+});
+
+it("opens the global assistant in the saved analysis, not an unrelated library search",async()=>{
+ const original=vi.mocked(fetch).getMockImplementation()!;
+ const briefing={id:'b1',title:'Saved comparison',primary_company_id:'c0',status:'ready',created_at:'2026-10-14',updated_at:'2026-10-14',sources_current:true,can_resume:false,completed_topics:0,findings_count:0,estimated_cost_usd:0,cost_note:'',definition:{company_ids:['c0','c1'],report_ids:['r1'],companies:companies.slice(0,2),focus:''},sections:[],matrix:[],review_opportunities:[]};
+ vi.mocked(fetch).mockImplementation(async(...args)=>String(args[0]).endsWith('/briefings/b1')?{ok:true,status:200,json:async()=>briefing} as Response:original(...args));
+ window.history.replaceState(null,'','/workspace/analysis?briefing=b1');
+ render(<ReportApp/>);const user=userEvent.setup();await screen.findByRole('heading',{name:'Saved comparison'});
+ await user.click(screen.getByRole('button',{name:'Explore findings'}));
+ expect(await screen.findByText('Explaining this saved analysis · calculations and source evidence')).toBeInTheDocument();
+ expect(screen.getByRole('dialog',{name:'Explore the findings'})).toHaveTextContent('Fixture Company 0');
+ expect(vi.mocked(fetch).mock.calls.every(([,o])=>o?.method==='GET')).toBe(true);
+});
+
+it("does not silently open general research when the selected analysis cannot load",async()=>{
+ const original=vi.mocked(fetch).getMockImplementation()!;
+ vi.mocked(fetch).mockImplementation(async(...args)=>String(args[0]).endsWith('/briefings/missing')?{ok:false,status:404,json:async()=>({})} as Response:original(...args));
+ window.history.replaceState(null,'','/workspace/analysis?briefing=missing');render(<ReportApp/>);
+ await userEvent.setup().click(await screen.findByRole('button',{name:'Explore findings'}));
+ await waitFor(()=>expect(screen.getAllByRole('alert').some(a=>a.textContent?.includes('no longer available'))).toBe(true));
+ expect(screen.queryByRole('dialog',{name:'Explore the findings'})).not.toBeInTheDocument();
 });

@@ -103,6 +103,7 @@ def test_only_documented_endpoints_are_exposed():
         "/api/knowledge/briefings",
         "/api/knowledge/briefings/{identifier}",
         "/api/knowledge/briefings/{identifier}/advance",
+        "/api/knowledge/briefings/{identifier}/explain",
         "/api/knowledge/briefings/{identifier}/export",
     }
     assert all(
@@ -116,6 +117,7 @@ def test_only_documented_endpoints_are_exposed():
             "/api/knowledge/ask",
             "/api/knowledge/briefings",
             "/api/knowledge/briefings/{identifier}/advance",
+            "/api/knowledge/briefings/{identifier}/explain",
             "/api/reports/{report_id}/extract-metric",
         }
     )

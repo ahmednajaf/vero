@@ -3,7 +3,9 @@
 import hashlib
 import json
 import logging
+import math
 from decimal import Decimal
+import tiktoken
 
 from sqlalchemy import Engine, select, text
 from sqlalchemy.orm import Session
@@ -16,6 +18,7 @@ from app.knowledge.provider import (
     ResearchError,
     configured,
     request_body,
+    StructuredProvider,
 )
 from app.llm.contracts import (
     ExtractionError,
@@ -38,15 +41,36 @@ def digest(value: str) -> str:
     return hashlib.sha256(value.encode()).hexdigest()
 
 
+def input_reservation(body: str, model: str) -> tuple[int, str]:
+    """Tokenise the complete request, with schema/framing headroom.
+
+    Unknown encodings retain the conservative UTF-8-byte upper estimate. This
+    changes estimates for new calls only, never recorded usage or reservations.
+    """
+    try:
+        encoding = tiktoken.encoding_for_model(model)
+        count = len(encoding.encode(body, disallowed_special=()))
+        return math.ceil(count * 1.25) + 4096, 'tokenizer-plus-25-percent-and-4096'
+    except (KeyError, OSError, ValueError):
+        return len(body.encode()) + 4096, 'utf8-bytes-plus-4096'
+
+
 class OpenAIStructuredExtractor:
     def __init__(
         self,
         settings: Settings,
         engine: Engine,
-        provider: OpenAIResearchProvider | None = None,
+        provider: StructuredProvider | None = None,
+        *,
+        instructions: str = SYSTEM_INSTRUCTION,
+        instruction_version: str = INSTRUCTION_VERSION,
+        task_type: str = "metric_extraction",
     ):
         self.settings, self.engine = settings, engine
         self.provider = provider or OpenAIResearchProvider(settings)
+        self.instructions = instructions
+        self.instruction_version = instruction_version
+        self.task_type = task_type
 
     async def model_identity(self) -> ModelIdentity:
         if reason := configured(self.settings):
@@ -60,7 +84,9 @@ class OpenAIStructuredExtractor:
                     "model": self.settings.openai_model,
                     "reasoning": self.settings.openai_reasoning_effort,
                     "output_limit": self.settings.openai_max_output_tokens,
-                    "instructions": INSTRUCTION_VERSION,
+                    "instructions": self.instruction_version,
+                    "instructions_sha256": digest(self.instructions),
+                    "task_type": self.task_type,
                     "adapter": "openai-extraction-v1",
                 }
             )
@@ -81,21 +107,8 @@ class OpenAIStructuredExtractor:
             )
         )
         payload = {"source_extraction_task": prompt.text}
-        # UTF-8 bytes + framing margin is a conservative token reservation, not
-        # an invented measured token count. It includes the JSON schema.
-        input_bound = (
-            len(
-                canonical(
-                    request_body(
-                        self.settings,
-                        payload,
-                        schema=schema,
-                        instructions=SYSTEM_INSTRUCTION,
-                    )
-                ).encode()
-            )
-            + 4096
-        )
+        input_bound, estimate_method = input_reservation(canonical(request_body(
+            self.settings, payload, schema=schema, instructions=self.instructions)), identity.name)
         output_bound = self.settings.openai_max_output_tokens
         price_in = Decimal(str(self.settings.openai_input_price)) / 1_000_000
         price_out = Decimal(str(self.settings.openai_output_price)) / 1_000_000
@@ -111,7 +124,7 @@ class OpenAIStructuredExtractor:
                 prompt.version,
                 prompt_hash,
                 schema_hash,
-                INSTRUCTION_VERSION,
+                self.instruction_version,
                 latency,
                 latency,
                 attempts,
@@ -145,26 +158,26 @@ class OpenAIStructuredExtractor:
                 raise ExtractionError(exc.code) from None
             saved = KnowledgeAnswer(
                 request_sha256=cache_key,
-                question=f"Metric extraction · {prompt.name} · {prompt.version}",
+                question=f"{self.task_type} · {prompt.name} · {prompt.version}",
                 provider="openai",
                 model=identity.name,
                 status="running",
-                payload={"task_type": "metric_extraction"},
+                payload={"task_type": self.task_type},
                 reserved_usd=reservation,
-                usage={"reserved_tokens": input_bound + output_bound},
+                usage={"reserved_tokens": input_bound + output_bound, "reservation_method": estimate_method},
             )
             session.add(saved)
             session.commit()  # Reserve before the network call; never retry a POST silently.
             try:
                 completion = await self.provider.structured(
-                    payload, schema, SYSTEM_INSTRUCTION
+                    payload, schema, self.instructions
                 )
                 saved.usage = {
                     **saved.usage,
                     "input_tokens": completion.input_tokens,
                     "output_tokens": completion.output_tokens,
                     "latency_ms": round(completion.latency_ms, 2),
-                    "task_type": "metric_extraction",
+                    "task_type": self.task_type,
                 }
                 saved.charged_usd = (
                     completion.input_tokens * price_in
@@ -182,19 +195,23 @@ class OpenAIStructuredExtractor:
                 parsed = result(raw, completion.latency_ms, 1)
                 saved.status = "completed"
                 saved.payload = {
-                    "task_type": "metric_extraction",
+                    "task_type": self.task_type,
                     "structured_result": raw,
                     "prompt_sha256": prompt_hash,
                     "schema_sha256": schema_hash,
                 }
                 session.commit()
                 log.info(
-                    "metric_extraction provider=openai model=%s latency_ms=%.0f",
+                    "structured_analysis provider=openai model=%s latency_ms=%.0f",
                     identity.name,
                     completion.latency_ms,
                 )
                 return parsed
             except Exception as exc:
+                if isinstance(exc, ResearchError) and exc.usage:
+                    saved.usage = {**saved.usage, **exc.usage}
+                    saved.charged_usd = (exc.usage["input_tokens"] * price_in
+                                         + exc.usage["output_tokens"] * price_out)
                 saved.status = "failed"
                 saved.error_code = (
                     exc.code

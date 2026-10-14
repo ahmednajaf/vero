@@ -10,6 +10,7 @@ from collections import defaultdict
 from datetime import date
 from decimal import Decimal, localcontext
 from statistics import median
+from app.extraction.units import convert
 from typing import Any, Iterable
 
 from app.benchmarking.contracts import (
@@ -131,6 +132,10 @@ def resolve(
     candidates: list[Measure] = []
     for row in approved:
         context, missing = clean_context(row, definition)
+        comparison_unit = definition.unit or row.unit
+        comparison_value = (convert(row.value, row.unit, comparison_unit)
+                            if row.value is not None and row.unit and comparison_unit and row.unit != comparison_unit
+                            else row.value)
         reason = None
         if not source_verified(row.provenance):
             reason = "source_or_validation_audit_missing"
@@ -140,8 +145,8 @@ def resolve(
             reason = "comparability_not_reviewed"
         elif row.qualifier != "exact":
             reason = "qualified_value_not_ranked"
-        elif not row.unit or (definition.unit and row.unit != definition.unit):
-            reason = "noncanonical_unit"
+        elif not row.unit or comparison_value is None:
+            reason = "incompatible_unit_dimension"
         elif missing:
             reason = "missing_comparison_dimensions:" + ",".join(sorted(missing))
         elif "period_start" in context and not valid_period(context, row.year):
@@ -153,12 +158,12 @@ def resolve(
         elif (
             definition.unit == "%"
             and code != "yoy_emissions_change"
-            and not D(0) <= row.value <= D(100)
+            and not D(0) <= comparison_value <= D(100)
         ):
             reason = "percent_out_of_range"
-        elif code == "yoy_emissions_change" and row.value < -100:
+        elif code == "yoy_emissions_change" and comparison_value < -100:
             reason = "change_below_minus_100"
-        elif definition.unit != "%" and row.value < 0:
+        elif definition.unit != "%" and comparison_value < 0:
             reason = "negative_performance_value"
         # Additional reviewed metadata is used only by revenue derivation.
         context_with_revenue = dict(context)
@@ -167,8 +172,8 @@ def resolve(
         candidates.append(
             Measure(
                 code,
-                row.value,
-                row.unit,
+                comparison_value,
+                comparison_unit,
                 context_with_revenue,
                 result.definitions,
                 [row.provenance],

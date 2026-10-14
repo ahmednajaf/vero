@@ -1,6 +1,7 @@
 """Read-only evidence remains accessible without promotion to benchmark status."""
 
 import hashlib
+from decimal import Decimal
 from uuid import uuid4
 from unittest.mock import AsyncMock, patch
 
@@ -114,13 +115,19 @@ def test_evidence_preserves_zero_and_review_state(
     assert len(body["observations"]) == 1
     observation = body["observations"][0]
     assert observation["raw_value"] == "0"
-    assert observation["normalised_value"] is None
+    assert Decimal(observation["normalised_value"]) == 0
+    assert observation["normalised_unit"] == "tCO2e"
     assert observation["validation_state"] == "needs_review"
     assert observation["validation_audit_current"] is False
     assert observation["source_page"] == 1
     assert observation["supporting_excerpt"] == "Fictional Scope 1 evidence for tests"
     assert observation["local_report_url"] is None
     assert body["reports"] == []
+    # Read-time unit conversion must not promote or mutate the saved observation.
+    with Session(db_engine) as session:
+        stored = session.get(MetricObservation, observation_ids[0])
+        assert stored.normalised_value is None
+        assert stored.validation_state == "needs_review"
     assert api_client.get(f"/api/companies/{uuid4()}/evidence").status_code == 404
 
 

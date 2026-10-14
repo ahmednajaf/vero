@@ -5,6 +5,19 @@ from uuid import uuid4
 
 import httpx
 import pytest
+
+
+def test_input_reservation_includes_tokenizer_margin_and_fallback(monkeypatch):
+    from app.llm.openai import input_reservation
+    class Encoder:
+        def encode(self, value, disallowed_special):
+            return list(range(1000))
+    monkeypatch.setattr('tiktoken.encoding_for_model', lambda model: Encoder())
+    assert input_reservation('report text', 'known') == (5346, 'tokenizer-plus-25-percent-and-4096')
+    def unknown(model):
+        raise KeyError(model)
+    monkeypatch.setattr('tiktoken.encoding_for_model', unknown)
+    assert input_reservation('é', 'unknown') == (4098, 'utf8-bytes-plus-4096')
 from pydantic import SecretStr
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -95,6 +108,68 @@ def test_model_allowlist_blocks_before_network():
         asyncio.run(provider.analyse({}))
 
 
+@pytest.mark.parametrize('status', ['completed', 'incomplete'])
+def test_streamed_completion_preserves_schema_and_usage(status):
+    terminal=response()
+    terminal['status']=status
+    body='data: '+json.dumps({'type':'response.created','response':{'status':'in_progress'}})+'\n\n'
+    body+='data: '+json.dumps({'type':'response.'+status,'response':terminal})+'\n\n'
+    calls=[]
+    def respond(request):
+        calls.append(request)
+        assert json.loads(request.content)['stream'] is True
+        return httpx.Response(200,text=body,headers={'content-type':'text/event-stream'})
+    provider=OpenAIResearchProvider(settings(),httpx.MockTransport(respond))
+    if status=='completed':
+        result=asyncio.run(provider.structured({},SmokeResponse,'Fixture'))
+        assert result.data.company_name=='Fixture Ltd'
+        assert result.input_tokens==100 and result.output_tokens==25
+    else:
+        with pytest.raises(ResearchError) as exc:
+            asyncio.run(provider.structured({},SmokeResponse,'Fixture'))
+        assert exc.value.usage=={'input_tokens':100,'output_tokens':25}
+    assert len(calls)==1
+
+
+def test_interrupted_event_stream_is_not_retried():
+    calls=[]
+    def respond(request):
+        calls.append(request)
+        return httpx.Response(200,text='data: {"type":"response.created"}\n\n',headers={'content-type':'text/event-stream'})
+    provider=OpenAIResearchProvider(settings(),httpx.MockTransport(respond))
+    with pytest.raises(ResearchError,match='openai_incomplete_response'):
+        asyncio.run(provider.structured({},SmokeResponse,'Fixture'))
+    assert len(calls)==1
+
+
+def test_terminal_event_finishes_without_waiting_for_connection_close():
+    class Stream(httpx.AsyncByteStream):
+        async def __aiter__(self):
+            yield ('data: ' + json.dumps({'type': 'response.completed', 'response': response()}) + '\n\n').encode()
+            raise httpx.ReadTimeout('Connection remains open after terminal event')
+    provider = OpenAIResearchProvider(settings(), httpx.MockTransport(
+        lambda _: httpx.Response(200, stream=Stream(), headers={'content-type': 'text/event-stream'})))
+    completion = asyncio.run(provider.structured({}, SmokeResponse, 'Fixture'))
+    assert completion.data.company_name == 'Fixture Ltd'
+    assert completion.input_tokens == 100
+
+
+def test_incomplete_response_retains_known_usage_without_retry(db_engine):
+    calls = []
+    def respond(request):
+        calls.append(request)
+        return httpx.Response(200, json={"status": "incomplete", "usage": {"input_tokens": 100, "output_tokens": 50}})
+    s = settings()
+    adapter = OpenAIStructuredExtractor(s, db_engine, OpenAIResearchProvider(s, httpx.MockTransport(respond)))
+    with pytest.raises(ExtractionError, match="openai_incomplete_response"):
+        asyncio.run(adapter.extract_structured(Prompt("fixture", "1", "Fixture text"), SmokeResponse))
+    assert len(calls) == 1
+    with Session(db_engine) as session:
+        row = session.scalar(select(KnowledgeAnswer))
+        assert row.status == "failed" and row.charged_usd == Decimal("0.0003")
+        assert row.usage["output_tokens"] == 50
+
+
 def test_extractor_uses_strict_schema_shared_ledger_and_cache(db_engine):
     calls = []
 
@@ -167,6 +242,21 @@ def test_provider_failure_is_retained_without_retry(db_engine):
         ledger = session.scalar(select(KnowledgeAnswer))
         assert ledger.status == "failed" and ledger.charged_usd is None
         assert ledger.usage["reserved_tokens"] > 0
+
+
+def test_failed_response_with_measured_usage_reconciles_daily_reservation(db_engine):
+    s = settings(openai_daily_token_limit=1000)
+    with Session(db_engine) as session:
+        session.add(KnowledgeAnswer(
+            request_sha256=uuid4().hex, question="Fixture", provider="openai",
+            model=s.openai_model, status="failed", reserved_usd=Decimal(".02"),
+            charged_usd=Decimal(".001"),
+            usage={"reserved_tokens": 950, "input_tokens": 150, "output_tokens": 50},
+        ))
+        session.commit()
+        check_limits(session, s, Decimal(".01"), 800)
+        with pytest.raises(ResearchError, match="daily_token_limit_exceeded"):
+            check_limits(session, s, Decimal(".01"), 801)
 
 
 def test_daily_limit_blocks_extraction_before_provider(db_engine):

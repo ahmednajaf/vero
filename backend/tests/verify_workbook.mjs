@@ -1,0 +1,27 @@
+// Offline native-workbook integration check. The fixtures are never product data.
+import assert from 'node:assert/strict';
+import {FileBlob,SpreadsheetFile} from '@oai/artifact-tool';
+const book=await SpreadsheetFile.importXlsx(await FileBlob.load(process.argv[2]));
+const inputs=book.worksheets.getItem('Inputs');
+const results=book.worksheets.getItem('Comparisons');
+const get=cell=>results.getRange(cell).values[0][0];
+book.recalculate();
+assert.equal(get('B8'),1500000);
+assert.equal(get('B9'),2000000);
+assert.equal(get('E8'),'Leading value');
+assert.equal(get('E9'),'');
+inputs.getRange('C6').values=[[3000]];
+book.recalculate();
+assert.equal(get('B8'),3000000);
+assert.equal(get('E8'),'');
+assert.equal(get('E9'),'Leading value');
+inputs.getRange('C6').values=[[0]];
+book.recalculate();
+assert.equal(get('B8'),0);
+assert.equal(get('E8'),'Leading value');
+inputs.getRange('C6').values=[[null]];
+book.recalculate();
+assert.equal(get('B8'),'Unavailable');
+assert.equal(get('E8'),'');
+assert.equal(results.charts.items.length,1);
+console.log('Workbook: values, conversions, winner changes, zero, missing inputs, and native chart passed.');

@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation, localcontext
 
 from app.catalogue.contracts import Metric
+from app.extraction.units import convert, parse_unit
 
 
 @dataclass(frozen=True)
@@ -30,6 +31,9 @@ def number(raw: str) -> Decimal | None:
 
 
 def unit_key(raw: str) -> str:
+    parsed = parse_unit(raw)
+    if parsed is not None:
+        return parsed.symbol
     value = unicodedata.normalize("NFKC", raw).strip()
     aliases = {
         "percent": "%",
@@ -105,17 +109,21 @@ def normalise(metric: Metric, raw: str | None, unit: str | None) -> Normalised:
             return Normalised(None, None, ("missing_intensity_denominator",))
         denominator = parts[1].strip()
         key = unit_key(parts[0])
-        factors = {"kgCO2e": "0.001", "tCO2e": "1", "ktCO2e": "1000"}
+        factors = {"kgCO2e": "0.001", "tCO2e": "1", "ktCO2e": "1000", "MtCO2e": "1000000"}
+        parsed_denominator = parse_unit(denominator)
+        if parsed_denominator:
+            denominator = parsed_denominator.symbol
         canonical_unit = f"tCO2e/{denominator}"
     elif metric.canonical_id == "yoy_emissions_change":
         factors = {"%": "1", "fraction": "100"}
     else:
         factors = metric.normalisation_rule.factors_to_canonical
-    if key not in factors or canonical_unit is None or len(canonical_unit) > 80:
+    converted = convert(value, unit, canonical_unit) if canonical_unit else None
+    if (key not in factors and converted is None) or canonical_unit is None or len(canonical_unit) > 80:
         return Normalised(None, None, ("unknown_or_incompatible_unit",), denominator)
     with localcontext() as context:
         context.prec = 80
-        result = value * Decimal(factors[key])
+        result = converted if converted is not None else value * Decimal(factors[key])
     constraints = metric.validation_constraints
     if (
         (constraints.minimum is not None and result < Decimal(constraints.minimum))
@@ -123,11 +131,11 @@ def normalise(metric: Metric, raw: str | None, unit: str | None) -> Normalised:
         or (constraints.integer_only and result != result.to_integral_value())
     ):
         return Normalised(None, None, ("value_out_of_range",), denominator)
-    # PostgreSQL numeric(38,12): refuse silent rounding or overflow.
+    # The database stores 12 decimals. Exact SI conversions such as GJ -> MWh
+    # repeat in decimal notation; round at storage precision, not reject the unit.
     with localcontext() as context:
         context.prec = 80
-        if abs(result) >= Decimal("1e26") or result != result.quantize(
-            Decimal("1e-12")
-        ):
+        if abs(result) >= Decimal("1e26"):
             return Normalised(None, None, ("numeric_storage_precision",), denominator)
+        result = result.quantize(Decimal("1e-12"))
     return Normalised(result, canonical_unit, (), denominator)

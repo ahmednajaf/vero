@@ -15,3 +15,5 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 Object.defineProperty(window, "scrollTo", {value: vi.fn(), writable: true});
+// Decorative folder artwork is verified in the browser; jsdom has no canvas renderer.
+Object.defineProperty(HTMLCanvasElement.prototype, "getContext", {value: vi.fn(() => null), writable: true});

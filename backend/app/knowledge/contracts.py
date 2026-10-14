@@ -23,7 +23,7 @@ class SearchRequest(Scope):
 
 
 class AskRequest(Scope):
-    question: str = Field(min_length=5, max_length=1200)
+    question: str = Field(min_length=5, max_length=6000)
     parent_answer_id: UUID | None = None
 
 
@@ -44,7 +44,7 @@ class ResearchOutput(BaseModel):
     status: Literal[
         "answered", "partial", "needs_clarification", "insufficient_evidence"
     ]
-    claims: list[Claim] = Field(max_length=10)
+    claims: list[Claim]
     limitations: list[
         Literal[
             "sampled_evidence",

@@ -50,14 +50,19 @@ class Settings(BaseSettings):
         None
     )
     openai_timeout_seconds: float = Field(default=90, ge=1, le=180)
-    openai_max_output_tokens: int = Field(default=2500, ge=128, le=8000)
+    openai_max_output_tokens: int = Field(default=2500, ge=128, le=16000)
     # Operator-supplied current rates, in USD / million tokens. Zero disables calls.
     openai_input_price: float = Field(default=0, ge=0, le=1000, allow_inf_nan=False)
     openai_output_price: float = Field(default=0, ge=0, le=1000, allow_inf_nan=False)
+    report_analysis_model: str = ""
+    report_analysis_input_price: float = Field(default=0, ge=0, le=1000, allow_inf_nan=False)
+    report_analysis_output_price: float = Field(default=0, ge=0, le=1000, allow_inf_nan=False)
     knowledge_monthly_budget_usd: float = Field(
         default=0, ge=0, le=100, allow_inf_nan=False
     )
     knowledge_max_evidence_chars: int = Field(default=30000, ge=4000, le=60000)
+    workbook_node: Path | None = None
+    workbook_modules: Path | None = None
 
     @field_validator("openai_api_key")
     @classmethod

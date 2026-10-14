@@ -30,6 +30,7 @@ from app.extraction.service import extract_metric
 from app.llm.contracts import ExtractionError
 from app.llm.openai import OpenAIStructuredExtractor
 from app.catalogue.seed import load_catalogue
+from app.extraction.normalisation import normalise
 
 router = APIRouter(prefix="/api", tags=["evidence library"])
 
@@ -175,8 +176,13 @@ def company_evidence(company_id: UUID, session: Database) -> dict[str, Any]:
         if audit_event.metric_observation_id is not None:
             latest.setdefault(audit_event.metric_observation_id, audit_event)
     observations = []
+    catalogue = {metric.canonical_id: metric for metric in load_catalogue().metrics}
     for observation, definition, report in rows:
         event = latest.get(observation.id)
+        metric = catalogue.get(definition.metric_code)
+        converted = normalise(metric, observation.raw_value, observation.raw_unit) if metric else None
+        display_value = converted.value if converted and converted.value is not None else observation.normalised_value
+        display_unit = converted.unit if converted and converted.value is not None else observation.normalised_unit
         observations.append(
             {
                 "id": str(observation.id),
@@ -200,11 +206,12 @@ def company_evidence(company_id: UUID, session: Database) -> dict[str, Any]:
                 "raw_value": observation.raw_value,
                 "raw_unit": observation.raw_unit,
                 "normalised_value": (
-                    str(observation.normalised_value)
-                    if observation.normalised_value is not None
+                    str(display_value)
+                    if display_value is not None
                     else None
                 ),
-                "normalised_unit": observation.normalised_unit,
+                "normalised_unit": display_unit,
+                "unit_conversion": "automatic" if converted and converted.value is not None else "stored",
                 "validation_state": observation.validation_state,
                 "compatibility_state": observation.compatibility_state,
                 "validation_audit_current": event is not None

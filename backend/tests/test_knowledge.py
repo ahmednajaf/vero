@@ -371,6 +371,26 @@ def test_grounding_rejects_missing_citation_fabricated_quote_number_and_census()
         )
 
 
+def test_chat_citations_tolerate_pdf_typography_but_not_changed_numbers():
+    source=[{'evidence_id':'source-1','text':'Reported climate\u2011related investment was 12%.\nThe company\u2019s target remains 2030.'}]
+    payload=response_payload()
+    payload['claims'][0].update(text='Reported climate-related investment was 12%.',citations=[{'evidence_id':'source-1','quote':'Reported climate-related investment was 12%.'}])
+    accepted=validate_claims(ResearchOutput.model_validate(payload),source)
+    assert accepted[0]['citations'][0]['grounding_method']=='normalized_literal'
+    assert accepted[0]['citations'][0]['quote'] in source[0]['text']
+    payload['claims'][0]['citations'][0]['quote']='Reported climate-related investment was 13%.'
+    with pytest.raises(ResearchError,match='unsupported_citation'):
+        validate_claims(ResearchOutput.model_validate(payload),source)
+
+
+def test_chat_citation_ellipsis_keeps_intervening_source_caveat():
+    source=[{'evidence_id':'source-1','text':'Training reached 12 hours. This covers contractors only. The programme began in 2024.'}]
+    payload=response_payload()
+    payload['claims'][0].update(text='Training reached 12 hours.',citations=[{'evidence_id':'source-1','quote':'Training reached 12 hours. ... The programme began in 2024.'}])
+    accepted=validate_claims(ResearchOutput.model_validate(payload),source)
+    assert 'contractors only' in accepted[0]['citations'][0]['quote']
+
+
 def test_openai_provider_strict_response_and_no_tools_or_storage():
     def handler(request):
         assert request.url == "https://api.openai.com/v1/responses"
@@ -1306,6 +1326,9 @@ def test_independent_grounded_findings_survive_unsupported_draft(db_engine, corp
             )
         )
         assert answer["status"] == "partial" and len(answer["claims"]) == 1
+        diagnostic = answer['validation'].pop('rejected_drafts')
+        assert diagnostic[0]['reason']=='unsupported_number'
+        assert diagnostic[0]['draft']['text']=='They train 900 suppliers.'
         assert answer["validation"] == {
             "withheld_statements": 1,
             "reasons": ["unsupported_number"],

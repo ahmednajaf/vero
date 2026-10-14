@@ -22,11 +22,26 @@ from app.knowledge.provider import ResearchError
 from test_knowledge import corpus, MockProvider, ai_settings  # noqa: F401
 
 
+def test_client_snapshot_does_not_repeat_full_parser_pages_or_mutate_evidence():
+    from app.knowledge.briefings import client_sections
+    source={'evidence_id':'s1','quote':'Reported value: 12','text':'Full PDF page ' * 1000,
+            'page':12,'report_sha256':'hash','source_url':'https://example.com/report.pdf'}
+    sections=[{'kind':'collect','result':{'facts':[{'source':source}]}},
+              {'kind':'analyse','result':{'facts':[{'source':source}],'claims':[{'text':'An insight','citations':[source]}]}}]
+    compact=client_sections(sections)
+    assert 'text' not in compact[0]['result']['facts'][0]['source']
+    assert compact[0]['result']['facts'][0]['source']['quote']=='Reported value: 12'
+    assert 'facts' not in compact[1]['result']
+    assert compact[1]['result']['claims'][0]['text']=='An insight'
+    assert source['text'] and sections[1]['result']['facts']
+
+
 def request(ids, **kwargs):
     return BriefingRequest(
         primary_company_id=ids[0][0],
         peer_ids=[ids[1][0]],
         topics=["supply_chain", "nature"],
+        include_synthesis=False,
         **kwargs,
     )
 
@@ -72,6 +87,26 @@ def test_partial_failure_retains_previous_topic_and_safe_retry(db_engine, corpus
         provider = MockProvider()
         result = asyncio.run(advance(session, row.id, ai_settings(), provider))
         assert result["completed_topics"] == 2 and provider.calls == 1
+
+
+def test_allowance_pause_resumes_only_unfinished_work(db_engine, corpus):
+    _, ids = corpus
+    with Session(db_engine) as session:
+        row = create(session, request(ids))
+        asyncio.run(advance(session, row.id, ai_settings(), MockProvider()))
+        provider = MockProvider()
+        paused = asyncio.run(advance(session, row.id, ai_settings(budget=0.000001), provider))
+        assert paused["status"] == "paused" and paused["can_resume"]
+        assert paused["completed_topics"] == 1 and provider.calls == 0
+        assert paused["sections"][1]["error_code"] == "monthly_budget_exceeded"
+        # Older failed records from before the fix display as a resumable pause too.
+        row.status = "failed"
+        session.commit()
+        assert snapshot(session, row)["status"] == "paused"
+        assert recent(session)["items"][0]["status"] == "paused"
+        finished = asyncio.run(advance(session, row.id, ai_settings(), provider))
+        assert finished["completed_topics"] == 2 and provider.calls == 1
+        assert not finished["can_resume"]
 
 
 def test_busy_lease_and_changed_source_prevent_duplicate_or_stale_work(
@@ -122,6 +157,7 @@ def test_missing_company_report_is_not_zero_or_non_disclosure(db_engine, corpus)
                 primary_company_id=company.id,
                 peer_ids=[ids[0][0]],
                 topics=["supply_chain"],
+                include_synthesis=False,
             ),
         )
         result = asyncio.run(advance(session, row.id, ai_settings(), MockProvider()))

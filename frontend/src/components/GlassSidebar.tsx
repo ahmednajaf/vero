@@ -173,8 +173,9 @@ function NavigationWheel({year,onYearChange,onMobileOpenChange,onPinnedChange}: 
   const trigger=useRef<HTMLButtonElement>(null),panel=useRef<HTMLDivElement>(null),stage=useRef<HTMLElement>(null);
   const current=useRef(0),velocity=useRef(0),frame=useRef(0),drag=useRef<{y:number;rotation:number;last:number;moved:boolean}|null>(null),suppressClick=useRef(false);
   const mobile=useMobileNavigation();
-  const items=[{name:"Overview",path:"/overview",icon:"methodology" as const},{name:"Compare",path:"/compare",icon:"compare" as const},{name:"Companies",path:"/companies",icon:"companies" as const},{name:"Sources",path:"/sources",icon:"methodology" as const},{name:"Methodology",path:"/methodology",icon:"trends" as const},{name:"Pricing",path:"/pricing",icon:"methodology" as const}];
+  const items=[{name:"Home",path:"/",icon:"overview" as const},{name:"Workspace",path:"/workspace",icon:"compare" as const},{name:"Pricing",path:"/pricing",icon:"companies" as const},{name:"How it works",path:"/methodology",icon:"methodology" as const}];
   const count=items.length;
+  const activePath = ["/companies", "/compare", "/sources", "/overview", "/insights"].some(route=>path===route||path.startsWith(`${route}/`)) || path.startsWith("/workspace") ? "/workspace" : path==="/contact" ? "/pricing" : path;
   const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
   function commit(value:number){current.current=value;setRotation(value);}
   function animate(){if(frame.current)return;function tick(){frame.current=0;if(drag.current)return;let next=current.current;if(Math.abs(velocity.current)>.0008&&!reduced){next+=velocity.current;velocity.current*=.9;}else{velocity.current=0;const delta=Math.round(next)-next;if(Math.abs(delta)<.001||reduced){commit(Math.round(next));return;}next+=delta*.22;}commit(next);frame.current=requestAnimationFrame(tick);}frame.current=requestAnimationFrame(tick);}
@@ -184,11 +185,16 @@ function NavigationWheel({year,onYearChange,onMobileOpenChange,onPinnedChange}: 
   useEffect(()=>{if(open)stage.current?.focus();},[open]);
   useEffect(()=>()=>cancelAnimationFrame(frame.current),[]);
   useEffect(()=>{const el=stage.current;if(!open||!el)return;function wheel(event:WheelEvent){if(event.ctrlKey||event.metaKey)return;event.preventDefault();const delta=event.deltaY*(event.deltaMode===1?16:1)*.008;commit(current.current+delta);velocity.current=delta*.2;animate();}el.addEventListener('wheel',wheel,{passive:false});return()=>el.removeEventListener('wheel',wheel);},[open]);
+  function openNavigation(){
+    cancelAnimationFrame(frame.current);frame.current=0;velocity.current=0;drag.current=null;suppressClick.current=false;
+    const activeIndex=items.findIndex(item=>item.path===activePath);
+    commit(activeIndex<0?0:activeIndex);setOpen(true);
+  }
   function close(){setOpen(false);requestAnimationFrame(()=>trigger.current?.focus());}
   function keys(e:KeyboardEvent<HTMLDivElement>){if(e.key==='Escape'){e.preventDefault();close();}if(['ArrowDown','ArrowRight','ArrowUp','ArrowLeft'].includes(e.key)){e.preventDefault();move(['ArrowDown','ArrowRight'].includes(e.key)?1:-1);}if(e.key==='Home'||e.key==='End'){e.preventDefault();velocity.current=0;commit(e.key==='Home'?0:count-1);}if(e.key==='Tab'&&open){const controls=panel.current?.querySelectorAll<HTMLElement>('button,a,[tabindex="0"]');if(!controls?.length)return;const first=controls[0],last=controls[controls.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}}
   const selected=((Math.round(rotation)%count)+count)%count;
   return <div className="carousel-navigation" onKeyDown={keys}>
-    <button ref={trigger} className="carousel-menu-trigger" aria-label="Open navigation" aria-expanded={open} aria-controls="workspace-navigation" onClick={()=>setOpen(true)} hidden={open}><img src="/brand/vero-wordmark.png" alt="Vero"/><span aria-hidden="true">≡</span></button>
+    <button ref={trigger} className="carousel-menu-trigger" aria-label="Open navigation" aria-expanded={open} aria-controls="workspace-navigation" onClick={openNavigation} hidden={open}><img src="/brand/vero-wordmark.png" alt="Vero"/><span aria-hidden="true">≡</span></button>
     {open&&<><div className="carousel-dismiss" onClick={close}/><div ref={panel} className="glass-wheel-carousel" id="workspace-navigation" role="dialog" aria-modal="true" aria-label="Workspace navigation">
       <header><Link href="/" aria-label="Vero home" onClick={close}><img src="/brand/vero-wordmark.png" alt="Vero"/></Link><button onClick={close} aria-label="Close navigation">×</button></header>
       <nav ref={stage} className="carousel-wheel-stage" aria-label="Main navigation" tabIndex={0}
@@ -197,7 +203,7 @@ function NavigationWheel({year,onYearChange,onMobileOpenChange,onPinnedChange}: 
         onPointerUp={e=>{if(!drag.current)return;suppressClick.current=drag.current.moved;drag.current=null;if(e.currentTarget.hasPointerCapture(e.pointerId))e.currentTarget.releasePointerCapture(e.pointerId);animate();}}
         onPointerCancel={()=>{drag.current=null;velocity.current=0;animate();}}>
         <span className="carousel-apex-marker" aria-hidden="true"/>
-        {items.map((item,index)=>{let offset=index-rotation;offset=((offset+count/2)%count+count)%count-count/2;const angle=offset*17,radians=angle*Math.PI/180;const x=-260*(1-Math.cos(radians)),y=260*Math.sin(radians);return <Link key={item.path} className="carousel-wheel-item" href={item.path} aria-label={item.name} aria-current={path===item.path?'page':undefined} data-selected={Math.abs(offset)<.5} style={{transform:`translate(${x}px,${y}px) translateY(-50%) rotate(${angle}deg) scale(${1-Math.abs(offset)*.04})`,opacity:Math.cos(Math.min(Math.abs(offset)/3,1)*Math.PI/2)}} onClick={e=>{if(suppressClick.current){e.preventDefault();suppressClick.current=false;return;}setOpen(false);}}><NavigationIcon name={item.icon}/><span>{item.name}</span></Link>;})}
+        {items.map((item,index)=>{let offset=index-rotation;offset=((offset+count/2)%count+count)%count-count/2;const angle=offset*17,radians=angle*Math.PI/180;const x=-260*(1-Math.cos(radians)),y=260*Math.sin(radians);return <Link key={item.path} className="carousel-wheel-item" href={item.path} aria-label={item.name} aria-current={activePath===item.path?'page':undefined} data-selected={Math.abs(offset)<.5} style={{transform:`translate(${x}px,${y}px) translateY(-50%) rotate(${angle}deg) scale(${1-Math.abs(offset)*.04})`,opacity:Math.cos(Math.min(Math.abs(offset)/3,1)*Math.PI/2)}} onClick={e=>{if(suppressClick.current){e.preventDefault();suppressClick.current=false;return;}setOpen(false);}}><NavigationIcon name={item.icon}/><span>{item.name}</span></Link>;})}
       </nav>
       <label className="carousel-year-selector"><span className="carousel-year-label">Year</span><span className="carousel-year-input"><select aria-label="Reporting year" value={year} onChange={event=>onYearChange(Number(event.target.value))}><option value={year}>{year}</option></select><span aria-hidden="true">⌄</span></span></label>
       <span className="sr-only" aria-live="polite">{items[selected].name}</span>

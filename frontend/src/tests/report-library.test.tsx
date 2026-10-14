@@ -49,13 +49,27 @@ beforeEach(()=>{window.history.replaceState(null,"","/");vi.stubGlobal("fetch",v
 }));});
 const wrap=(element:React.ReactNode)=>render(<NavigationProvider>{element}</NavigationProvider>);
 function Directory(){const [ids,setIds]=useState<string[]>([]);return <LibraryDirectory library={library} selected={ids} setSelected={setIds}/>;}
-function Chat({source=vi.fn()}: {source?:(p:Passage)=>void}){const [ids,setIds]=useState(["c0"]),[draft,setDraft]=useState("");return <Sustainobot open onClose={vi.fn()} companies={companies} selected={ids} onSelect={setIds} draft={draft} setDraft={setDraft} openSource={source}/>;}
+function Chat({source=vi.fn(),analysisId}: {source?:(p:Passage)=>void;analysisId?:string}){const [ids,setIds]=useState(["c0"]),[draft,setDraft]=useState("");return <Sustainobot open onClose={vi.fn()} companies={companies} selected={ids} onSelect={setIds} draft={draft} setDraft={setDraft} openSource={source} analysisId={analysisId}/>;}
+
+it('explains saved calculations and keeps follow-ups in the same analysis',async()=>{
+ const original=vi.mocked(fetch).getMockImplementation()!;
+ vi.mocked(fetch).mockImplementation((url,init)=>String(url).endsWith('/briefings/b1/explain')?Promise.resolve(reply({...answer,analysis_id:'b1'}) as Response):original(url,init));
+ render(<Chat analysisId="b1"/>);const user=userEvent.setup();
+ await user.type(screen.getByRole('textbox',{name:'Ask Sustainobot'}),'Explain the training comparison');
+ await user.click(screen.getByRole('button',{name:'Send question'}));
+ await screen.findByText('The company describes supplier training.');
+ await user.type(screen.getByRole('textbox',{name:'Ask Sustainobot'}),'How is that calculated?');
+ await user.click(screen.getByRole('button',{name:'Send question'}));
+ await waitFor(()=>expect(calls().filter(c=>c.url.endsWith('/explain'))).toHaveLength(2));
+ expect(calls().filter(c=>c.url.endsWith('/explain'))[1].body).toEqual({question:'How is that calculated?',previous_questions:['Explain the training comparison']});
+ expect(calls().filter(c=>c.url.endsWith('/ask'))).toHaveLength(0);
+});
 
 it("loads the real library contract without substituting research fixtures",async()=>{expect(await loadReportLibrary()).toEqual(library);expect(calls().every(c=>!c.url.includes("/ask"))).toBe(true);});
 it("fails closed on an invalid directory response",async()=>{vi.mocked(fetch).mockResolvedValue(reply({}) as Response);await expect(loadReportLibrary()).rejects.toThrow("No replacement data");});
 it("paginates and filters the company roster independently of metric availability",async()=>{wrap(<Directory/>);const user=userEvent.setup();expect(within(screen.getByRole("table")).getAllByRole("row")).toHaveLength(26);await user.click(screen.getByRole("button",{name:"Next →"}));expect(screen.getByText("26–30 of 30")).toBeInTheDocument();await user.selectOptions(screen.getByRole("combobox",{name:"Sector"}),"Energy");expect(await screen.findByText("1–1 of 1")).toBeInTheDocument();expect(within(screen.getByRole("table")).getByText("Test Company 0")).toBeInTheDocument();});
 it("limits selected peers to five and can clear them",async()=>{wrap(<Directory/>);const user=userEvent.setup();for(let i=0;i<5;i++)await user.click(screen.getByRole("checkbox",{name:`Select Test Company ${i}`}));expect(screen.getByRole("checkbox",{name:"Select Test Company 5"})).toBeDisabled();await user.click(screen.getByRole("button",{name:"Clear selection"}));expect(screen.getByRole("checkbox",{name:"Select Test Company 5"})).toBeEnabled();});
-it("does not present uncollected company reports as analysed",()=>{wrap(<LibraryCompanyPage company={companies[29]} reports={[]} selected={[]} setSelected={vi.fn()} open={vi.fn()} ask={vi.fn()}/>);expect(screen.getByText(/not counted as analysed/)).toBeInTheDocument();expect(screen.getByRole("button",{name:"Ask Sustainobot ↗"})).toBeDisabled();expect(screen.queryByText("0 tCO2e")).not.toBeInTheDocument();});
+it("does not present uncollected company reports as analysed",()=>{wrap(<LibraryCompanyPage company={companies[29]} reports={[]} selected={[]} setSelected={vi.fn()} open={vi.fn()} ask={vi.fn()}/>);expect(screen.getByText(/not counted as analysed/)).toBeInTheDocument();expect(screen.getByRole("button",{name:"Explore company insights ↗"})).toBeDisabled();expect(screen.queryByText("0 tCO2e")).not.toBeInTheDocument();});
 it("searches actual passages and passes page provenance into source viewing",async()=>{const open=vi.fn();wrap(<ReportSearch companyIds={["c0"]} open={open} ask={vi.fn()}/>);const user=userEvent.setup();await user.type(screen.getByRole("searchbox",{name:"Search report text"}),"supplier training");await user.click(screen.getByRole("button",{name:"Search report text"}));await user.click(await screen.findByRole("button",{name:"View source · page 12 ↗"}));expect(open).toHaveBeenCalledWith(passage);expect(calls()[0].body.company_ids).toEqual(["c0"]);expect(passageSelection(passage).evidence?.[0]).toMatchObject({source_page:12,supporting_excerpt:passage.quote,report_sha256:"abc",validation_state:"source_text_not_metric_validation"});});
 it("does not turn empty retrieval into a finding of nondisclosure",async()=>{vi.mocked(fetch).mockResolvedValue(reply({items:[],total:0}) as Response);wrap(<ReportSearch initial="missing disclosure" open={vi.fn()} ask={vi.fn()}/>);expect(await screen.findByText(/does not prove the topic is absent/)).toBeInTheDocument();expect(calls().some(c=>c.url.endsWith("/ask"))).toBe(false);});
 it("retains source title, hash and report URL in the source library",()=>{wrap(<LibrarySources library={library} open={vi.fn()} ask={vi.fn()}/>);expect(screen.getByRole("link",{name:"Open PDF ↗"})).toHaveAttribute("href",expect.stringContaining("/api/reports/r0/file"));expect(screen.getByText("abc")).toBeInTheDocument();expect(screen.getByRole("heading",{name:"Test report"})).toBeInTheDocument();});

@@ -150,7 +150,7 @@ def test_incomparable_dimensions_not_pooled(definitions, dimension, value):
         ({"state": "extracted"}, "missing_validated_evidence"),
         ({"state": "needs_review"}, "missing_validated_evidence"),
         ({"state": "not_comparable"}, "missing_validated_evidence"),
-        ({"unit": "kgCO2e"}, "noncanonical_unit"),
+        ({"unit": "MWh"}, "incompatible_unit_dimension"),
         ({"qualifier": "less_than"}, "qualified_value_not_ranked"),
         ({"value": D("NaN")}, "missing_finite_normalised_value"),
         ({"value": D("-1")}, "negative_performance_value"),
@@ -163,6 +163,19 @@ def test_quality_gates(definitions, changes, reason):
     data = metric(run(definitions, [row]), "scope_1_emissions")
     assert data["eligibility_reason"] == reason
     assert data["percentile"] is None
+
+
+def test_convertible_units_share_one_peer_distribution(definitions):
+    rows = [observation(definitions, "scope_1_emissions", 100, i) for i in range(5)]
+    rows[0] = replace(rows[0], value=D("100000"), unit="kgCO2e")
+    rows[1] = replace(rows[1], value=D("0.1"), unit="ktCO2e")
+    rows[2] = replace(rows[2], value=D("0.0001"), unit="MtCO2e")
+    result = run(definitions, rows, [company(i) for i in range(5)])
+    for i in range(5):
+        value = metric(result, "scope_1_emissions", i)
+        assert value["value"] == "100.000000"
+        assert value["peer_sample_size"] == 5
+        assert value["percentile"] == "50.000000"
 
 
 def test_unknown_dimensions_not_guessed(definitions):

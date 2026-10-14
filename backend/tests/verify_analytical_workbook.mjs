@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {FileBlob,SpreadsheetFile} from '@oai/artifact-tool';
+const book=await SpreadsheetFile.importXlsx(await FileBlob.load(process.argv[2]));
+const inputs=book.worksheets.getItem('Inputs'), results=book.worksheets.getItem('Comparisons'), scores=book.worksheets.getItem('Scorecard');
+const value=(sheet,cell)=>sheet.getRange(cell).values[0][0];
+book.recalculate();assert.equal(value(results,'B8'),50);assert.equal(value(results,'B9'),50);
+inputs.getRange('C6').values=[[45]];book.recalculate();assert.equal(value(results,'B8'),75);
+assert.equal(value(scores,'B12'),75);assert.equal(value(scores,'C12'),'Leading value');assert.equal(value(scores,'C13'),'');
+inputs.getRange('C7').values=[[0]];book.recalculate();assert.equal(value(results,'B8'),'Unavailable');
+inputs.getRange('C7').values=[[null]];book.recalculate();assert.equal(value(results,'B8'),'Unavailable');
+assert.equal(value(scores,'C13'),'Pending');
+console.log('Analytical workbook: multi-step formulas, reference-distance awards, missing values and edits passed.');

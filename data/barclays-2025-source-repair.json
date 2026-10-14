@@ -1,0 +1,15 @@
+[
+  {
+    "company_id": "dab27691-c506-5964-9f1e-a9937c2d8a96",
+    "requested_year": 2025,
+    "detected_year": 2025,
+    "title": "Barclays PLC Annual Report 2025",
+    "report_type": "annual",
+    "source_url": "https://home.barclays/content/dam/home-barclays/documents/investor-relations/reports-and-events/annual-reports/2025/Barclays-PLC-Annual-Report-2025.pdf",
+    "discovered_from_url": "https://home.barclays/investor-relations/reports-and-events/annual-reports/",
+    "year_basis": "The company-published PDF is explicitly titled Barclays PLC Annual Report 2025; the exact official link is also cited by the Equator Principles 2025 reporting entry.",
+    "scope_basis": "Barclays PLC group annual report, including Climate and Sustainability report; replaces neither the source framework nor any prior saved analysis.",
+    "reviewed_by": "Vero source repair",
+    "reviewed_at": "2026-10-14T00:00:00Z"
+  }
+]

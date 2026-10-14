@@ -6,10 +6,15 @@ export interface LibraryCompany {
   collection_status: string;
   collection_reason?: string | null;
 }
+export interface ResearchUsage {
+  monthly_accounted_usd:string; monthly_recorded_estimate_usd:string; monthly_reserved_usd:string;
+  monthly_remaining_usd:string; daily_tokens_accounted:number; daily_tokens_remaining:number; daily_resets_at:string;
+}
+export const analysisLimitErrors = new Set(["monthly_budget_exceeded","daily_token_limit_exceeded","trial_budget_exceeded","trial_budget_expired"]);
 export interface LibraryStatus {
   companies_in_scope: number; official_reports_downloaded: number; reports_indexed: number;
   companies_with_indexed_reports: number; pages_indexed: number; reports_with_text_gaps: number;
-  research: {provider: string; model: string | null; enabled: boolean; configuration_error: string | null; monthly_budget_usd: number};
+  research: {provider: string; model: string | null; enabled: boolean; configuration_error: string | null; monthly_budget_usd: number; daily_app_token_limit?:number; usage?:ResearchUsage};
 }
 export interface LibraryReport {
   id: string; company_id: string; company: string; title: string; document_role: string;
@@ -56,6 +61,7 @@ export interface Coverage {
   companies: {company_id: string; company: string | null; status: string; matching_passages: number}[];
 }
 export interface Answer {
+  analysis_id?: string; calculation_basis?: string;
   answer_id?: string; question?: string; status: "answered" | "partial" | "needs_clarification" | "insufficient_evidence";
   claims: {text: string; citations: Passage[]}[]; coverage: Coverage;
   model?: string; cached: boolean; model_called: boolean; estimated_cost_usd?: string;
@@ -73,6 +79,7 @@ const messages: Record<string, string> = {
   briefing_sources_changed: "A source changed after this analysis was created. Start a new analysis; the historical result is preserved.",
   briefing_no_searchable_reports: "No selected company has a searchable report yet. Choose companies with reports or inspect their source availability.",
   briefing_company_unavailable: "One of the selected companies is no longer in the active library.",
+  briefing_report_unavailable: "One of the chosen reports is not searchable for these companies. Check the selected sources.",
   briefing_processing_failed: "This topic could not finish. Completed topics are saved. Retry the unfinished topic when ready.",
   openai_billing_not_active: "OpenAI API billing is not active for this key’s project. Activate it in your OpenAI account, then retry. Your question is saved here.",
   openai_quota_exhausted: "The OpenAI project has no available API quota. Check its credits and spending limits, then retry.",
@@ -80,7 +87,9 @@ const messages: Record<string, string> = {
   openai_timeout: "OpenAI did not finish within the time limit. Your question is retained. A retry may incur another charge.",
   openai_authentication: "OpenAI rejected the API key. Update backend/.env and restart the backend.",
   openai_access_denied: "This OpenAI project does not have access to the selected model.",
-  monthly_budget_exceeded: "Vero’s monthly AI budget has been reached. Document search and sources still work.",
+  monthly_budget_exceeded: "Analysis paused: Vero’s local monthly allowance cannot cover the next AI step. This is an app limit, not an OpenAI error. Completed work is saved; resume after the allowance is updated.",
+  trial_budget_exceeded: "This analysis has reached its agreed AI test budget. Your calculated results and completed findings are saved.",
+  trial_budget_expired: "The approved test budget has expired. Your saved results are still available.",
   daily_token_limit_exceeded: "Vero’s conservative daily token limit has been reached. Saved results and source search still work. The daily window resets in UTC.",
   openai_model_not_allowed: "This model is blocked by Vero’s explicit model allowlist. No AI call was made.",
   report_not_ready_for_extraction: "This report needs a successful page-aware parse before figures can be extracted.",
@@ -104,7 +113,7 @@ export async function knowledge<T>(path: string, body?: unknown, signal?: AbortS
   const abort = () => controller.abort();
   signal?.addEventListener("abort", abort, {once: true});
   if (signal?.aborted) abort();
-  const timer = setTimeout(abort, path === "/knowledge/ask" || path.endsWith("/advance") || path.endsWith("/extract-metric") ? 205000 : 30000);
+  const timer = setTimeout(abort, path === "/knowledge/ask" || path.endsWith("/advance") || path.endsWith("/explain") || path.endsWith("/extract-metric") ? 205000 : 30000);
   try {
     const response = await fetch(`${base}${path}`, {method: body === undefined ? "GET" : "POST", headers: {Accept:"application/json", ...(body === undefined ? {} : {"Content-Type":"application/json"})}, body: body === undefined ? undefined : JSON.stringify(body), signal: controller.signal});
     let data: unknown;

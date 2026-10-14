@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {render,screen,waitFor} from "@testing-library/react";
+import {act,render,screen,waitFor} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {beforeEach,expect,it,vi} from "vitest";
 import {CompanyIntelligence,IntelligenceOverview,PeerWorkspace} from "../components/IntelligenceWorkspace";
@@ -17,13 +17,54 @@ const reply=(body:unknown,status=200)=>({ok:status<400,status,json:async()=>body
 let saved:Briefing;
 beforeEach(()=>{saved=structuredClone(base);window.history.replaceState(null,"","/compare");vi.stubGlobal("fetch",vi.fn(async(url,options)=>{
  const path=String(url);
+ if(path.endsWith('/knowledge/status'))return reply(library.status);
  if(path.endsWith("/briefings")&&options?.method==="POST")return reply(saved,201);
  if(path.includes("/briefings")&&!path.includes("/b1"))return reply({items:[]});
  if(path.endsWith("/advance")){saved=structuredClone(done);return reply(saved);}
  if(path.endsWith("/b1"))return reply(saved);
  throw Error(`Unexpected request ${path}`);
 }));});
-function Workspace({open=vi.fn(),ask=vi.fn()}){const [selected,setSelected]=useState<string[]>([]);return <NavigationProvider><PeerWorkspace library={library} selected={selected} setSelected={setSelected} open={open} ask={ask}/></NavigationProvider>;}
+function Workspace({open=vi.fn(),ask=vi.fn(),data=library}){const [selected,setSelected]=useState<string[]>([]);return <NavigationProvider><PeerWorkspace library={data} selected={selected} setSelected={setSelected} open={open} ask={ask}/></NavigationProvider>;}
+
+it('shows a resumable allowance pause and never loops on a rejected step',async()=>{
+ const original=vi.mocked(fetch).getMockImplementation()!;
+ vi.mocked(fetch).mockImplementation((...args)=>{if(String(args[0]).endsWith('/advance')){saved={...base,status:'paused',sections:[{...base.sections[0],status:'failed',error_code:'monthly_budget_exceeded'}]};return Promise.resolve(reply(saved));}return original(...args);});
+ const user=userEvent.setup();render(<Workspace/>);
+ await user.selectOptions(screen.getByRole('combobox',{name:'Primary company'}),'c0');
+ await user.click(screen.getByRole('button',{name:/Generate analysis/}));
+ expect(await screen.findByRole('heading',{name:'Analysis paused · allowance reached'})).toBeInTheDocument();
+ expect(screen.getByRole('status')).toHaveTextContent('not an OpenAI error');
+ expect(screen.getByRole('button',{name:'Continue unfinished topics'})).toBeEnabled();
+ expect(vi.mocked(fetch).mock.calls.filter(([url])=>String(url).endsWith('/advance'))).toHaveLength(1);
+});
+
+it('shows remaining allowance before generation and disables exhausted allowance',async()=>{
+ const data=structuredClone(library);
+ data.status.research.usage={monthly_accounted_usd:'5',monthly_recorded_estimate_usd:'4.5',monthly_reserved_usd:'0.5',monthly_remaining_usd:'0',daily_tokens_accounted:0,daily_tokens_remaining:1000,daily_resets_at:'2026-10-15T00:00:00Z'};
+ const original=vi.mocked(fetch).getMockImplementation()!;
+ vi.mocked(fetch).mockImplementation((...args)=>String(args[0]).endsWith('/knowledge/status')?Promise.resolve(reply(data.status)):original(...args));
+ render(<Workspace data={data}/>);
+ await userEvent.setup().selectOptions(screen.getByRole('combobox',{name:'Primary company'}),'c0');
+ expect(screen.getByRole('status')).toHaveTextContent('$0.00 remaining of $5.00');
+ expect(screen.getByRole('button',{name:/Generate analysis/})).toBeDisabled();
+ expect(vi.mocked(fetch).mock.calls.every(([,options])=>options?.method==='GET')).toBe(true);
+});
+
+it("keeps reading progress across a pending stage boundary without starting AI calls",async()=>{
+ vi.useFakeTimers();
+ try {
+  saved={...base,status:'running'};window.history.replaceState(null,'','/workspace/analysis?briefing=b1');
+  const view=render(<Workspace/>);
+  await act(async()=>{});
+  saved=structuredClone(base);
+  await act(async()=>{await vi.advanceTimersByTimeAsync(3000);});
+  saved=structuredClone(done);
+  await act(async()=>{await vi.advanceTimersByTimeAsync(3000);});
+  expect(screen.getByRole('button',{name:'Calculations'})).toBeInTheDocument();
+  expect(vi.mocked(fetch).mock.calls.every(([,o])=>o?.method==='GET')).toBe(true);
+  view.unmount();
+ } finally {vi.useRealTimers();}
+});
 
 it("requires explicit generation, persists selection and opens source evidence",async()=>{
  const user=userEvent.setup(),open=vi.fn();render(<Workspace open={open}/>);
@@ -33,18 +74,18 @@ it("requires explicit generation, persists selection and opens source evidence",
  await user.click(screen.getByRole("button",{name:/Generate analysis/}));
  expect(await screen.findByText("A source-backed test finding.")).toBeInTheDocument();
  const create=vi.mocked(fetch).mock.calls.find(([url,o])=>String(url).endsWith("/briefings")&&o?.method==="POST");expect(JSON.parse(String(create?.[1]?.body))).toMatchObject({primary_company_id:"c0",peer_ids:["c1"]});
- await user.click(screen.getByRole("button",{name:"View source: Fixture 0, page 2"}));expect(open).toHaveBeenCalledWith(source);
- expect(screen.getByRole("link",{name:/Evidence CSV/})).toHaveAttribute("href","/api/knowledge/briefings/b1/export?format=csv");
- await user.click(screen.getByRole("button",{name:"Evidence coverage"}));expect(screen.getByRole("table")).toHaveTextContent("Not identified");
+ await user.click(screen.getByRole("button",{name:"View source: Fixture 0, page 2"}));expect(open).toHaveBeenCalledWith(source, []);
+ expect(screen.getByRole("link",{name:/Export for Excel/})).toHaveAttribute("href","/api/knowledge/briefings/b1/export?format=xlsx");
+ await user.click(screen.getByRole("button",{name:"Sources"})); await user.click(screen.getByText("Evidence coverage"));expect(screen.getByRole("table")).toHaveTextContent("Not identified");
 });
 it("reopens a completed result with no model calls and keeps contextual chat scoped",async()=>{
  saved=structuredClone(done);window.history.replaceState(null,"","/compare?briefing=b1");const ask=vi.fn();render(<Workspace ask={ask}/>);
- await screen.findByText("A source-backed test finding.");await userEvent.setup().click(screen.getByRole("button",{name:/Explore with Sustainobot/}));
+ await screen.findByText("A source-backed test finding.");await userEvent.setup().click(screen.getByRole("button",{name:"Findings"})); await userEvent.setup().selectOptions(screen.getByRole("combobox",{name:"Finding topic"}),"energy"); await userEvent.setup().click(screen.getByRole("button",{name:/Explain these findings/}));
  expect(ask).toHaveBeenCalledWith(expect.stringContaining("energy"),["c0","c1"]);expect(vi.mocked(fetch).mock.calls.every(([,o])=>o?.method==="GET")).toBe(true);
 });
 it("does not automatically retry failed analysis and retains partial results",async()=>{
  saved={...done,status:"failed",can_resume:true,sections:[...done.sections,{id:"targets",title:"Targets",status:"failed",result:null,error_code:"openai_timeout"}]};window.history.replaceState(null,"","/compare?briefing=b1");render(<Workspace/>);
- await screen.findByText("A source-backed test finding.");expect(screen.getByRole("button",{name:"Continue unfinished topics"})).toBeInTheDocument();expect(fetch).toHaveBeenCalledTimes(2);
+ await screen.findByRole("heading",{name:"Analysis needs attention"}); expect(screen.getByRole("button",{name:"Continue unfinished topics"})).toBeInTheDocument(); expect(fetch).toHaveBeenCalledTimes(1); await userEvent.setup().click(screen.getByRole("button",{name:"View saved findings"})); expect(screen.getByText("A source-backed test finding.")).toBeInTheDocument();
 });
 it("shows missing report availability before spending and preserves topic choice",async()=>{
  render(<Workspace/>);const user=userEvent.setup();await user.selectOptions(screen.getByRole("combobox",{name:"Primary company"}),"c2");
@@ -55,20 +96,69 @@ it("marks historical analyses and does not offer continuation with stale sources
  saved={...base,sources_current:false};window.history.replaceState(null,"","/compare?briefing=b1");render(<Workspace/>);expect(await screen.findByRole("alert")).toHaveTextContent("historical");expect(screen.queryByRole("button",{name:"Continue unfinished topics"})).not.toBeInTheDocument();
 });
 it("shows review opportunities without claiming confirmed non-disclosure",async()=>{
- saved={...done,review_opportunities:[{topic_id:"energy",topic:"Energy",peer_evidence_count:1,peer_count:1,primary_status:"not_identified",sources:[source],meaning:"Review only"}]};window.history.replaceState(null,"","/compare?briefing=b1");render(<Workspace/>);await screen.findByText("A source-backed test finding.");await userEvent.setup().click(screen.getByRole("button",{name:"Gaps to investigate"}));expect(screen.getByText(/not confirmed omissions/)).toBeInTheDocument();expect(screen.getByRole("button",{name:/Investigate this topic/})).toBeInTheDocument();
+ saved={...done,review_opportunities:[{topic_id:"energy",topic:"Energy",peer_evidence_count:1,peer_count:1,primary_status:"not_identified",sources:[source],meaning:"Review only"}]};window.history.replaceState(null,"","/compare?briefing=b1");render(<Workspace/>);await screen.findByText("A source-backed test finding.");await userEvent.setup().click(screen.getByRole("button",{name:"Disclosure gaps"}));expect(screen.getByText(/not confirmed omissions/)).toBeInTheDocument();expect(screen.getByRole("button",{name:/Investigate this topic/})).toBeInTheDocument();
 });
 it("connects company analysis and the insights overview to saved workspace APIs",async()=>{
- const r=render(<NavigationProvider><CompanyIntelligence companyId="c0"/></NavigationProvider>);expect(screen.getByRole("link",{name:/Analyse company/})).toHaveAttribute("href","/compare?company=c0");await waitFor(()=>expect(fetch).toHaveBeenCalledTimes(1));r.unmount();
- render(<NavigationProvider><IntelligenceOverview library={library}/></NavigationProvider>);expect(screen.getByRole("heading",{name:"Your workspace."})).toBeInTheDocument();expect(screen.getByRole("link",{name:/2 companies with searchable reports/})).toHaveAttribute("href","/companies");
+ const r=render(<NavigationProvider><CompanyIntelligence companyId="c0"/></NavigationProvider>);expect(screen.getByRole("link",{name:/Analyse company/})).toHaveAttribute("href","/workspace/new?company=c0");await waitFor(()=>expect(fetch).toHaveBeenCalledTimes(1));r.unmount();
+ render(<NavigationProvider><IntelligenceOverview library={library}/></NavigationProvider>);expect(screen.getByRole("heading",{name:"Your reports."})).toBeInTheDocument();expect(screen.getByRole("link",{name:/Company & report library 2 companies with searchable reports/})).toHaveAttribute("href","/workspace/library");
 });
 
-it("shows one findings topic at a time and expands long findings explicitly",async()=>{
+it("uses concise highlights with expandable detail and a topic filter",async()=>{
  const long="A detailed evidence-grounded finding. ".repeat(12);
  saved={...done,sections:[{id:"energy",title:"Energy",status:"completed",result:{...result,claims:[{text:long,citations:[source]}]},error_code:null},{id:"targets",title:"Targets",status:"completed",result:{...result,claims:[{text:"A target commitment is not achieved performance.",citations:[source]}]},error_code:null}]};
  window.history.replaceState(null,"","/compare?briefing=b1");render(<Workspace/>);
- const more=await screen.findByRole("button",{name:"Read full finding"});expect(more).toHaveAttribute("aria-expanded","false");
- const user=userEvent.setup();await user.click(more);expect(screen.getByRole("button",{name:"Show less"})).toHaveAttribute("aria-expanded","true");
+ const user=userEvent.setup(); await screen.findByRole("button",{name:"Findings"});
+ expect(screen.queryByLabelText("Analysis progress")).not.toBeInTheDocument();
+ await user.click(screen.getByRole("button",{name:"Findings"}));
+ await user.selectOptions(screen.getByRole("combobox",{name:"Finding topic"}),"energy");
+ const reading=screen.getByText(long.trim()).closest("details")!;
+ expect(reading).not.toHaveAttribute("open"); await user.click(reading.querySelector("summary")!); expect(reading).toHaveAttribute("open");
  expect(screen.queryByText("A target commitment is not achieved performance.")).not.toBeInTheDocument();
- await user.click(screen.getByRole("button",{name:"Targets 1"}));expect(screen.getByText("A target commitment is not achieved performance.")).toBeInTheDocument();
- expect(screen.queryByRole("button",{name:"Show less"})).not.toBeInTheDocument();
+ await user.selectOptions(screen.getByRole("combobox",{name:"Finding topic"}),"targets"); expect(screen.getByText("A target commitment is not achieved performance.")).toBeInTheDocument();
+});
+
+it("separates real progress from results, without fake percentages",async()=>{
+ let release!: (value:Response)=>void;
+ const original=vi.mocked(fetch).getMockImplementation()!;
+ vi.mocked(fetch).mockImplementation((...args)=>String(args[0]).endsWith("/advance")?new Promise(resolve=>{release=resolve;}):original(...args));
+ const user=userEvent.setup();render(<Workspace/>);
+ await user.selectOptions(screen.getByRole("combobox",{name:"Primary company"}),"c0");
+ await user.click(screen.getByRole("button",{name:/Generate analysis/}));
+ expect(await screen.findByLabelText("Analysis progress")).toHaveTextContent("0 of 1 topics completed");
+ expect(screen.queryByRole("button",{name:"Calculations"})).not.toBeInTheDocument();
+ expect(screen.queryByText(/\d+%/)).not.toBeInTheDocument();
+ release(reply(done)); await screen.findByRole("button",{name:"Calculations"});
+ expect(screen.queryByLabelText("Analysis progress")).not.toBeInTheDocument();
+});
+
+it("presents the two client deliverables and a readable report without new AI calls",async()=>{
+ saved=structuredClone(done);window.history.replaceState(null,"","/workspace/analysis?briefing=b1");render(<Workspace/>);
+ expect(await screen.findByRole("link",{name:'Client report PDF · findings, calculations & peer distinctions'})).toHaveAttribute("href","/api/knowledge/briefings/b1/export?format=pdf");
+ expect(screen.getByRole("link",{name:/Analysis workbook Excel/})).toHaveAttribute("href","/api/knowledge/briefings/b1/export?format=xlsx");
+ await userEvent.setup().click(screen.getByRole("button",{name:"Report"}));
+ expect(screen.getByRole("heading",{name:"Your report"})).toBeInTheDocument();
+ expect(screen.getByText("A source-backed test finding.")).toBeInTheDocument();
+ expect(vi.mocked(fetch).mock.calls.every(([,o])=>o?.method==="GET")).toBe(true);
+});
+
+it("passes the selected package to the reproducible research workflow",async()=>{
+ render(<Workspace/>);const user=userEvent.setup();
+ await user.selectOptions(screen.getByRole("combobox",{name:"Report package"}),"sector");
+ await user.selectOptions(screen.getByRole("combobox",{name:"Primary company"}),"c0");
+ await user.click(screen.getByRole("button",{name:/Generate analysis/}));
+ await screen.findByRole("button",{name:"Report"});
+ const call=vi.mocked(fetch).mock.calls.find(([url,o])=>String(url).endsWith("/briefings")&&o?.method==="POST");
+ expect(JSON.parse(String(call?.[1]?.body))).toMatchObject({package:"sector"});
+ expect(JSON.parse(String(call?.[1]?.body)).topics).toHaveLength(10);
+});
+
+it("does not continue after navigation unmounts a running workspace",async()=>{
+ let release!: (value:Response)=>void;
+ const original=vi.mocked(fetch).getMockImplementation()!;
+ vi.mocked(fetch).mockImplementation((...args)=>String(args[0]).endsWith("/advance")?new Promise(resolve=>{release=resolve;}):original(...args));
+ const user=userEvent.setup();const view=render(<Workspace/>);
+ await user.selectOptions(screen.getByRole("combobox",{name:"Primary company"}),"c0");
+ await user.click(screen.getByRole("button",{name:/Generate analysis/}));
+ await screen.findByLabelText("Analysis progress"); view.unmount(); release(reply({...base,completed_topics:1}));
+ await waitFor(()=>expect(vi.mocked(fetch).mock.calls.filter(([url])=>String(url).endsWith("/advance"))).toHaveLength(1));
 });

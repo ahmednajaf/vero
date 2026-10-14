@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {FileBlob,SpreadsheetFile} from '@oai/artifact-tool';
+const book=await SpreadsheetFile.importXlsx(await FileBlob.load(process.argv[2]));
+const inputs=book.worksheets.getItem('Inputs'), comparisons=book.worksheets.getItem('Comparisons');
+book.recalculate();
+assert.equal(comparisons.getRange('B8').values[0][0],2);
+assert.equal(inputs.getRange('E9').values[0][0],2);
+assert.equal(inputs.getRange('F9').values[0][0],'EUR/customer');
+inputs.getRange('C6').values=[[3]];
+book.recalculate();
+assert.equal(comparisons.getRange('B8').values[0][0],3);
+console.log('Currency scale conversion and editable-input recalculation passed.');

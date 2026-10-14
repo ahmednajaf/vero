@@ -31,7 +31,7 @@ EXCLUDED = re.compile(
     re.I,
 )
 SUPPLEMENT = re.compile(
-    r"assurance|verification[\s_-]*(?:statement|report)|(?:gri|sasb)[\s_-]*(?:content[\s_-]*)?index|(?:report[\s_-]*)?editorial[\s_-]*policy|reporting[\s_-]*framework|communication[\s_-]*on[\s_-]*progress|lobbying[\s_-]*report|modern[\s_-]*slavery|conflict[\s_-]*minerals|forced[\s_-]*labou?r|(?:ceo|chief[\s_-]*executive|chairman)[\s_-]*(?:message|letter)|sustainable[\s_-]*issuance|certain[\s_-]*weapons[\s_-]*statement|portfolio[\s_-]*update|principal[\s_-]*adverse[\s_-]*impact|[-_/]pai[-_/]|environmental-stewardship-jnj",
+    r"assurance|verification[\s_-]*(?:statement|report)|(?:gri|sasb)[\s_-]*(?:content[\s_-]*)?index|(?:report[\s_-]*)?editorial[\s_-]*policy|reporting[\s_-]*framework|principles[\s_-]*for[\s_-]*responsible[\s_-]*banking|communication[\s_-]*on[\s_-]*progress|lobbying[\s_-]*report|modern[\s_-]*slavery|conflict[\s_-]*minerals|forced[\s_-]*labou?r|(?:ceo|chief[\s_-]*executive|chairman)[\s_-]*(?:message|letter)|sustainable[\s_-]*issuance|certain[\s_-]*weapons[\s_-]*statement|portfolio[\s_-]*update|principal[\s_-]*adverse[\s_-]*impact|[-_/]pai[-_/]|environmental-stewardship-jnj",
     re.I,
 )
 YEARS = re.compile(r"(?<!\d)(20\d{2})(?!\d)")

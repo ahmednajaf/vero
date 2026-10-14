@@ -56,12 +56,21 @@ Importing the roster does not download reports or run inference; use the explici
 
 ## Use the product
 
+The completed five-company energy packages are available locally:
+
+- [Company benchmark](http://127.0.0.1:5173/workspace/analysis?briefing=83d39866-a0c6-4b98-8a02-8ca27791b213): 23-page PDF, formula-driven Excel workbook and contextual explanations.
+- [Sector intelligence](http://127.0.0.1:5173/workspace/analysis?briefing=470c6d1c-f9e5-4c6d-b62e-a275a4d530f2): 28-page PDF, formula-driven Excel workbook and peer distinctions.
+
+See [verified package delivery and source limitations](docs/REPORT_GENERATION.md).
+Saved results and exports use no new AI calls. The dashboard's assistant action
+explains the selected saved analysis, including its calculations and source inputs.
+
 1. **Companies:** search/filter the real company registry; report availability is explicit.
 2. **Company page:** open retained PDFs, inspect reported figures and their source pages, search report text, reopen saved analysis.
 3. **Compare:** select a primary company and peers, choose topics, then explicitly generate analysis. Completed sections persist; failures do not erase them. Reported numerical figures remain separate from narrative findings.
 4. **Sources:** search the report library by topic and inspect the supporting page. This requires no model call.
 5. **Sustainobot:** ask source-backed questions with an explicit company scope. Citations open the same source drawer. Saved results reopen without inference.
-6. **Export:** download a briefing as HTML (browser-printable), evidence CSV or JSON; figures export with original/normalised units, year, boundary, URL, page and hash.
+6. **Export:** download the client PDF and Excel workbook, with HTML, evidence CSV and JSON as supporting formats. Formulas, original/normalised inputs and source-page links remain inspectable.
 7. **Pricing:** proposed $5,000 company / $10,000 sector annual packages. Coverage must be agreed; there is no enabled checkout or claim that every company has complete data.
 
 Opening a company page never starts AI. **Extract figures from selected reports** requires a metric and measurement year; it makes at most one model call per selected report for that metric and reuses cached results. This bounded extraction can miss evidence elsewhere in a report. Unreviewed figures are labelled, not silently admitted into rankings.
@@ -87,7 +96,16 @@ KNOWLEDGE_MONTHLY_BUDGET_USD=5
 
 Restart the backend after changing configuration. `GET /api/system/ai` checks model/key access with a metadata GET, **not inference**. Changing models requires changing both the selected model and allowlist. There is no silent fallback, automatic paid retry or inference at startup.
 
-Vero reserves requests against a conservative **2M-token UTC-day ceiling** and **$5 monthly list-price estimate** before calling. Unknown-usage failures retain reservations. These are **app-level guards, not a guarantee of free calls**: eligibility and any shared-data allowance must be checked in your own account, other applications share the organisation allowance, and quota-crossing requests can be billed. OpenAI billing is authoritative. Account data-sharing settings apply even with `store=false`. See [OpenAI eligibility terms](https://help.openai.com/en/articles/10306912-sharing-feedback-evaluation-and-fine-tuning-data-and-api-inputs-and-outputs-with-openai).
+Vero reserves requests against the configured UTC-day token ceiling and monthly list-price estimate before calling; the example above uses **2M tokens / $5**. Unknown-usage failures retain reservations. These are **app-level guards, not a guarantee of free calls**: eligibility and any shared-data allowance must be checked in your own account, other applications share the organisation allowance, and quota-crossing requests can be billed. OpenAI billing is authoritative. Account data-sharing settings apply even with `store=false`. See [OpenAI eligibility terms](https://help.openai.com/en/articles/10306912-sharing-feedback-evaluation-and-fine-tuning-data-and-api-inputs-and-outputs-with-openai).
+
+An allowance stop pauses the saved analysis; it does not delete completed steps.
+`GET /api/knowledge/status` exposes the current app cap, accounted usage, unresolved
+reservations and remaining allowance, without credentials or report text. The new
+analysis form shows remaining allowance before generation. After an authorised
+change to `KNOWLEDGE_MONTHLY_BUDGET_USD` in `backend/.env`, restart the backend and
+choose **Continue unfinished topics** on the same saved analysis. Do not erase the
+ledger or create a duplicate analysis to work around a limit. The local cap was
+explicitly raised to **$10** on 14 October; the daily limit remains **2.5M tokens**.
 
 ## One application
 
@@ -143,5 +161,34 @@ PostgreSQL tests use disposable schemas in `vero_test`, not production tables. P
 Obsolete frontend routes/components and their feature tests are recoverable under `archive/legacy-frontend-20261008/`. The fixed pharma publication backend, publication scripts and corresponding tests are under `archive/legacy-research-20261008/`. Earlier source and design snapshots remain in `archive/`. PDFs, company records, evidence and migration history were not deleted. These archived files are not runtime dependencies.
 
 ## Release boundary
+
+### Customer navigation and enquiry flow
+
+The globe landing is preserved. Public navigation is Home, Workspace, Pricing and
+How it works. `/workspace` holds saved analyses; `/workspace/new` selects a peer
+group; `/workspace/analysis?briefing=<id>` shows actual progress, then results.
+Company profiles and source reports sit under `/workspace/library`. Old company,
+comparison and source URLs remain usable so saved links are not broken.
+
+Analysis results separate Summary, Report, Findings, Figures, Disclosure gaps and
+Sources. The chart-first summary adapts Efferd's Dashboard 4 composition to Vero.
+Downloads prioritise a multipage PDF and a native Excel workbook; full evidence
+CSV, JSON and HTML remain secondary. Browsing and exporting do not invoke AI.
+The package-specific research, AI comparison proposals, deterministic arithmetic,
+chapter-writing method and local workbook runtime are documented in
+[REPORT_GENERATION.md](docs/REPORT_GENERATION.md). Existing saved analyses are
+reformatted, not silently regenerated.
+
+Pricing offers proposed $5,000 company and $10,000 sector annual editions. Package
+requests go to `/contact?package=company` or `sector`, where visitors prepare an
+enquiry for a consultation. With no sales address configured, the form downloads
+a text brief and explicitly says it has **not been sent**. To enable an email
+draft, set the public `VITE_SALES_EMAIL` in `frontend/.env.local` and restart Vite
+(rebuild for production). It opens the visitor's email app; it does not send mail
+from the server. No contact details are stored or sent automatically.
+
+Consultation and client-account provisioning remain an operational step, not an
+implemented registration or checkout service. The local workspace is not an
+authenticated customer portal.
 
 This is a local application with source search, company/peer research, saved results, numerical extraction, evidence drill-down and exports. It is **not yet an enterprise-hosted service or a complete 500-company metric dataset**. Complete report acquisition, broader measured extraction accuracy, agreed comparable periods/boundaries, access control and operational deployment remain release requirements. Pricing is proposed, not evidence of willingness to pay. Model schema/quotation checks are useful safeguards, not an audit or proof that every interpretation is correct.
